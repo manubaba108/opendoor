@@ -14,13 +14,19 @@ The black and white OPENDOOR logos were supplied by the owner. Their proportions
 
 ## Verified references
 
-Guest information, host contacts, local addresses and approximate distances come from the owner's project brief supplied on 2 October 2026.
+Guest information and host contacts come from the owner's project brief supplied on 2 October 2026. All twelve destination addresses and approximate distances were reconciled against the owner-provided PDF “La guida di Erika :) · Airbnb” on the same date. Maps links use the full street address, municipality, postcode, province and country, rather than a business-name search. The guide is not distributed in this public repository.
 
 - European emergency number: https://digital-strategy.ec.europa.eu/it/policies/112
 - Pegognaga Monday market: https://www.comune.pegognaga.mn.it/vivere_il_comune/territorio/territorio_1.html
 - Railway timetable listing Pegognaga: https://www.trenord.it/fileadmin/contenuti/TRENORD/2-Linee_e_orari/Orario_ferroviario/ORARIO_in_vigore/Q439_giugno_2026.pdf
 
-No stock or generated apartment photos are used. The optional apartment gallery is disabled pending real photographs.
+- A22 Pegognaga exit: https://www.autobrennero.it/it/
+- Airbnb review journey: https://www.airbnb.it/help/article/3531
+- Booking.com review standards: https://www.booking.com/content-moderation-policy/guest-reviews-standards.it.html
+- Google Maps universal directions URLs: https://developers.google.com/maps/documentation/urls/get-started
+- Google review links: https://support.google.com/business/answer/16816815?hl=it
+
+No stock or generated apartment photos are used. The apartment gallery displays clearly labelled photo slots until the owner supplies real photographs. Reference screenshots are design references, not apartment assets.
 
 ## Fonts
 
