@@ -22,13 +22,17 @@ Host contact buttons are concentrated on Help, the Home contact banner and arriv
 
 Italian, English, German, French, Dutch, Polish and Romanian have matching translation dictionaries. Fonts and images are local. Language is the only localStorage value. Checklists and the unsent suggestion draft remain in memory and reset on reload. There is no backend, analytics, tracking, login or guest-data storage.
 
+All 293 text entries in each language have been reviewed for meaning, grammar, tone and guest-facing terminology. French consistently uses `vous`; Italian, German, Dutch, Polish and Romanian use a friendly direct form, with gender-neutral phrasing where practical. English consistently uses apartment, lift, motorway, car park and rubbish. Localized terms for the host replace unnatural English loanwords, while the public host name remains `Host`. Arrival and departure instructions, quiet hours, guest limits and house policies retain their meaning. Street addresses and platform names remain unchanged.
+
+A strip above the footer displays the six owner-supplied platform logos under a localized heading: Airbnb, Booking.com, Holidu, Vrbo, Trip.com and Agoda. The strip contains the marks only, with accessible names and no additional links. It appears on every page and adapts from six columns on desktop to three on tablet and two on mobile.
+
 ## Files
 
 - `index.html`: entry point and semantic landmarks
 - `assets/styles.css`: responsive layouts and interaction states
 - `assets/app.js`: hash navigation, language controls, media, photo dialog and checklists
 - `assets/content.js`: configuration, destinations, media slots and seven dictionaries
-- `assets/images/`: official logos, favicon and licensed landmark photograph
+- `assets/images/`: official logos, favicon, owner-supplied platform logos and licensed landmark photograph
 - `ASSET-CREDITS.md`: licences and factual sources
 - `LINK-AUDIT.md`: the twelve destination addresses reconciled to the supplied guide
 
@@ -69,4 +73,4 @@ Open `index.html` or serve the folder with a static HTTP server. Hash routes (`#
 
 ## Validation
 
-Local Chromium checks cover all 32 routes, seven languages and six viewport widths, enlarged text, journey and gallery ordering, parent navigation, the new photo positions, three video positions, rules and safety, WhatsApp hover/focus contrast, media rendering, the photo dialog, review destinations, suggestion handoff, checklists and language switching. Maps destinations are compared exactly with the twelve full addresses supplied in the PDF. Calls and messages are not initiated during QA. Lighthouse is not measured.
+Local Chromium checks cover all 32 routes, seven languages and six viewport widths, enlarged text, journey and gallery ordering, parent navigation, the new photo positions, three video positions, rules and safety, WhatsApp hover/focus contrast, media rendering, the photo dialog, review destinations, suggestion handoff, checklists, language switching and the six platform logos with their translated heading. Maps destinations are compared exactly with the twelve full addresses supplied in the PDF. Calls and messages are not initiated during QA. Lighthouse is not measured.

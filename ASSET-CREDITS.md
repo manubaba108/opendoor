@@ -2,6 +2,21 @@
 
 The black and white OPENDOOR logos were supplied by the owner. Their proportions and transparency have been preserved. The favicon is extracted from the first letter of the official black logo.
 
+## Booking platform logos
+
+All six files were supplied by the owner on 2 October 2026. The originals are copied unchanged to `assets/images/platforms/`; CSS frames hide surrounding whitespace without redrawing, distorting or recolouring the marks. No external image service is used.
+
+| Platform | Site file | Supplied file |
+| --- | --- | --- |
+| Airbnb | `airbnb.png` | `images-4.png` |
+| Booking.com | `booking.png` | `images-2.png` |
+| Holidu | `holidu.png` | `Holidu-Logo-Horizontal.png` |
+| Vrbo | `vrbo.png` | `Vrbo-Logo.wine.png` |
+| Trip.com | `tripcom.png` | `tripcom_thumb.png` |
+| Agoda | `agoda.png` | `images-5.png` |
+
+Branding belongs to the respective platforms. The photograph and font licences below do not apply to these marks.
+
 ## Polirone Abbey photograph
 
 - File: `assets/images/polirone.webp`

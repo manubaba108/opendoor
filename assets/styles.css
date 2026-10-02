@@ -274,3 +274,13 @@ body{overflow-wrap:anywhere}
  .explore-links{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:359px){.journey-grid .tile,.journey-support .tile{padding:18px 14px}}
+
+.platform-strip{background:#fff;border-bottom:1px solid var(--line)}
+.platform-inner{max-width:1160px;margin:auto;padding:32px 30px 26px}
+.platform-inner h2{text-align:center;font-size:1rem;letter-spacing:0;font-weight:650;color:#58635e;margin-bottom:22px}
+.platform-logos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;align-items:center}
+.platform-logos li{display:flex;align-items:center;justify-content:center;min-width:0;height:64px}
+.platform-mark{position:relative;display:block;overflow:hidden;width:min(100%,var(--mark-width));aspect-ratio:var(--mark-ratio)}
+.platform-mark img{position:absolute;max-width:none;height:auto}
+@media(max-width:1100px){.platform-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}}
+@media(max-width:767px){.platform-inner{padding:28px 22px 20px}.platform-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}.platform-inner h2{font-size:.975rem;margin-bottom:18px}.platform-logos li{height:64px}}
