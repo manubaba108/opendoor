@@ -3,10 +3,14 @@ import fs from 'node:fs';
 import '../assets/admin-core.js';
 import {GitHubSimulation,TEST_KEY} from './github-simulation.mjs';
 const C=globalThis.OpendoorCMS;
-const original=JSON.parse(fs.readFileSync(new URL('../assets/content.json',import.meta.url),'utf8'));
+const liveContent=JSON.parse(fs.readFileSync(new URL('../assets/content.json',import.meta.url),'utf8'));
+const original=C.clone(liveContent);
+// The legacy scenarios intentionally exercise a single host without the canonical array.
+delete original.hosts;
 let checks=0;
 const check=(truth,message)=>{assert.ok(truth,message);checks++;};
-check(C.validateContent(original,{publishing:true}).length===0,'Existing content remains valid');
+check(C.validateContent(liveContent,{publishing:true}).length===0,'Current multi-Host content remains valid');
+check(C.validateContent(original,{publishing:true}).length===0,'Legacy content remains valid');
 const backend=new GitHubSimulation(original,{released:false});
 const store=new C.GitHubStore(backend.fetch);
 await assert.rejects(()=>store.login('a-shared-password'));checks++;
