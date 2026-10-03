@@ -8,3 +8,11 @@
 .admin-login-card small{font-size:.875rem;line-height:1.6}.admin-sidebar{top:var(--admin-header-height,82px);max-height:calc(100vh - var(--admin-header-height,82px))}
 @media(max-width:720px){.admin-sidebar{max-height:none}}
 .channel-status{margin-top:16px}.channel-status p{font-size:.875rem;margin-bottom:12px}.channel-status .button{white-space:normal}
+
+/* Independently editable Host profiles. */
+.admin-host-profiles{display:grid;gap:32px}
+.admin-host-card{min-width:0}
+.host-card-heading{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:16px}
+.host-card-heading h2{margin:0;overflow-wrap:anywhere;min-width:0}
+.host-card-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;flex-shrink:0}
+@media(max-width:720px){.host-card-heading{align-items:flex-start;flex-direction:column}.host-card-actions{width:100%}.host-card-actions .icon-button{margin-left:auto}}

@@ -18,11 +18,11 @@ Check-in includes a separate A22 motorway section, an access photograph and thre
 
 Access, waste, balcony and safety guides have dedicated photo positions beside their relevant information. Both waste routes use the same content and container photograph. All four places to visit have matching photo positions; the licensed abbey photograph is retained. House Rules are grouped into guests and access, neighbours and shared spaces, and smoking and pets. Safety groups devices, clear passages, windows and balcony, and the 112 emergency action without inventing equipment locations.
 
-Host contact buttons are concentrated on Help, the Home contact banner and arrival troubleshooting. Wi-Fi, parking, waste, House and both checklists do not repeat host phone or WhatsApp buttons. The help icon contains SOS, while check-in uses a conventional key icon. The owner's name is not displayed.
+Host contact buttons are concentrated on Help, the Home contact banner and arrival troubleshooting. Wi-Fi, parking, waste, House and both checklists do not repeat host phone or WhatsApp buttons. The help icon contains SOS, while check-in uses a conventional key icon. Public Host names are freely editable in the management panel.
 
 Italian, English, German, French, Dutch, Polish and Romanian have matching translation dictionaries. Fonts and images are local. Language is the only localStorage value in the public Guest Hub. Checklists and the unsent suggestion draft remain in memory and reset on reload. There is no analytics, tracking or guest-data storage. The separate Host editor uses GitHub authentication and repository storage for content and media.
 
-All 293 text entries in each language have been reviewed for meaning, grammar, tone and guest-facing terminology. French consistently uses `vous`; Italian, German, Dutch, Polish and Romanian use a friendly direct form, with gender-neutral phrasing where practical. English consistently uses apartment, lift, motorway, car park and rubbish. Localized terms for the host replace unnatural English loanwords, while the public host name remains `Host`. Arrival and departure instructions, quiet hours, guest limits and house policies retain their meaning. Street addresses and platform names remain unchanged.
+All 293 text entries in each language have been reviewed for meaning, grammar, tone and guest-facing terminology. French consistently uses `vous`; Italian, German, Dutch, Polish and Romanian use a friendly direct form, with gender-neutral phrasing where practical. English consistently uses apartment, lift, motorway, car park and rubbish. Localized terms for the host replace unnatural English loanwords. Host names are preserved as entered by the owner in every language. Arrival and departure instructions, quiet hours, guest limits and house policies retain their meaning. Street addresses and platform names remain unchanged.
 
 A strip above the footer displays the six owner-supplied platform logos under a localized heading: Airbnb, Booking.com, Holidu, Vrbo, Trip.com and Agoda. The strip contains the marks only, with accessible names and no additional links. It appears on every page and adapts from six columns on desktop to three on tablet and two on mobile.
 
@@ -54,7 +54,7 @@ The review page asks which platform the guest booked through. Airbnb opens the g
 
 `reviews.google` is unset until the owner supplies the exact OPENDOOR Google review link. Setting it adds the Google option without changing the Airbnb or Booking paths.
 
-The suggestions page lets a guest draft a private message. `host.email` is currently unset. The working fallback opens WhatsApp with the message prefilled; the guest reviews and sends it in their own app. Setting the owner's email switches the button to an addressed `mailto:` draft. No message is sent automatically or stored on a server.
+The suggestions page lets a guest draft a private message. It uses the primary Host's email, with WhatsApp as the fallback; the guest reviews and sends it in their own app. No message is sent automatically or stored on a server.
 
 ## Configuration still needed
 
@@ -72,6 +72,8 @@ Entry codes, Wi-Fi passwords, guest documents and secrets must never be committe
 Open `index.html` or serve the folder with a static HTTP server. Hash routes (`#/checkin`, `#/house/oven`) allow refreshes under `/opendoor/` with GitHub Pages. Assets use relative paths. The standalone review HTML embeds the assets for offline preview.
 
 ## Host content editor
+
+**Profili Host** supports adding, editing and removing multiple profiles, each with a freely editable public name, photograph, phone number, WhatsApp link and email. The selected primary Host appears first and receives Home/check-in quick contacts and suggestions. All profiles appear as separate contact cards on Help. One profile is retained as the minimum. Additional drafts may have blank names, but publication requires a public name for every profile. Existing singular `host` data is migrated in memory without changing stored photos or contacts. The first save records the canonical `hosts` array and a synchronized legacy `host` mirror; code updates do not overwrite guest content or saved drafts.
 
 `admin.html` is the separate management workspace. It preserves the static GitHub Pages site and permanent QR address. It includes 22 initial photo positions, extra gallery photos and ordering, three entrance videos plus nine appliance videos, video covers, all guest-facing text entries in seven languages, appliance instructions, property information, all twelve place addresses and Maps URLs, review URLs and the Host profile photograph and contacts. Changing a place address also updates its Maps destination. Changing Italian text marks six translations for review; publication requires complete, reviewed language content.
 

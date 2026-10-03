@@ -296,3 +296,14 @@ body{overflow-wrap:anywhere}
 .social-link svg{flex-shrink:0}
 .social-link span{min-width:0;overflow-wrap:anywhere}
 @media(max-width:767px){.social-inner{padding:25px 22px;flex-direction:column;gap:16px}.social-links{justify-content:center;width:100%}.social-link{flex:1 1 210px}}
+
+/* Host profiles, including the existing single-profile content. */
+.host-panels{display:grid;gap:20px}
+.host-panels.multiple{grid-template-columns:repeat(2,minmax(0,1fr))}
+.host-panels .host-panel{min-width:0;margin:0}
+.host-panels.multiple .host-panel{max-width:none}
+.host-identity>div:last-child{min-width:0}
+.host-identity h2{overflow-wrap:anywhere}
+.host-avatar{flex-shrink:0}
+.host-panel .actions{flex-wrap:wrap}
+@media(max-width:720px){.host-panels.multiple{grid-template-columns:1fr}}

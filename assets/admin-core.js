@@ -40,6 +40,14 @@
   function pendingCount(editorial) {
     return Object.values(editorial?.pending||{}).reduce((total,list)=>total+(Array.isArray(list)?list.length:0),0);
   }
+  function hostProfiles(data) {
+    return Object.hasOwn(data||{},'hosts')?(Array.isArray(data.hosts)?data.hosts:[]):data?.host?[data.host]:[];
+  }
+  function normalizeHosts(data) {
+    if(!Object.hasOwn(data,'hosts'))data.hosts=[{name:'Host',photo:null,phone:null,whatsapp:null,email:null,...data.host}];
+    if(Array.isArray(data.hosts)&&data.hosts.length)data.host=data.hosts[0];
+    return data;
+  }
   function changeText(data,editorial,key,language,value) {
     if(!LANGUAGES.includes(language)||!Object.hasOwn(data.strings.it,key))throw new Error('Testo non disponibile.');
     if(data.strings[language][key]===value)return;
@@ -60,13 +68,19 @@
       if(!strings||JSON.stringify(Object.keys(strings).sort())!==JSON.stringify(keys)){errors.push('Testi incompleti in '+code.toUpperCase()+'.');continue;}
       for(const key of keys)if(typeof strings[key]!=='string'||strings[key].length>12000||(publishing&&!strings[key].trim())){errors.push('C’è un testo vuoto o non valido in '+code.toUpperCase()+'. Controlla Testi e lingue.');break;}
     }
-    if(data.host?.name!=='Host')errors.push('Il nome pubblico del profilo deve essere Host.');
-    if(data.host?.phone&&!/^\+?\d[\d ()-]{6,22}$/.test(data.host.phone))errors.push('Controlla il numero di telefono dell’Host.');
-    if(data.host?.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.host.email))errors.push('Controlla l’indirizzo email dell’Host.');
-    for(const value of [data.host?.whatsapp,data.property?.airbnb,...Object.values(data.reviews||{})])if(!httpsURL(value))errors.push('I collegamenti devono iniziare con https://.');
+    const hosts=hostProfiles(data);
+    if(!hosts.length)errors.push('Aggiungi almeno un profilo Host.');
+    for(const [index,host] of hosts.entries()){
+      if(!host||typeof host!=='object'||Array.isArray(host)){errors.push('Controlla il profilo Host '+(index+1)+'.');continue;}
+      if(typeof host.name!=='string'||host.name.length>1000||(publishing&&!host.name.trim()))errors.push('Inserisci il nome pubblico dell’Host '+(index+1)+'.');
+      if(host.phone&&!/^\+?\d[\d ()-]{6,22}$/.test(host.phone))errors.push('Controlla il telefono dell’Host '+(index+1)+'.');
+      if(host.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(host.email))errors.push('Controlla l’email dell’Host '+(index+1)+'.');
+      if(!httpsURL(host.whatsapp))errors.push('Controlla il link WhatsApp dell’Host '+(index+1)+'.');
+    }
+    for(const value of [data.property?.airbnb,...Object.values(data.reviews||{})])if(!httpsURL(value))errors.push('I collegamenti devono iniziare con https://.');
     for(const channel of ['instagram','google'])if(!channelURL(data.social?.[channel],channel))errors.push('Controlla il link '+(channel==='instagram'?'Instagram':'Google')+' in Social e Google. Usa l’indirizzo pubblico completo della tua pagina.');
     if(data.emergency?.number!=='112')errors.push('Il numero di emergenza deve restare 112.');
-    const photos=[data.host?.photo,...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
+    const photos=[...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
     if(photos.some(value=>!mediaURL(value)))errors.push('Una foto ha un indirizzo non valido.');
     const videos=[...(data.modules?.videos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.video)];
     if(videos.some(value=>!mediaURL(value,true)))errors.push('Usa un video MP4 o WebM, oppure un link diretto al file.');
@@ -137,6 +151,7 @@
     }
     async save(data,editorial,uploads=[],onProgress=()=>{}) {
       const errors=validateContent(data);if(errors.length)throw new Error(errors.join(' '));
+      data=normalizeHosts(clone(data));
       if(!this.snapshot)throw new Error('Apri i contenuti prima di salvare.');
       if(uploads.reduce((total,item)=>total+item.bytes.byteLength,0)>100*1024*1024)throw new Error('Salva al massimo 100 MB di nuovi file alla volta.');
       for(const item of uploads)if(!UPLOAD.test(item.path))throw new Error('Nome del file non valido.');
@@ -179,5 +194,5 @@
       return {sha:commit.sha,draftSynchronized};
     }
   }
-  globalThis.OpendoorCMS={GitHubStore,clone,serialize,scriptContent,validateContent,changeText,pendingCount,mediaURL,httpsURL,channelURL,encodeBytes,LANGUAGES,REPOSITORY,UPLOAD};
+  globalThis.OpendoorCMS={GitHubStore,clone,serialize,scriptContent,validateContent,changeText,pendingCount,hostProfiles,normalizeHosts,mediaURL,httpsURL,channelURL,encodeBytes,LANGUAGES,REPOSITORY,UPLOAD};
 })();
