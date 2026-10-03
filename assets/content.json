@@ -12,7 +12,7 @@
     "address": "Via Guglielmo Marconi, 12",
     "checkInTime": "13:00",
     "checkOutTime": "10:00",
-    "wifiNetwork": "OPENDOOR",
+    "wifiNetwork": "OPENDOOR Stay",
     "fireExtinguisherLocation": "DIETRO LA PORTA",
     "wasteDropoffLocation": "NO",
     "parkingAddress": "Via Guglielmo Marconi, 12",
@@ -2515,7 +2515,7 @@
   "reviews": {
     "airbnb": "https://www.airbnb.it/trips",
     "booking": "https://www.booking.com/",
-    "google": null
+    "google": "https://g.page/r/CR3VDEdxvhIeEAE/review"
   },
   "bookingPlatforms": [
     {
