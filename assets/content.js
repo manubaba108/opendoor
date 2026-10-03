@@ -721,7 +721,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Ci trovi anche su",
       "socialTitle": "OPENDOOR online",
       "instagramLink": "Seguici su Instagram",
-      "googleLink": "OPENDOOR su Google"
+      "googleLink": "OPENDOOR su Google Maps"
     },
     "en": {
       "navHome": "Home",
@@ -1019,7 +1019,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Find us on",
       "socialTitle": "OPENDOOR online",
       "instagramLink": "Follow us on Instagram",
-      "googleLink": "Find OPENDOOR on Google"
+      "googleLink": "Find OPENDOOR on Google Maps"
     },
     "de": {
       "navHome": "Start",
@@ -1317,7 +1317,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Hier findest du uns",
       "socialTitle": "OPENDOOR online",
       "instagramLink": "Folge uns auf Instagram",
-      "googleLink": "OPENDOOR auf Google"
+      "googleLink": "OPENDOOR auf Google Maps"
     },
     "fr": {
       "navHome": "Accueil",
@@ -1615,7 +1615,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Retrouvez-nous sur",
       "socialTitle": "OPENDOOR en ligne",
       "instagramLink": "Suivez-nous sur Instagram",
-      "googleLink": "Retrouvez OPENDOOR sur Google"
+      "googleLink": "Retrouvez OPENDOOR sur Google Maps"
     },
     "nl": {
       "navHome": "Home",
@@ -1913,7 +1913,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Je vindt ons ook op",
       "socialTitle": "OPENDOOR online",
       "instagramLink": "Volg ons op Instagram",
-      "googleLink": "Vind OPENDOOR op Google"
+      "googleLink": "Vind OPENDOOR op Google Maps"
     },
     "pl": {
       "navHome": "Start",
@@ -2211,7 +2211,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Znajdziesz nas także na",
       "socialTitle": "OPENDOOR w sieci",
       "instagramLink": "Obserwuj nas na Instagramie",
-      "googleLink": "Znajdź OPENDOOR w Google"
+      "googleLink": "Znajdź OPENDOOR w Google Maps"
     },
     "ro": {
       "navHome": "Acasă",
@@ -2509,7 +2509,7 @@ window.OPENDOOR = {
       "bookingPlatformsTitle": "Ne găsești și pe",
       "socialTitle": "OPENDOOR online",
       "instagramLink": "Urmărește-ne pe Instagram",
-      "googleLink": "Găsește OPENDOOR pe Google"
+      "googleLink": "Găsește OPENDOOR pe Google Maps"
     }
   },
   "reviews": {
