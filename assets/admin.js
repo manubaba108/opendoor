@@ -8,14 +8,14 @@
   const shapes={home:'<path d="m3 10 9-7 9 7v11H4V10m5 11v-8h6v8"/>',camera:'<path d="M3 6h4l2-3h6l2 3h4v15H3Z"/><circle cx="12" cy="13" r="4"/>',video:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4Z"/>',text:'<path d="M4 4h16M12 4v16M8 20h8"/>',book:'<path d="M12 5v16M3 3c3 0 6 0 9 2 3-2 6-2 9-2v16c-3 0-6 0-9 2-3-2-6-2-9-2Z"/>',pin:'<path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',user:'<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/>',lock:'<rect x="5" y="10" width="14" height="12" rx="2"/><path d="M8 10V6a4 4 0 1 1 8 0v4m-4 5v2"/>',up:'<path d="m5 14 7-7 7 7"/>',down:'<path d="m5 10 7 7 7-7"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15m-9 4v7m4-7v7"/>',check:'<path d="m5 12 4 4L19 6"/>',back:'<path d="m14 5-7 7 7 7"/>',oven:'<rect x="3" y="3" width="18" height="19" rx="2"/><path d="M3 8h18M7 5h.01m4 0h.01M7 12h10v6H7Z"/>',key:'<circle cx="7" cy="12" r="5"/><path d="M12 12h10m-2 0v4m-4-4v3"/>',plus:'<path d="M12 4v16M4 12h16"/>'};
   const icon=name=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${shapes[name]||shapes.book}</svg>`;
   shapes.globe='<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a17 17 0 0 1 0 18 17 17 0 0 1 0-18Z"/>';
-  const nav=[['overview','home','Panoramica'],['photos','camera','Foto'],['videos','video','Video'],['texts','text','Testi e lingue'],['guides','book','Guide della casa'],['info','pin','Informazioni e link'],['channels','globe','Social e Google'],['host','user','Profili Host']];
+  const nav=[['overview','home','Panoramica'],['photos','camera','Foto'],['videos','video','Video'],['texts','text','Testi e lingue'],['guides','book','Guide della casa'],['info','pin','Informazioni e link'],['booking','book','Prenotazioni'],['channels','globe','Social e Google'],['host','user','Profili Host']];
   const deviceIds=['kitchen','oven','hob','appliances','climate','heating','hotWater','lights','tv'];
   const state={content:null,editorial:{pending:{}},view:'overview',language:'it',search:'',reviewOnly:false,page:0,guide:null,dirty:false,busy:false,online:false,uploads:new Map(),media:new Map(),preview:null,lastSaved:null};
   let noticeTimer,idleTimer,headerObserver;
   const baseLabels={subtitle:'Sottotitolo della Home',hubTitle:'Titolo del Guest Hub',hubSubtitle:'Introduzione del Guest Hub',whatsapp:'Pulsante WhatsApp',greeting:'Messaggio WhatsApp',hostReply:'Disponibilità dell’Host',passwordInfo:'Come ricevere la password Wi-Fi',codeInfo:'Come ricevere il codice di ingresso',openingVideo:'Titolo del video di apertura',closingVideo:'Titolo del video di chiusura',intercomVideo:'Titolo del video del citofono',bookingPlatformsTitle:'Titolo dei partner nel footer',socialTitle:'Titolo dei canali online nel footer',instagramLink:'Pulsante Instagram nel footer',googleLink:'Pulsante Google nel footer'};
   const t=key=>state.content?.strings?.it[key]||key;
   function getPath(path){return path.split('.').reduce((value,key)=>value?.[key],state.content);}
-  function setPath(path,value){const keys=path.split('.');if(keys.some(key=>['__proto__','prototype','constructor'].includes(key)))return;const last=keys.pop(),parent=keys.reduce((object,key)=>object[key],state.content);parent[last]=/^hosts\.\d+\.name$/.test(path)?value??'':value;if(path.startsWith('hosts.'))C.normalizeHosts(state.content);}
+  function setPath(path,value){const keys=path.split('.');if(keys.some(key=>['__proto__','prototype','constructor'].includes(key)))return;const last=keys.pop(),parent=keys.reduce((object,key)=>object[key],state.content);parent[last]=/^(?:hosts|bookingLinks)\.\d+\.name$/.test(path)?value??'':value;if(path.startsWith('hosts.'))C.normalizeHosts(state.content);}
   const textLabel=key=>baseLabels[key]||t(key).replace(/\s+/g,' ').slice(0,90)+(t(key).length>90?'…':'');
   const currentPending=key=>(state.editorial.pending[key]||[]).includes(state.language);
   function notice(message,error=false){clearTimeout(noticeTimer);const target=document.getElementById('admin-notice');target.innerHTML=`<div class="admin-notification ${error?'error':''}" role="${error?'alert':'status'}">${esc(message)}${error?'<button type="button" data-action="dismiss" aria-label="Chiudi avviso">×</button>':''}</div>`;if(!error)noticeTimer=setTimeout(()=>target.innerHTML='',6500);}
@@ -94,17 +94,26 @@
     if(!C.channelURL(value,channel))return '<p role="status">Controlla l’indirizzo. Usa un link pubblico completo di '+(channel==='instagram'?'Instagram':'Google')+'.</p>';
     return `<p>Il pulsante apparirà vicino al footer.</p><a class="button secondary" href="${esc(value)}" target="_blank" rel="noopener noreferrer">Apri collegamento</a>`;
   }
+  function bookingStatus(index) {
+    const item=state.content.bookingLinks[index];
+    if(!item.url)return '<p class="admin-note">Questo portale non appare nella pagina Prenota finché il link è vuoto.</p>';
+    if(!window.OpendoorBooking.validURL(item.url))return '<p class="admin-note amber">Inserisci il link pubblico HTTPS dell’annuncio. Non usare un link al calendario.</p>';
+    return `<a class="inline-link" href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">Apri l’annuncio</a>`;
+  }
+  function booking() {
+    return `${heading('Dove prenotare OPENDOOR','Inserisci i link pubblici ai tuoi annunci. I portali senza un link non vengono mostrati agli ospiti.','<button class="button" data-action="add-booking" type="button">'+icon('plus')+'Aggiungi piattaforma</button>')}<div class="admin-grid">${state.content.bookingLinks.map((item,index)=>`<section class="admin-card"><div class="host-card-heading"><h2 data-booking-name="${index}">${esc(item.name||'Nuova piattaforma')}</h2><button class="icon-button" type="button" data-remove-booking="${index}" aria-label="Rimuovi questa piattaforma">${icon('trash')}</button></div>${field('bookingLinks.'+index+'.name','Nome della piattaforma')}${field('bookingLinks.'+index+'.url','Link pubblico dell’annuncio',{type:'url',hint:'Copia il link della pagina di OPENDOOR su questo portale. Lascia vuoto per nasconderlo.'})}<div data-booking-status="${index}">${bookingStatus(index)}</div></section>`).join('')}</div><p class="admin-note">I pulsanti aprono gli annunci in una nuova scheda. La sincronizzazione dei calendari si configura sui portali e non dipende da questi collegamenti.</p>`;
+  }
   function channels() {
     return `${heading('OPENDOOR, anche online','Collega le pagine ufficiali della struttura. Puoi lasciare vuoto un campo per nascondere il relativo pulsante.')}<div class="admin-grid"><section class="admin-card"><h2>Instagram</h2><p>Foto, video e aggiornamenti di OPENDOOR.</p>${field('social.instagram','Link al profilo Instagram',{type:'url',hint:'Apri il tuo profilo e copia l’indirizzo completo, che inizia con https://www.instagram.com/.'})}<div class="channel-status" data-channel-status="instagram">${channelStatus('instagram')}</div></section><section class="admin-card"><h2>Google</h2><p>La pagina pubblica di OPENDOOR su Google.</p>${field('social.google','Link a OPENDOOR su Google',{type:'url',hint:'Copia il link pubblico della struttura su Maps o Travel. Il link per le recensioni si gestisce in Informazioni e link.'})}<div class="channel-status" data-channel-status="google">${channelStatus('google')}</div></section></div><p class="admin-note">Usa Anteprima per vedere i pulsanti nel footer. Il pannello aggiorna i collegamenti sul sito; i contenuti di Instagram e Google si gestiscono nei rispettivi account.</p>`;
   }
-  const pages={overview,photos:()=>mediaPage('photo'),videos:()=>mediaPage('video'),texts,guides,info,channels,host};
+  const pages={overview,photos:()=>mediaPage('photo'),videos:()=>mediaPage('video'),texts,guides,info,booking,channels,host};
   function render({focus=false}={}) {
     if(!state.online&&!demo){login();return;}
     root.innerHTML=`${demo?'<div class="admin-demo-strip">Anteprima interattiva del pannello. Puoi provare foto, video e testi; i salvataggi online e la pubblicazione sono disattivati.</div>':''}${authHeader()}<div class="admin-layout"><aside class="admin-sidebar"><nav class="admin-nav" aria-label="Gestione OPENDOOR">${nav.map(([id,symbol,label])=>`<button data-view="${id}" class="${state.view===id?'active':''}" ${state.view===id?'aria-current="page"':''} type="button">${icon(symbol)}${label}</button>`).join('')}</nav><small>I contenuti salvati fanno parte di un progetto pubblico. Foto della casa e istruzioni generali, senza dati degli ospiti o codici di accesso.</small></aside><main class="admin-content" id="admin-main" tabindex="-1">${pages[state.view]()}</main></div><div class="admin-toolbar" id="admin-toolbar"></div>`;
     toolbar();headerObserver?.disconnect();headerObserver=new ResizeObserver(entries=>document.body.style.setProperty('--admin-header-height',entries[0].target.getBoundingClientRect().height+'px'));headerObserver.observe(document.querySelector('.admin-top'));if(focus){document.getElementById('admin-main').focus({preventScroll:true});window.scrollTo({top:0});}
   }
   function clearLocalMedia(){for(const url of state.media.values())URL.revokeObjectURL(url);state.media.clear();state.uploads.clear();}
-  function setSnapshot(snapshot){clearLocalMedia();state.content=C.normalizeHosts(C.clone(snapshot.data));state.content.social??={instagram:null,google:null};state.editorial=C.clone(snapshot.editorial);state.dirty=false;state.online=true;state.lastSaved=null;}
+  function setSnapshot(snapshot){clearLocalMedia();state.content=window.OpendoorBooking.normalize(C.normalizeHosts(C.clone(snapshot.data)));state.content.social??={instagram:null,google:null};state.editorial=C.clone(snapshot.editorial);state.dirty=false;state.online=true;state.lastSaved=null;}
   function dialog(title,body,buttons) {
     return new Promise(resolve=>{
       const element=document.createElement('dialog');element.className='admin-dialog';element.innerHTML=`<h2>${esc(title)}</h2>${body}<div class="actions">${buttons.map(([value,label,style])=>`<button class="button ${style||''}" type="button" data-choice="${esc(value)}">${esc(label)}</button>`).join('')}</div>`;
@@ -126,7 +135,7 @@
     const element=document.createElement('dialog');element.className='admin-dialog preview-dialog';let nonce=crypto.randomUUID();
     element.innerHTML=`<div class="preview-top"><h2>Anteprima della bozza</h2><button class="icon-button" type="button" data-preview-close aria-label="Chiudi anteprima">${icon('close')}</button><div class="preview-controls"><select aria-label="Lingua dell’anteprima" id="preview-language">${state.content.languages.map(item=>`<option value="${item.code}" ${item.code===state.language?'selected':''}>${item.name}</option>`).join('')}</select><button class="button outline" data-preview-size="mobile" type="button" aria-pressed="false">Telefono</button><button class="button secondary" data-preview-size="desktop" type="button" aria-pressed="true">Computer</button></div></div><iframe title="Guest Hub OPENDOOR · anteprima" sandbox="allow-scripts allow-same-origin allow-popups" referrerpolicy="no-referrer"></iframe>`;
     const source=document.activeElement,frame=element.querySelector('iframe');
-    const route=state.view==='host'?'help':state.view==='videos'?'checkin':state.view==='photos'?'gallery':state.view==='guides'&&state.guide!==null?'house/'+state.content.houseManual[state.guide].id:'home';
+    const route=state.view==='booking'?'book':state.view==='host'?'help':state.view==='videos'?'checkin':state.view==='photos'?'gallery':state.view==='guides'&&state.guide!==null?'house/'+state.content.houseManual[state.guide].id:'home';
     const ready=event=>{if(event.source===frame.contentWindow&&event.origin===location.origin&&event.data?.type==='opendoor-preview-ready'&&event.data.nonce===nonce)frame.contentWindow.postMessage({type:'opendoor-preview-content',nonce,content:previewData(),language:element.querySelector('#preview-language').value},location.origin);};
     window.addEventListener('message',ready);
     const load=()=>{
@@ -190,6 +199,8 @@
       setPath(input.dataset.path,input.value||null);
       const hostName=input.dataset.path.match(/^hosts\.(\d+)\.name$/);if(hostName){const heading=document.querySelector(`[data-host-name="${hostName[1]}"]`);if(heading)heading.textContent=input.value||'Host '+(Number(hostName[1])+1);}
       if(input.dataset.path.startsWith('social.')){const channel=input.dataset.path.split('.')[1];document.querySelector(`[data-channel-status="${channel}"]`).innerHTML=channelStatus(channel);}
+      const bookingField=input.dataset.path.match(/^bookingLinks\.(\d+)\.(name|url)$/);
+      if(bookingField){const index=bookingField[1];const heading=document.querySelector(`[data-booking-name="${index}"]`);if(heading)heading.textContent=state.content.bookingLinks[index].name||'Nuova piattaforma';document.querySelector(`[data-booking-status="${index}"]`).innerHTML=bookingStatus(Number(index));}
       const match=input.dataset.path.match(/^(explore|localFood|nearbyServices)\.(\d+)\.address$/);
       if(match){const place=state.content[match[1]][Number(match[2])];place.mapUrl='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(input.value);const maps=document.querySelector(`[data-path="${match[1]}.${match[2]}.mapUrl"]`);if(maps)maps.value=place.mapUrl;}
       markDirty();
@@ -218,6 +229,7 @@
       const choice=await dialog('Rimuovere questo Host?',`<p>Il profilo di <strong>${esc(state.content.hosts[index].name||'Host '+(index+1))}</strong> verrà rimosso dalla bozza.</p>`,[['cancel','Annulla','outline'],['remove','Rimuovi Host']]);
       if(choice==='remove'){state.content.hosts.splice(index,1);C.normalizeHosts(state.content);markDirty();render();}return;
     }
+    if(target.dataset.removeBooking!==undefined){const index=Number(target.dataset.removeBooking);if(state.content.bookingLinks[index]){state.content.bookingLinks.splice(index,1);markDirty();render();}return;}
     if(target.dataset.removeGallery!==undefined){state.content.modules.gallery.items.splice(Number(target.dataset.removeGallery),1);markDirty();render();return;}
     if(target.dataset.removeStep!==undefined){const item=state.content.houseManual[state.guide],removed=item.instructions.splice(Number(target.dataset.removeStep),1)[0];if(removed.startsWith('guide_')&&!state.content.houseManual.some(guide=>guide.instructions?.includes(removed))){for(const code of C.LANGUAGES)delete state.content.strings[code][removed];delete state.editorial.pending[removed];}markDirty();render();return;}
     if(target.dataset.move){const [index,direction]=target.dataset.move.split(':').map(Number),items=state.content.modules.gallery.items;[items[index],items[index+direction]]=[items[index+direction],items[index]];markDirty();render();return;}
@@ -229,6 +241,7 @@
     if(action==='publish'){await publish();return;}
     if(action==='reload'){if(!await discardDecision())return;state.busy=true;toolbar();try{setSnapshot(await store.load());render();notice('Bozza online ricaricata.');}catch(error){if(!store.authenticated){state.busy=false;state.online=false;login(error.message);}else notice(error.message,true);}finally{state.busy=false;toolbar();}return;}
     if(action==='logout'){if(!await discardDecision('Uscire dal pannello?'))return;store.logout();clearLocalMedia();state.content=null;state.dirty=false;state.online=false;clearTimeout(idleTimer);login();return;}
+    if(action==='add-booking'){state.content.bookingLinks.push({id:'portal-'+crypto.randomUUID(),name:'',url:null});markDirty();render();document.querySelector(`[data-path="bookingLinks.${state.content.bookingLinks.length-1}.name"]`)?.focus();return;}
     if(action==='add-host'){state.content.hosts.push({name:'',photo:null,phone:null,whatsapp:null,email:null});C.normalizeHosts(state.content);markDirty();render();const input=document.querySelector(`[data-path="hosts.${state.content.hosts.length-1}.name"]`);input?.focus({preventScroll:true});input?.scrollIntoView({block:'center',behavior:'smooth'});return;}
     if(action==='add-gallery'){
       const key=await dialog('Quale ambiente fotografi?','<p>La nuova foto si aggiunge alla galleria. Puoi riordinarla dopo il caricamento.</p>',[['livingKitchen','Soggiorno e cucina'],['bedroom','Camera'],['bathroom','Bagno'],['balcony','Balcone'],['cancel','Annulla','outline']]);
@@ -242,5 +255,5 @@
   window.addEventListener('beforeunload',event=>{if(state.dirty&&!demo){event.preventDefault();event.returnValue='';}});
   window.addEventListener('pagehide',()=>{store.logout();state.online=false;});
   window.addEventListener('pageshow',event=>{if(event.persisted&&!demo)login('Accedi di nuovo per riprendere la sessione.');});
-  if(demo){state.content=C.normalizeHosts(C.clone(window.OPENDOOR));state.content.social??={instagram:null,google:null};state.online=true;render();}else login();
+  if(demo){state.content=window.OpendoorBooking.normalize(C.normalizeHosts(C.clone(window.OPENDOOR)));state.content.social??={instagram:null,google:null};state.online=true;render();}else login();
 })();

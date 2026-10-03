@@ -307,3 +307,15 @@ body{overflow-wrap:anywhere}
 .host-avatar{flex-shrink:0}
 .host-panel .actions{flex-wrap:wrap}
 @media(max-width:720px){.host-panels.multiple{grid-template-columns:1fr}}
+
+/* Booking links */
+.header-book{padding:9px 16px;font-size:13px;min-height:40px;white-space:nowrap}
+.home-book{margin-top:20px}
+.booking-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.booking-card{display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-width:0}
+.booking-card h2{font-size:24px;margin:0}
+.booking-grid>.booking-card{margin:0}
+.booking-card .button{margin-top:auto}
+.booking-note{max-width:720px;color:var(--muted);font-size:14px;line-height:1.7;margin-top:24px}
+@media(max-width:900px){.booking-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.booking-grid{grid-template-columns:1fr}.header-book{display:none}.header-actions{gap:8px}}

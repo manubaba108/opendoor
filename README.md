@@ -96,3 +96,11 @@ Run the meaningful integration checks with `node tests/admin-core.test.mjs`. The
 ## Validation
 
 Local Chromium checks cover all 32 routes, seven languages and six viewport widths, enlarged text, journey and gallery ordering, parent navigation, the new photo positions, three video positions, rules and safety, WhatsApp hover/focus contrast, media rendering, the photo dialog, review destinations, suggestion handoff, checklists, language switching and the six platform logos with their translated heading. Maps destinations are compared exactly with the twelve full addresses supplied in the PDF. Calls and messages are not initiated during QA. Lighthouse is not measured.
+
+## Booking links
+
+The Home hero and header include a translated Book button opening `#/book`. The page lists only configured public HTTPS listing URLs, opening each in a new tab with `noopener noreferrer`. No booking or payment is processed by OPENDOOR.
+
+The Prenotazioni editor section lets the owner edit platform names and listing URLs, add platforms and remove them. Airbnb uses the existing property listing; Booking.com, Trip.com, Agoda, Expedia, Holidu and Vrbo start with empty URLs and remain hidden until configured. `assets/booking-links.js` supplies backward-compatible defaults and seven-language labels when an older content draft is loaded. Explicitly empty lists and removed destinations stay empty. The labels become editable through Testi e lingue.
+
+Calendar synchronization remains a separate OTA/account setting. Listing URLs are public destinations, not iCal feeds; ICS URLs are rejected. No channel-manager account or calendar connection is created by this change.

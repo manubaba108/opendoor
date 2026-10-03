@@ -79,6 +79,13 @@
     }
     for(const value of [data.property?.airbnb,...Object.values(data.reviews||{})])if(!httpsURL(value))errors.push('I collegamenti devono iniziare con https://.');
     for(const channel of ['instagram','google'])if(!channelURL(data.social?.[channel],channel))errors.push('Controlla il link '+(channel==='instagram'?'Instagram':'Google')+' in Social e Google. Usa l’indirizzo pubblico completo della tua pagina.');
+    if(data.bookingLinks!==undefined){
+      if(!Array.isArray(data.bookingLinks))errors.push('Controlla le piattaforme in Prenotazioni.');
+      else for(const item of data.bookingLinks){
+        if(!item||typeof item.name!=='string'||item.name.length>1000||(item.url&&!item.name.trim())||(publishing&&!item.name.trim()))errors.push('Inserisci il nome della piattaforma in Prenotazioni.');
+        if(item?.url&&!globalThis.OpendoorBooking?.validURL(item.url))errors.push('Usa il link pubblico HTTPS dell’annuncio in Prenotazioni, non un calendario.');
+      }
+    }
     if(data.emergency?.number!=='112')errors.push('Il numero di emergenza deve restare 112.');
     const photos=[...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
     if(photos.some(value=>!mediaURL(value)))errors.push('Una foto ha un indirizzo non valido.');
