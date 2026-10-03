@@ -2617,7 +2617,7 @@ window.OPENDOOR = {
   ],
   "social": {
     "instagram": "https://www.instagram.com/opendoorstay?stkn=ZjZ5aGFwbjUwa2Yx&utm_source=qr",
-    "google": null
+    "google": "https://maps.app.goo.gl/TZ2YT1quBD6MH4eV9"
   },
   "hosts": [
     {
