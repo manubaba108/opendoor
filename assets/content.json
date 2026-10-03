@@ -9,13 +9,13 @@
     "bedroomsDeclared": 2,
     "bathrooms": 1,
     "elevator": true,
-    "address": null,
-    "checkInTime": null,
-    "checkOutTime": null,
+    "address": "Via Guglielmo Marconi, 12",
+    "checkInTime": "13:00",
+    "checkOutTime": "10:00",
     "wifiNetwork": "OPENDOOR",
-    "fireExtinguisherLocation": null,
-    "wasteDropoffLocation": null,
-    "parkingAddress": null,
+    "fireExtinguisherLocation": "DIETRO LA PORTA",
+    "wasteDropoffLocation": "NO",
+    "parkingAddress": "Via Guglielmo Marconi, 12",
     "airbnb": "https://airbnb.it/h/opendoor/",
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001"
@@ -2616,7 +2616,7 @@
     }
   ],
   "social": {
-    "instagram": null,
+    "instagram": "https://www.instagram.com/opendoorstay?stkn=ZjZ5aGFwbjUwa2Yx&utm_source=qr",
     "google": null
   },
   "hosts": [
