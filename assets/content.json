@@ -1,4 +1,4 @@
-window.OPENDOOR = {
+{
   "property": {
     "name": "OPENDOOR",
     "slogan": "COME IN. YOU'RE HOME.",
@@ -2594,4 +2594,4 @@ window.OPENDOOR = {
       "displayWidth": 96
     }
   ]
-};
+}
