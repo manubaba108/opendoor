@@ -2,7 +2,7 @@
   'use strict';
   await (window.OPENDOOR_READY||Promise.resolve());
   const config=window.OpendoorBooking.normalize(window.OPENDOOR);
-  const bookingLinks=window.OpendoorBooking.available(config);
+  const bookingLinks=window.OpendoorBooking.destinations(config);
   const hosts=Array.isArray(config.hosts)&&config.hosts.length?config.hosts:[config.host];
   const primaryHost=hosts[0];
   const supported=config.languages.map(item=>item.code);
@@ -76,8 +76,8 @@
   const heading=(title,intro,parent=routeParents[route]||'home')=>`<a href="#/${parent}" class="back-link" data-parent-route="${parent}">${icon('back')}${esc(t(parentLabels[parent]||'back'))}</a><div class="page-header"><div class="eyebrow">OPENDOOR · ${esc(t('propertyIntro'))}</div><h1>${esc(t(title))}</h1>${intro?`<p>${esc(t(intro))}</p>`:''}</div>`;
   const info=key=>`<div class="info-line">${icon('info')}<p>${esc(t(key))}</p></div>`;
   function platformLogos() {
-    const items=config.bookingPlatforms||[];if(!items.length)return '';
-    return `<section class="platform-strip" aria-labelledby="platforms-title"><div class="platform-inner"><h2 id="platforms-title">${esc(t('bookingPlatformsTitle'))}</h2><ul class="platform-logos">${items.map(item=>{const [x,y,width,height]=item.crop,[originalWidth,originalHeight]=item.size;return `<li><span class="platform-mark" style="--mark-width:${item.displayWidth}px;--mark-ratio:${width}/${height}"><img src="${esc(item.src)}" alt="${esc(item.name)}" width="${originalWidth}" height="${originalHeight}" loading="lazy" style="width:${originalWidth/width*100}%;left:${-x/width*100}%;top:${-y/height*100}%"></span></li>`;}).join('')}</ul></div></section>`;
+    const items=bookingLinks.map(link=>{const logo=(config.bookingPlatforms||[]).find(item=>item.id===link.id);return logo?{...logo,name:link.name,url:link.url}:null;}).filter(Boolean);if(!items.length)return '';
+    return `<section class="platform-strip" aria-labelledby="platforms-title"><div class="platform-inner"><h2 id="platforms-title">${esc(t('bookingPlatformsTitle'))}</h2><ul class="platform-logos">${items.map(item=>{const [x,y,width,height]=item.crop,[originalWidth,originalHeight]=item.size;return `<li><span class="platform-mark" style="--mark-width:${item.displayWidth}px;--mark-ratio:${width}/${height}"><img src="${esc(item.src)}" alt="${esc(item.name)}" width="${originalWidth}" height="${originalHeight}" loading="lazy" style="width:${originalWidth/width*100}%;left:${-x/width*100}%;top:${-y/height*100}%"></span>${window.OpendoorBooking.validURL(item.url)?'':`<span class="platform-status">${esc(t('bookingPending'))}</span>`}</li>`;}).join('')}</ul></div></section>`;
   }
   function socialChannels() {
     const valid=value=>{try{const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password;}catch{return false;}};
@@ -96,7 +96,7 @@
     document.getElementById('footer').innerHTML=`${platformLogos()}${socialChannels()}<div class="footer-inner"><div class="footer-brand"><a href="#/home" aria-label="OPENDOOR · ${esc(t('navHome'))}"><img src="assets/images/logo-opendoor-black.png" width="142" height="23" alt="OPENDOOR"></a><p class="footer-slogan">${esc(config.property.slogan)}</p></div><div class="footer-info">Pegognaga, Mantova, ${esc(t('italy'))}<div class="cin">CIN ${esc(config.property.cin)}</div></div>${external(config.property.airbnb,t('airbnb'),null,'airbnb-link')}</div>`;
   }
   function book() {
-    return `${heading('book','bookingIntro')}${bookingLinks.length?`<div class="booking-grid">${bookingLinks.map(item=>`<article class="panel booking-card"><h2>${esc(item.name)}</h2>${external(item.url,t('bookingWith')+' '+item.name,'bed')}</article>`).join('')}</div><p class="booking-note">${esc(t('bookingNote'))}</p>`:`<section class="panel content-narrow"><p>${esc(t('bookingEmpty'))}</p><a class="button" href="#/help">${esc(t('contactHost'))}</a></section>`}`;
+    return `${heading('book','bookingIntro')}${bookingLinks.length?`<div class="booking-grid">${bookingLinks.map(item=>`<article class="panel booking-card"><h2>${esc(item.name)}</h2>${window.OpendoorBooking.validURL(item.url)?external(item.url,t('bookingWith')+' '+item.name,'bed'):`<span class="booking-pending">${esc(t('bookingPending'))}</span>`}</article>`).join('')}</div><p class="booking-note">${esc(t('bookingNote'))}</p>`:`<section class="panel content-narrow"><p>${esc(t('bookingEmpty'))}</p><a class="button" href="#/help">${esc(t('contactHost'))}</a></section>`}`;
   }
   function home() {
     const journey=(number,key,ids,extra='',cls='')=>`<section class="journey-section ${cls}" aria-labelledby="journey-${number}"><div class="journey-heading"><span class="journey-number" aria-hidden="true">0${number}</span><div><h2 id="journey-${number}">${esc(t(key))}</h2><p>${esc(t(key+'Desc'))}</p></div></div><div class="journey-grid">${ids.map(id=>tile(cards.find(card=>card[0]===id))).join('')}</div>${extra}</section>`;

@@ -1,7 +1,7 @@
 /* Public booking destinations only. Calendar connections are managed on each platform. */
 (() => {
   'use strict';
-  const portals=[['airbnb','Airbnb'],['booking','Booking.com'],['tripcom','Trip.com'],['agoda','Agoda'],['expedia','Expedia'],['holidu','Holidu'],['vrbo','Vrbo']];
+  const portals=[['airbnb','Airbnb'],['booking','Booking.com'],['tripcom','Trip.com'],['agoda','Agoda']];
   const labels={
     it:{book:'Prenota',bookingIntro:'Scegli dove prenotare il tuo soggiorno a OPENDOOR.',bookingWith:'Prenota con',bookingNote:'Disponibilità, prezzi e condizioni sono indicati sulla piattaforma che scegli. Il collegamento si apre in una nuova scheda.',bookingHomeTitle:'Il tuo prossimo soggiorno',bookingHomeText:'Trova OPENDOOR sulla piattaforma che preferisci.',bookingEmpty:'Per informazioni sulle prenotazioni, contatta l’Host.'},
     en:{book:'Book',bookingIntro:'Choose where to book your stay at OPENDOOR.',bookingWith:'Book with',bookingNote:'Availability, prices and terms are shown on your chosen platform. The link opens in a new tab.',bookingHomeTitle:'Your next stay',bookingHomeText:'Find OPENDOOR on your preferred platform.',bookingEmpty:'Contact your host for booking information.'},
@@ -11,6 +11,8 @@
     pl:{book:'Zarezerwuj',bookingIntro:'Wybierz, gdzie chcesz zarezerwować pobyt w OPENDOOR.',bookingWith:'Zarezerwuj przez',bookingNote:'Dostępność, ceny i warunki znajdziesz na wybranej platformie. Link otwiera się w nowej karcie.',bookingHomeTitle:'Twój następny pobyt',bookingHomeText:'Znajdź OPENDOOR na ulubionej platformie.',bookingEmpty:'Skontaktuj się z gospodarzem, aby uzyskać informacje o rezerwacji.'},
     ro:{book:'Rezervă',bookingIntro:'Alege unde să rezervi sejurul la OPENDOOR.',bookingWith:'Rezervă prin',bookingNote:'Disponibilitatea, prețurile și condițiile sunt afișate pe platforma aleasă. Linkul se deschide într-o filă nouă.',bookingHomeTitle:'Următorul tău sejur',bookingHomeText:'Găsește OPENDOOR pe platforma preferată.',bookingEmpty:'Contactează gazda pentru informații despre rezervări.'}
   };
+  const pendingLabels={it:'Prossimamente',en:'Coming soon',de:'Demnächst',fr:'Bientôt disponible',nl:'Binnenkort',pl:'Już wkrótce',ro:'În curând'};
+  for(const [lang,value] of Object.entries(pendingLabels))labels[lang].bookingPending=value;
   function validURL(value) {
     if(typeof value!=='string'||!value||value.length>2000)return false;
     try {const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password&&!url.pathname.toLowerCase().endsWith('.ics')&&(url.pathname!=='/'||Boolean(url.search));}catch{return false;}
@@ -23,6 +25,7 @@
     }
     return data;
   }
-  const available=data=>(Array.isArray(data.bookingLinks)?data.bookingLinks:[]).filter(item=>item&&typeof item.name==='string'&&item.name.trim()&&validURL(item.url));
-  globalThis.OpendoorBooking={normalize,validURL,available};
+  const destinations=data=>(Array.isArray(data.bookingLinks)?data.bookingLinks:[]).filter(item=>item&&typeof item.name==='string'&&item.name.trim());
+  const available=data=>destinations(data).filter(item=>validURL(item.url));
+  globalThis.OpendoorBooking={normalize,validURL,destinations,available};
 })();

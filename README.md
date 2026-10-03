@@ -24,7 +24,7 @@ Italian, English, German, French, Dutch, Polish and Romanian have matching trans
 
 All 293 text entries in each language have been reviewed for meaning, grammar, tone and guest-facing terminology. French consistently uses `vous`; Italian, German, Dutch, Polish and Romanian use a friendly direct form, with gender-neutral phrasing where practical. English consistently uses apartment, lift, motorway, car park and rubbish. Localized terms for the host replace unnatural English loanwords. Host names are preserved as entered by the owner in every language. Arrival and departure instructions, quiet hours, guest limits and house policies retain their meaning. Street addresses and platform names remain unchanged.
 
-A strip above the footer displays the six owner-supplied platform logos under a localized heading: Airbnb, Booking.com, Holidu, Vrbo, Trip.com and Agoda. The strip contains the marks only, with accessible names and no additional links. It appears on every page and adapts from six columns on desktop to three on tablet and two on mobile.
+A strip above the footer displays the owner-supplied logos for the platforms in Prenotazioni. The initial selection is Airbnb, Booking.com, Trip.com and Agoda. Platforms without a listing URL show a translated Coming soon label. The marks have accessible names and no additional links. The strip appears on every page and adapts from four columns on desktop to two on tablet and mobile.
 
 ## Files
 
@@ -99,8 +99,10 @@ Local Chromium checks cover all 32 routes, seven languages and six viewport widt
 
 ## Booking links
 
-The Home hero and header include a translated Book button opening `#/book`. The page lists only configured public HTTPS listing URLs, opening each in a new tab with `noopener noreferrer`. No booking or payment is processed by OPENDOOR.
+The Home hero and header include a translated Book button opening `#/book`. The page shows named platforms in the owner's list. A valid public HTTPS listing URL enables the booking button, opening it in a new tab with `noopener noreferrer`. Otherwise the card displays a translated Coming soon label without a link. No booking or payment is processed by OPENDOOR.
 
-The Prenotazioni editor section lets the owner edit platform names and listing URLs, add platforms and remove them. Airbnb uses the existing property listing; Booking.com, Trip.com, Agoda, Expedia, Holidu and Vrbo start with empty URLs and remain hidden until configured. `assets/booking-links.js` supplies backward-compatible defaults and seven-language labels when an older content draft is loaded. Explicitly empty lists and removed destinations stay empty. The labels become editable through Testi e lingue.
+The Prenotazioni editor section lets the owner edit platform names and listing URLs, add platforms and remove them. Airbnb uses the existing property listing; Booking.com, Trip.com and Agoda start with empty URLs and show Coming soon. Removing a platform hides its card. `assets/booking-links.js` supplies backward-compatible defaults and seven-language labels when an older content draft is loaded. Explicitly empty lists and removed destinations stay empty. The labels become editable through Testi e lingue.
 
 Calendar synchronization remains a separate OTA/account setting. Listing URLs are public destinations, not iCal feeds; ICS URLs are rejected. No channel-manager account or calendar connection is created by this change.
+
+The four-platform preparation was checked in local Chromium at 1440 and 390 px in all seven languages: four cards, one active Airbnb link, three non-linked Coming soon labels, matching footer marks and no horizontal overflow. Targeted checks also cover Home navigation, enabling a listing URL, rejecting an unsafe URL, preserving an explicitly empty platform list, retaining Host/social data and editing/adding/removing platforms in the editor demo. No test writes to GitHub or external booking accounts.

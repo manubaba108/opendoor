@@ -278,12 +278,13 @@ body{overflow-wrap:anywhere}
 .platform-strip{background:#fff;border-bottom:1px solid var(--line)}
 .platform-inner{max-width:1160px;margin:auto;padding:32px 30px 26px}
 .platform-inner h2{text-align:center;font-size:1rem;letter-spacing:0;font-weight:650;color:#58635e;margin-bottom:22px}
-.platform-logos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:20px;align-items:center}
-.platform-logos li{display:flex;align-items:center;justify-content:center;min-width:0;height:64px}
+.platform-logos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:center}
+.platform-logos li{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0;height:96px}
+.platform-status{color:var(--muted);font-size:.75rem;text-align:center}
 .platform-mark{position:relative;display:block;overflow:hidden;width:min(100%,var(--mark-width));aspect-ratio:var(--mark-ratio)}
 .platform-mark img{position:absolute;max-width:none;height:auto}
-@media(max-width:1100px){.platform-logos{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}}
-@media(max-width:767px){.platform-inner{padding:28px 22px 20px}.platform-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}.platform-inner h2{font-size:.975rem;margin-bottom:18px}.platform-logos li{height:64px}}
+@media(max-width:1100px){.platform-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}}
+@media(max-width:767px){.platform-inner{padding:28px 22px 20px}.platform-logos{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px}.platform-inner h2{font-size:.975rem;margin-bottom:18px}}
 
 /* Host profile photograph, set in the private editor. */
 .host-avatar{overflow:hidden}.host-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
@@ -311,11 +312,11 @@ body{overflow-wrap:anywhere}
 /* Booking links */
 .header-book{padding:9px 16px;font-size:13px;min-height:40px;white-space:nowrap}
 .home-book{margin-top:20px}
-.booking-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.booking-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .booking-card{display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-width:0}
 .booking-card h2{font-size:24px;margin:0}
 .booking-grid>.booking-card{margin:0}
 .booking-card .button{margin-top:auto}
+.booking-pending{display:inline-flex;align-items:center;min-height:48px;padding:12px 19px;border:1px solid var(--line);border-radius:13px;background:var(--bg);color:var(--muted);font-size:.925rem;font-weight:600;margin-top:auto}
 .booking-note{max-width:720px;color:var(--muted);font-size:14px;line-height:1.7;margin-top:24px}
-@media(max-width:900px){.booking-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.booking-grid{grid-template-columns:1fr}.header-book{display:none}.header-actions{gap:8px}}
