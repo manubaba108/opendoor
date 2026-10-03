@@ -22,10 +22,10 @@ window.OPENDOOR = {
   },
   "host": {
     "name": "Host",
-    "phone": "+393407381943",
-    "whatsapp": "https://wa.me/393407381943",
+    "phone": "+393426992850",
+    "whatsapp": "https://wa.me/393426992850",
     "email": null,
-    "photo": null
+    "photo": "assets/uploads/host-photo-69bac640-c446-4a4b-a515-5168d1df0f14.png"
   },
   "emergency": {
     "number": "112",
