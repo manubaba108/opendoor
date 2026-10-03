@@ -7,3 +7,4 @@
 
 .admin-login-card small{font-size:.875rem;line-height:1.6}.admin-sidebar{top:var(--admin-header-height,82px);max-height:calc(100vh - var(--admin-header-height,82px))}
 @media(max-width:720px){.admin-sidebar{max-height:none}}
+.channel-status{margin-top:16px}.channel-status p{font-size:.875rem;margin-bottom:12px}.channel-status .button{white-space:normal}

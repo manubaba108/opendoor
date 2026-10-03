@@ -287,3 +287,12 @@ body{overflow-wrap:anywhere}
 
 /* Host profile photograph, set in the private editor. */
 .host-avatar{overflow:hidden}.host-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+.social-strip{border-bottom:1px solid var(--line)}
+.social-inner{max-width:1160px;margin:auto;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.social-inner h2{font-size:1rem;font-weight:650;letter-spacing:0}
+.social-links{display:flex;gap:12px;flex-wrap:wrap;min-width:0}
+.social-link{font-size:.875rem;min-height:48px;white-space:normal;max-width:100%;text-align:center}
+.social-link svg{flex-shrink:0}
+.social-link span{min-width:0;overflow-wrap:anywhere}
+@media(max-width:767px){.social-inner{padding:25px 22px;flex-direction:column;gap:16px}.social-links{justify-content:center;width:100%}.social-link{flex:1 1 210px}}

@@ -7,11 +7,12 @@
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const shapes={home:'<path d="m3 10 9-7 9 7v11H4V10m5 11v-8h6v8"/>',camera:'<path d="M3 6h4l2-3h6l2 3h4v15H3Z"/><circle cx="12" cy="13" r="4"/>',video:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4Z"/>',text:'<path d="M4 4h16M12 4v16M8 20h8"/>',book:'<path d="M12 5v16M3 3c3 0 6 0 9 2 3-2 6-2 9-2v16c-3 0-6 0-9 2-3-2-6-2-9-2Z"/>',pin:'<path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',user:'<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/>',lock:'<rect x="5" y="10" width="14" height="12" rx="2"/><path d="M8 10V6a4 4 0 1 1 8 0v4m-4 5v2"/>',up:'<path d="m5 14 7-7 7 7"/>',down:'<path d="m5 10 7 7 7-7"/>',close:'<path d="m6 6 12 12M6 18 18 6"/>',trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15m-9 4v7m4-7v7"/>',check:'<path d="m5 12 4 4L19 6"/>',back:'<path d="m14 5-7 7 7 7"/>',oven:'<rect x="3" y="3" width="18" height="19" rx="2"/><path d="M3 8h18M7 5h.01m4 0h.01M7 12h10v6H7Z"/>',key:'<circle cx="7" cy="12" r="5"/><path d="M12 12h10m-2 0v4m-4-4v3"/>',plus:'<path d="M12 4v16M4 12h16"/>'};
   const icon=name=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${shapes[name]||shapes.book}</svg>`;
-  const nav=[['overview','home','Panoramica'],['photos','camera','Foto'],['videos','video','Video'],['texts','text','Testi e lingue'],['guides','book','Guide della casa'],['info','pin','Informazioni e link'],['host','user','Profilo Host']];
+  shapes.globe='<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a17 17 0 0 1 0 18 17 17 0 0 1 0-18Z"/>';
+  const nav=[['overview','home','Panoramica'],['photos','camera','Foto'],['videos','video','Video'],['texts','text','Testi e lingue'],['guides','book','Guide della casa'],['info','pin','Informazioni e link'],['channels','globe','Social e Google'],['host','user','Profilo Host']];
   const deviceIds=['kitchen','oven','hob','appliances','climate','heating','hotWater','lights','tv'];
   const state={content:null,editorial:{pending:{}},view:'overview',language:'it',search:'',reviewOnly:false,page:0,guide:null,dirty:false,busy:false,online:false,uploads:new Map(),media:new Map(),preview:null,lastSaved:null};
   let noticeTimer,idleTimer,headerObserver;
-  const baseLabels={subtitle:'Sottotitolo della Home',hubTitle:'Titolo del Guest Hub',hubSubtitle:'Introduzione del Guest Hub',whatsapp:'Pulsante WhatsApp',greeting:'Messaggio WhatsApp',hostReply:'Disponibilità dell’Host',passwordInfo:'Come ricevere la password Wi-Fi',codeInfo:'Come ricevere il codice di ingresso',openingVideo:'Titolo del video di apertura',closingVideo:'Titolo del video di chiusura',intercomVideo:'Titolo del video del citofono',bookingPlatformsTitle:'Titolo dei partner nel footer'};
+  const baseLabels={subtitle:'Sottotitolo della Home',hubTitle:'Titolo del Guest Hub',hubSubtitle:'Introduzione del Guest Hub',whatsapp:'Pulsante WhatsApp',greeting:'Messaggio WhatsApp',hostReply:'Disponibilità dell’Host',passwordInfo:'Come ricevere la password Wi-Fi',codeInfo:'Come ricevere il codice di ingresso',openingVideo:'Titolo del video di apertura',closingVideo:'Titolo del video di chiusura',intercomVideo:'Titolo del video del citofono',bookingPlatformsTitle:'Titolo dei partner nel footer',socialTitle:'Titolo dei canali online nel footer',instagramLink:'Pulsante Instagram nel footer',googleLink:'Pulsante Google nel footer'};
   const t=key=>state.content?.strings?.it[key]||key;
   function getPath(path){return path.split('.').reduce((value,key)=>value?.[key],state.content);}
   function setPath(path,value){const keys=path.split('.');if(keys.some(key=>['__proto__','prototype','constructor'].includes(key)))return;const last=keys.pop(),parent=keys.reduce((object,key)=>object[key],state.content);parent[last]=value;}
@@ -87,14 +88,23 @@
   function host() {
     return `${heading('Il profilo dell’Host','La foto appare nella pagina Aiuto. I contatti vengono aggiornati nei punti già previsti del Guest Hub.')}<div class="host-editor">${mediaCard(slots('photo').find(slot=>slot.id==='host'),'photo')}<section class="admin-card"><h2>Contatti</h2><label class="admin-field"><span>Nome pubblico</span><input value="Host" disabled></label>${field('host.phone','Telefono',{type:'tel',hint:'Usa il prefisso internazionale, per esempio +39.'})}${field('host.whatsapp','WhatsApp',{type:'url',hint:'Link nel formato https://wa.me/39… senza spazi o simboli.'})}${field('host.email','Email per suggerimenti e contatti',{type:'email',hint:'Se inserisci un’email, i suggerimenti degli ospiti aprono un messaggio indirizzato a questa casella.'})}</section></div>`;
   }
-  const pages={overview,photos:()=>mediaPage('photo'),videos:()=>mediaPage('video'),texts,guides,info,host};
+  function channelStatus(channel) {
+    const value=state.content.social?.[channel];
+    if(!value)return '<p>Il pulsante resta nascosto finché non inserisci il link.</p>';
+    if(!C.channelURL(value,channel))return '<p role="status">Controlla l’indirizzo. Usa un link pubblico completo di '+(channel==='instagram'?'Instagram':'Google')+'.</p>';
+    return `<p>Il pulsante apparirà vicino al footer.</p><a class="button secondary" href="${esc(value)}" target="_blank" rel="noopener noreferrer">Apri collegamento</a>`;
+  }
+  function channels() {
+    return `${heading('OPENDOOR, anche online','Collega le pagine ufficiali della struttura. Puoi lasciare vuoto un campo per nascondere il relativo pulsante.')}<div class="admin-grid"><section class="admin-card"><h2>Instagram</h2><p>Foto, video e aggiornamenti di OPENDOOR.</p>${field('social.instagram','Link al profilo Instagram',{type:'url',hint:'Apri il tuo profilo e copia l’indirizzo completo, che inizia con https://www.instagram.com/.'})}<div class="channel-status" data-channel-status="instagram">${channelStatus('instagram')}</div></section><section class="admin-card"><h2>Google</h2><p>La pagina pubblica di OPENDOOR su Google.</p>${field('social.google','Link a OPENDOOR su Google',{type:'url',hint:'Copia il link pubblico della struttura su Maps o Travel. Il link per le recensioni si gestisce in Informazioni e link.'})}<div class="channel-status" data-channel-status="google">${channelStatus('google')}</div></section></div><p class="admin-note">Usa Anteprima per vedere i pulsanti nel footer. Il pannello aggiorna i collegamenti sul sito; i contenuti di Instagram e Google si gestiscono nei rispettivi account.</p>`;
+  }
+  const pages={overview,photos:()=>mediaPage('photo'),videos:()=>mediaPage('video'),texts,guides,info,channels,host};
   function render({focus=false}={}) {
     if(!state.online&&!demo){login();return;}
     root.innerHTML=`${demo?'<div class="admin-demo-strip">Anteprima interattiva del pannello. Puoi provare foto, video e testi; i salvataggi online e la pubblicazione sono disattivati.</div>':''}${authHeader()}<div class="admin-layout"><aside class="admin-sidebar"><nav class="admin-nav" aria-label="Gestione OPENDOOR">${nav.map(([id,symbol,label])=>`<button data-view="${id}" class="${state.view===id?'active':''}" ${state.view===id?'aria-current="page"':''} type="button">${icon(symbol)}${label}</button>`).join('')}</nav><small>I contenuti salvati fanno parte di un progetto pubblico. Foto della casa e istruzioni generali, senza dati degli ospiti o codici di accesso.</small></aside><main class="admin-content" id="admin-main" tabindex="-1">${pages[state.view]()}</main></div><div class="admin-toolbar" id="admin-toolbar"></div>`;
     toolbar();headerObserver?.disconnect();headerObserver=new ResizeObserver(entries=>document.body.style.setProperty('--admin-header-height',entries[0].target.getBoundingClientRect().height+'px'));headerObserver.observe(document.querySelector('.admin-top'));if(focus){document.getElementById('admin-main').focus({preventScroll:true});window.scrollTo({top:0});}
   }
   function clearLocalMedia(){for(const url of state.media.values())URL.revokeObjectURL(url);state.media.clear();state.uploads.clear();}
-  function setSnapshot(snapshot){clearLocalMedia();state.content=C.clone(snapshot.data);state.editorial=C.clone(snapshot.editorial);state.dirty=false;state.online=true;state.lastSaved=null;}
+  function setSnapshot(snapshot){clearLocalMedia();state.content=C.clone(snapshot.data);state.content.social??={instagram:null,google:null};state.editorial=C.clone(snapshot.editorial);state.dirty=false;state.online=true;state.lastSaved=null;}
   function dialog(title,body,buttons) {
     return new Promise(resolve=>{
       const element=document.createElement('dialog');element.className='admin-dialog';element.innerHTML=`<h2>${esc(title)}</h2>${body}<div class="actions">${buttons.map(([value,label,style])=>`<button class="button ${style||''}" type="button" data-choice="${esc(value)}">${esc(label)}</button>`).join('')}</div>`;
@@ -178,6 +188,7 @@
     if(input.dataset.textKey){C.changeText(state.content,state.editorial,input.dataset.textKey,input.dataset.language,input.value);markDirty();return;}
     if(input.dataset.path&&input.type!=='checkbox'){
       setPath(input.dataset.path,input.value||null);
+      if(input.dataset.path.startsWith('social.')){const channel=input.dataset.path.split('.')[1];document.querySelector(`[data-channel-status="${channel}"]`).innerHTML=channelStatus(channel);}
       const match=input.dataset.path.match(/^(explore|localFood|nearbyServices)\.(\d+)\.address$/);
       if(match){const place=state.content[match[1]][Number(match[2])];place.mapUrl='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(input.value);const maps=document.querySelector(`[data-path="${match[1]}.${match[2]}.mapUrl"]`);if(maps)maps.value=place.mapUrl;}
       markDirty();
@@ -223,5 +234,5 @@
   window.addEventListener('beforeunload',event=>{if(state.dirty&&!demo){event.preventDefault();event.returnValue='';}});
   window.addEventListener('pagehide',()=>{store.logout();state.online=false;});
   window.addEventListener('pageshow',event=>{if(event.persisted&&!demo)login('Accedi di nuovo per riprendere la sessione.');});
-  if(demo){state.content=C.clone(window.OPENDOOR);state.online=true;render();}else login();
+  if(demo){state.content=C.clone(window.OPENDOOR);state.content.social??={instagram:null,google:null};state.online=true;render();}else login();
 })();

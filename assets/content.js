@@ -718,7 +718,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Bambini sempre accompagnati",
       "guideNotes": "Da sapere",
       "closePhoto": "Chiudi la foto",
-      "bookingPlatformsTitle": "Ci trovi anche su"
+      "bookingPlatformsTitle": "Ci trovi anche su",
+      "socialTitle": "OPENDOOR online",
+      "instagramLink": "Seguici su Instagram",
+      "googleLink": "OPENDOOR su Google"
     },
     "en": {
       "navHome": "Home",
@@ -1013,7 +1016,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Keep children supervised",
       "guideNotes": "Good to know",
       "closePhoto": "Close photo",
-      "bookingPlatformsTitle": "Find us on"
+      "bookingPlatformsTitle": "Find us on",
+      "socialTitle": "OPENDOOR online",
+      "instagramLink": "Follow us on Instagram",
+      "googleLink": "Find OPENDOOR on Google"
     },
     "de": {
       "navHome": "Start",
@@ -1308,7 +1314,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Kinder immer beaufsichtigen",
       "guideNotes": "Gut zu wissen",
       "closePhoto": "Foto schließen",
-      "bookingPlatformsTitle": "Hier findest du uns"
+      "bookingPlatformsTitle": "Hier findest du uns",
+      "socialTitle": "OPENDOOR online",
+      "instagramLink": "Folge uns auf Instagram",
+      "googleLink": "OPENDOOR auf Google"
     },
     "fr": {
       "navHome": "Accueil",
@@ -1603,7 +1612,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Surveillez toujours les enfants",
       "guideNotes": "À savoir",
       "closePhoto": "Fermer la photo",
-      "bookingPlatformsTitle": "Retrouvez-nous sur"
+      "bookingPlatformsTitle": "Retrouvez-nous sur",
+      "socialTitle": "OPENDOOR en ligne",
+      "instagramLink": "Suivez-nous sur Instagram",
+      "googleLink": "Retrouvez OPENDOOR sur Google"
     },
     "nl": {
       "navHome": "Home",
@@ -1898,7 +1910,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Houd altijd toezicht op kinderen",
       "guideNotes": "Goed om te weten",
       "closePhoto": "Foto sluiten",
-      "bookingPlatformsTitle": "Je vindt ons ook op"
+      "bookingPlatformsTitle": "Je vindt ons ook op",
+      "socialTitle": "OPENDOOR online",
+      "instagramLink": "Volg ons op Instagram",
+      "googleLink": "Vind OPENDOOR op Google"
     },
     "pl": {
       "navHome": "Start",
@@ -2193,7 +2208,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Nie zostawiaj dzieci bez opieki",
       "guideNotes": "Warto wiedzieć",
       "closePhoto": "Zamknij zdjęcie",
-      "bookingPlatformsTitle": "Znajdziesz nas także na"
+      "bookingPlatformsTitle": "Znajdziesz nas także na",
+      "socialTitle": "OPENDOOR w sieci",
+      "instagramLink": "Obserwuj nas na Instagramie",
+      "googleLink": "Znajdź OPENDOOR w Google"
     },
     "ro": {
       "navHome": "Acasă",
@@ -2488,7 +2506,10 @@ window.OPENDOOR = {
       "balconyChildrenTitle": "Supraveghează mereu copiii",
       "guideNotes": "Bine de știut",
       "closePhoto": "Închide fotografia",
-      "bookingPlatformsTitle": "Ne găsești și pe"
+      "bookingPlatformsTitle": "Ne găsești și pe",
+      "socialTitle": "OPENDOOR online",
+      "instagramLink": "Urmărește-ne pe Instagram",
+      "googleLink": "Găsește OPENDOOR pe Google"
     }
   },
   "reviews": {
@@ -2593,5 +2614,9 @@ window.OPENDOOR = {
       ],
       "displayWidth": 96
     }
-  ]
+  ],
+  "social": {
+    "instagram": null,
+    "google": null
+  }
 };

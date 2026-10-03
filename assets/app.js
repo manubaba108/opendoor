@@ -21,6 +21,7 @@
     whatsapp:'<path d="M21 11.5a9 9 0 0 1-9.5 9A10 10 0 0 1 7 19.5L3 21l1.5-4A10 10 0 0 1 3 12a9 9 0 0 1 18-.5Z"/><path d="m8 7 2 3-1.5 1A9 9 0 0 0 13 14.5l1-1.5 3 2c-1 4-10-3-9-8Z"/>',
     phone:'<path d="M5 3h4l2 5-3 2a16 16 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2Z"/>',
     globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a17 17 0 0 1 0 18 17 17 0 0 1 0-18Z"/>',
+    instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>',
     down:'<path d="m5 9 7 7 7-7"/>',check:'<path d="m5 12 4 4L19 6"/>',back:'<path d="m14 5-7 7 7 7"/>',
     pin:'<path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
     users:'<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3m1-17a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3"/>',
@@ -73,6 +74,12 @@
     const items=config.bookingPlatforms||[];if(!items.length)return '';
     return `<section class="platform-strip" aria-labelledby="platforms-title"><div class="platform-inner"><h2 id="platforms-title">${esc(t('bookingPlatformsTitle'))}</h2><ul class="platform-logos">${items.map(item=>{const [x,y,width,height]=item.crop,[originalWidth,originalHeight]=item.size;return `<li><span class="platform-mark" style="--mark-width:${item.displayWidth}px;--mark-ratio:${width}/${height}"><img src="${esc(item.src)}" alt="${esc(item.name)}" width="${originalWidth}" height="${originalHeight}" loading="lazy" style="width:${originalWidth/width*100}%;left:${-x/width*100}%;top:${-y/height*100}%"></span></li>`;}).join('')}</ul></div></section>`;
   }
+  function socialChannels() {
+    const valid=value=>{try{const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password;}catch{return false;}};
+    const items=[['instagram','instagram','instagramLink'],['google','globe','googleLink']].filter(([id])=>config.social?.[id]&&valid(config.social[id]));
+    if(!items.length)return '';
+    return `<section class="social-strip" aria-labelledby="social-title"><div class="social-inner"><h2 id="social-title">${esc(t('socialTitle'))}</h2><div class="social-links">${items.map(([id,symbol,label])=>external(config.social[id],t(label),symbol,'button outline social-link')).join('')}</div></div></section>`;
+  }
   function renderChrome() {
     const area=activeArea();document.documentElement.lang=lang;
     const titleKey=route.startsWith('house/')?route.split('/')[1]:route;
@@ -81,7 +88,7 @@
     document.getElementById('header').innerHTML=`<div class="header-inner"><a class="brand" href="#/home" aria-label="OPENDOOR · ${esc(t('navHome'))}"><img src="assets/images/logo-opendoor-black.png" width="176" height="28" alt="OPENDOOR"></a><nav class="desktop-nav" aria-label="${esc(t('hubTitle'))}">${navItems.map(item=>`<a href="#/${item.route}" ${area===item.route?'class="active" aria-current="page"':''}>${esc(t(item.key))}</a>`).join('')}</nav><div class="header-actions"><a class="emergency-link" href="#/emergency" aria-label="${esc(t('emergency'))}">${icon('siren')}<span>${esc(t('emergency'))}</span></a><div class="lang"><button type="button" class="lang-trigger" id="language-trigger" aria-label="${esc(t('language'))}" aria-haspopup="true" aria-expanded="false" aria-controls="language-menu">${icon('globe')}<span>${lang.toUpperCase()}</span><span class="chevron">${icon('down')}</span></button><div id="language-menu" class="lang-menu" hidden>${config.languages.map(item=>`<button type="button" data-language="${item.code}" lang="${item.code}" ${item.code===lang?'class="selected" aria-current="true"':''}>${esc(item.name)}${item.code===lang?icon('check'):''}</button>`).join('')}</div></div></div></div>`;
     const mobile=document.getElementById('mobile-nav');mobile.setAttribute('aria-label',t('hubTitle'));
     mobile.innerHTML=navItems.map(item=>`<a href="#/${item.route}" ${area===item.route?'class="active" aria-current="page"':''}>${icon(item.icon)}<span>${esc(t(item.key))}</span></a>`).join('');
-    document.getElementById('footer').innerHTML=`${platformLogos()}<div class="footer-inner"><div class="footer-brand"><a href="#/home" aria-label="OPENDOOR · ${esc(t('navHome'))}"><img src="assets/images/logo-opendoor-black.png" width="142" height="23" alt="OPENDOOR"></a><p class="footer-slogan">${esc(config.property.slogan)}</p></div><div class="footer-info">Pegognaga, Mantova, ${esc(t('italy'))}<div class="cin">CIN ${esc(config.property.cin)}</div></div>${external(config.property.airbnb,t('airbnb'),null,'airbnb-link')}</div>`;
+    document.getElementById('footer').innerHTML=`${platformLogos()}${socialChannels()}<div class="footer-inner"><div class="footer-brand"><a href="#/home" aria-label="OPENDOOR · ${esc(t('navHome'))}"><img src="assets/images/logo-opendoor-black.png" width="142" height="23" alt="OPENDOOR"></a><p class="footer-slogan">${esc(config.property.slogan)}</p></div><div class="footer-info">Pegognaga, Mantova, ${esc(t('italy'))}<div class="cin">CIN ${esc(config.property.cin)}</div></div>${external(config.property.airbnb,t('airbnb'),null,'airbnb-link')}</div>`;
   }
   function home() {
     const journey=(number,key,ids,extra='',cls='')=>`<section class="journey-section ${cls}" aria-labelledby="journey-${number}"><div class="journey-heading"><span class="journey-number" aria-hidden="true">0${number}</span><div><h2 id="journey-${number}">${esc(t(key))}</h2><p>${esc(t(key+'Desc'))}</p></div></div><div class="journey-grid">${ids.map(id=>tile(cards.find(card=>card[0]===id))).join('')}</div>${extra}</section>`;

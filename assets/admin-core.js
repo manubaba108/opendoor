@@ -24,6 +24,14 @@
     if(!value)return true;
     try {const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password;}catch{return false;}
   }
+  function channelURL(value,channel) {
+    if(!value)return true;
+    if(typeof value!=='string'||value.length>2000||!httpsURL(value))return false;
+    const url=new URL(value),host=url.hostname.toLowerCase();
+    if(channel==='instagram')return ['instagram.com','www.instagram.com'].includes(host)&&url.pathname!=='/';
+    if(channel==='google')return (url.pathname!=='/'||Boolean(url.search))&&(/^(?:(?:www|maps|travel)\.)?google\.(?:com|[a-z]{2}|co\.[a-z]{2}|com\.[a-z]{2})$/.test(host)||['maps.app.goo.gl','g.page'].includes(host)||(host==='g.co'&&url.pathname.startsWith('/kgs/'))||(host==='goo.gl'&&url.pathname.startsWith('/maps/')));
+    return false;
+  }
   function mediaURL(value,video=false) {
     if(!value)return true;
     if(/^assets\/(images|uploads)\/[a-zA-Z0-9_./-]+\.(jpg|jpeg|png|webp|mp4|webm)$/.test(value)&&!value.includes('..'))return !video||/\.(mp4|webm)$/i.test(value);
@@ -56,6 +64,7 @@
     if(data.host?.phone&&!/^\+?\d[\d ()-]{6,22}$/.test(data.host.phone))errors.push('Controlla il numero di telefono dell’Host.');
     if(data.host?.email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.host.email))errors.push('Controlla l’indirizzo email dell’Host.');
     for(const value of [data.host?.whatsapp,data.property?.airbnb,...Object.values(data.reviews||{})])if(!httpsURL(value))errors.push('I collegamenti devono iniziare con https://.');
+    for(const channel of ['instagram','google'])if(!channelURL(data.social?.[channel],channel))errors.push('Controlla il link '+(channel==='instagram'?'Instagram':'Google')+' in Social e Google. Usa l’indirizzo pubblico completo della tua pagina.');
     if(data.emergency?.number!=='112')errors.push('Il numero di emergenza deve restare 112.');
     const photos=[data.host?.photo,...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
     if(photos.some(value=>!mediaURL(value)))errors.push('Una foto ha un indirizzo non valido.');
@@ -170,5 +179,5 @@
       return {sha:commit.sha,draftSynchronized};
     }
   }
-  globalThis.OpendoorCMS={GitHubStore,clone,serialize,scriptContent,validateContent,changeText,pendingCount,mediaURL,httpsURL,encodeBytes,LANGUAGES,REPOSITORY,UPLOAD};
+  globalThis.OpendoorCMS={GitHubStore,clone,serialize,scriptContent,validateContent,changeText,pendingCount,mediaURL,httpsURL,channelURL,encodeBytes,LANGUAGES,REPOSITORY,UPLOAD};
 })();
