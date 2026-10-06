@@ -19,7 +19,7 @@ window.OPENDOOR = {
     "airbnb": "https://airbnb.it/h/opendoor/",
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001",
-    "firstAidLocation": "Nell’atrio, dentro l’armadio a vista.",
+    "firstAidLocation": "firstAidLocationText",
     "firstAidPhoto": "assets/uploads/first-aid-location.webp"
   },
   "host": {
@@ -1032,7 +1032,8 @@ window.OPENDOOR = {
       "nobleCategory": "Cucina & cocktail bar",
       "nobleGuide": "Hamburger creativi, piadine, birre e cocktail. Le recensioni consultate apprezzano cucina e accoglienza. Locale piccolo e informale; per una cena con bambini, verifica disponibilità e proposte.",
       "nobleHours": "Cena dalle 19. Mercoledì chiuso secondo Restaurant Guru. L’orario di chiusura del locale non coincide necessariamente con quello della cucina: chiama per conferma.",
-      "nobleBudget": "Fascia indicata nelle recensioni recenti. Listino del menu non verificato; bevande ed extra possono cambiare il conto."
+      "nobleBudget": "Fascia indicata nelle recensioni recenti. Listino del menu non verificato; bevande ed extra possono cambiare il conto.",
+      "firstAidLocationText": "Nell’atrio, dentro l’armadio a vista."
     },
     "en": {
       "navHome": "Home",
@@ -1398,7 +1399,8 @@ window.OPENDOOR = {
       "nobleCategory": "Food & cocktail bar",
       "nobleGuide": "Creative burgers, piadina flatbreads, beers and cocktails. Reviewed feedback praises the food and welcome. A small, informal venue; check availability and food options when dining with children.",
       "nobleHours": "Dinner from 19:00. Closed Wednesday according to Restaurant Guru. Kitchen closing times may differ from bar hours; call to confirm.",
-      "nobleBudget": "Range reported in recent reviews. Menu prices not verified; drinks and extras may change the total."
+      "nobleBudget": "Range reported in recent reviews. Menu prices not verified; drinks and extras may change the total.",
+      "firstAidLocationText": "Inside the cabinet in the entrance hall."
     },
     "de": {
       "navHome": "Start",
@@ -1764,7 +1766,8 @@ window.OPENDOOR = {
       "nobleCategory": "Küche & Cocktailbar",
       "nobleGuide": "Kreative Burger, Piadine, Bier und Cocktails. Gelesene Bewertungen loben Essen und Gastfreundschaft. Kleines, ungezwungenes Lokal; bei einem Essen mit Kindern Plätze und Speisen erfragen.",
       "nobleHours": "Abendessen ab 19 Uhr. Laut Restaurant Guru mittwochs geschlossen. Die Küche kann früher schließen als die Bar; bitte anrufen.",
-      "nobleBudget": "Preisspanne laut neueren Bewertungen. Speisekartenpreise nicht verifiziert; Getränke und Extras können den Betrag verändern."
+      "nobleBudget": "Preisspanne laut neueren Bewertungen. Speisekartenpreise nicht verifiziert; Getränke und Extras können den Betrag verändern.",
+      "firstAidLocationText": "Im Schrank im Eingangsbereich."
     },
     "fr": {
       "navHome": "Accueil",
@@ -2130,7 +2133,8 @@ window.OPENDOOR = {
       "nobleCategory": "Cuisine & bar à cocktails",
       "nobleGuide": "Burgers créatifs, piadines, bières et cocktails. Les avis consultés apprécient la cuisine et l’accueil. Petit établissement décontracté ; avec des enfants, vérifiez les places et les plats proposés.",
       "nobleHours": "Dîner à partir de 19 h. Fermé le mercredi selon Restaurant Guru. La cuisine peut fermer avant le bar ; appelez pour confirmer.",
-      "nobleBudget": "Fourchette indiquée dans les avis récents. Prix de la carte non vérifiés ; boissons et suppléments peuvent modifier l’addition."
+      "nobleBudget": "Fourchette indiquée dans les avis récents. Prix de la carte non vérifiés ; boissons et suppléments peuvent modifier l’addition.",
+      "firstAidLocationText": "Dans le placard du hall d’entrée."
     },
     "nl": {
       "navHome": "Home",
@@ -2496,7 +2500,8 @@ window.OPENDOOR = {
       "nobleCategory": "Eten & cocktailbar",
       "nobleGuide": "Creatieve burgers, piadina’s, bier en cocktails. Geraadpleegde reviews prijzen het eten en de ontvangst. Kleine, informele zaak; controleer beschikbaarheid en gerechten als je met kinderen eet.",
       "nobleHours": "Diner vanaf 19.00 uur. Volgens Restaurant Guru woensdag gesloten. De keuken kan eerder sluiten dan de bar; bel ter bevestiging.",
-      "nobleBudget": "Prijsklasse uit recente reviews. Menuprijzen niet geverifieerd; drankjes en extra’s kunnen het totaal veranderen."
+      "nobleBudget": "Prijsklasse uit recente reviews. Menuprijzen niet geverifieerd; drankjes en extra’s kunnen het totaal veranderen.",
+      "firstAidLocationText": "In de kast in de hal."
     },
     "pl": {
       "navHome": "Start",
@@ -2862,7 +2867,8 @@ window.OPENDOOR = {
       "nobleCategory": "Kuchnia i cocktail bar",
       "nobleGuide": "Pomysłowe burgery, piadiny, piwa i koktajle. Sprawdzone opinie chwalą kuchnię i obsługę. Mały, swobodny lokal; na kolację z dziećmi sprawdź dostępność miejsc i dań.",
       "nobleHours": "Kolacja od 19:00. Według Restaurant Guru w środę zamknięte. Kuchnia może zamykać się wcześniej niż bar; zadzwoń, aby potwierdzić.",
-      "nobleBudget": "Przedział z niedawnych opinii. Ceny w menu niezweryfikowane; napoje i dodatki mogą zmienić rachunek."
+      "nobleBudget": "Przedział z niedawnych opinii. Ceny w menu niezweryfikowane; napoje i dodatki mogą zmienić rachunek.",
+      "firstAidLocationText": "W szafce w holu wejściowym."
     },
     "ro": {
       "navHome": "Acasă",
@@ -3228,7 +3234,8 @@ window.OPENDOOR = {
       "nobleCategory": "Bucătărie și cocktail bar",
       "nobleGuide": "Burgeri creativi, piadine, bere și cocktailuri. Recenziile consultate apreciază mâncarea și primirea. Local mic și informal; pentru cină cu copii, verifică locurile și preparatele disponibile.",
       "nobleHours": "Cină de la ora 19. Miercuri închis conform Restaurant Guru. Bucătăria se poate închide mai devreme decât barul; sună pentru confirmare.",
-      "nobleBudget": "Interval indicat în recenzii recente. Prețurile meniului nu sunt verificate; băuturile și extraopțiunile pot schimba totalul."
+      "nobleBudget": "Interval indicat în recenzii recente. Prețurile meniului nu sunt verificate; băuturile și extraopțiunile pot schimba totalul.",
+      "firstAidLocationText": "În dulapul din holul de la intrare."
     }
   },
   "reviews": {
