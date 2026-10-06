@@ -63,7 +63,14 @@
   let route='home',toastTimer,feedbackDraft='';
   const checks=new Map();
   const whatsappURL=(message=t('greeting'),host=primaryHost)=>{if(!host.whatsapp)return null;const url=new URL(host.whatsapp);url.searchParams.set('text',message);return url.href;};
-  const external=(url,text,iconName,cls='button')=>`<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${iconName?icon(iconName):''}<span>${esc(text)}</span></a>`;
+  // Maps and WhatsApp use native navigation, including mobile app handoff.
+  const externalTarget=url=>{
+    try {
+      const host=new URL(url).hostname;
+      return ['www.google.com','google.com','maps.google.com','maps.app.goo.gl','g.page','wa.me','api.whatsapp.com'].includes(host)?'_self':'_blank';
+    }catch{return '_blank';}
+  };
+  const external=(url,text,iconName,cls='button')=>`<a class="${cls}" href="${esc(url)}" target="${externalTarget(url)}" rel="noopener noreferrer">${iconName?icon(iconName):''}<span>${esc(text)}</span></a>`;
   const call=(number,text,cls='button outline')=>`<a class="${cls}" href="tel:${esc(number)}">${icon('phone')}<span>${esc(text)}</span></a>`;
   const emailButton=host=>`<a class="button outline" href="mailto:${esc(host.email)}">${icon('mail')}<span>${lang==='de'?'E-Mail':'Email'}</span></a>`;
   const helpButtons=(host=primaryHost)=>`<div class="actions">${host.whatsapp?external(whatsappURL(t('greeting'),host),t('whatsapp'),'whatsapp'):''}${host.phone?call(host.phone,t('callHost')):''}${host.email?emailButton(host):''}</div>`;
