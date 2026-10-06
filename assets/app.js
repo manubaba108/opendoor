@@ -136,7 +136,7 @@
   }
   function closing(){
     const item=config.modules.videos.items.find(video=>video.id==='door-closing');
-    return `${heading('closing','closingDesc')}<div class="content-narrow">${item&&config.modules.videos.enabled?videoCard(item):''}<section class="panel"><h2>${esc(t('closeDoor'))}</h2><p>${esc(t('codeInfo'))}</p><div class="actions"><a class="button secondary" href="#/checkout">${esc(t('checkout'))}</a><a class="button outline" href="#/help">${esc(t('contactHost'))}</a></div></section></div>`;
+    return `${heading('closing','closingDesc')}<div class="content-narrow">${item&&config.modules.videos.enabled?videoCard(item):''}<section class="panel"><h2>${esc(t('closeDoor'))}</h2><div class="actions"><a class="button secondary" href="#/checkout">${esc(t('checkout'))}</a><a class="button outline" href="#/help">${esc(t('contactHost'))}</a></div></section></div>`;
   }
   function gallery(full=false) {
     const data=config.modules.gallery;if(!data.enabled)return '';
