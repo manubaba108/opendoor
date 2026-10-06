@@ -93,6 +93,15 @@
     if(videos.some(value=>!mediaURL(value,true)))errors.push('Usa un video MP4 o WebM, oppure un link diretto al file.');
     if((data.modules?.videos?.items||[]).length!==3)errors.push('Mantieni i tre video di apertura, chiusura e citofono.');
     for(const place of [...(data.localFood||[]),...(data.nearbyServices||[]),...(data.explore||[])])if(!httpsURL(place.mapUrl))errors.push('Controlla il link Maps di '+(place.name||'un luogo')+'.');
+    if(data.property.firstAidLocation!=null&&(typeof data.property.firstAidLocation!=='string'||data.property.firstAidLocation.length>1000))errors.push('Controlla la posizione del kit di pronto soccorso.');
+    for(const place of data.localFood||[]){
+      const guide=place.guide;if(!guide)continue;
+      if(guide.menu&&!httpsURL(guide.menu))errors.push('Il menu deve usare un collegamento HTTPS.');
+      if(guide.phone&&!/^\+?\d[\d ()-]{6,22}$/.test(guide.phone))errors.push('Controlla il telefono di '+place.name+'.');
+      if(guide.price!=null&&(typeof guide.price!=='string'||guide.price.length>1000))errors.push('Controlla il budget di '+place.name+'.');
+      if(guide.rating&&(!Number.isFinite(guide.rating.value)||guide.rating.value<0||guide.rating.value>5||!httpsURL(guide.rating.url)))errors.push('Controlla la valutazione di '+place.name+'.');
+      if(guide.sources&&(!Array.isArray(guide.sources)||guide.sources.some(source=>!httpsURL(source.url))))errors.push('Controlla le fonti di '+place.name+'.');
+    }
     for(const manual of data.houseManual||[])for(const key of manual.instructions||[])if(!keys.includes(key))errors.push('Un’istruzione non è collegata ai testi tradotti.');
     const serialized=JSON.stringify(data);
     if(/github_pat_|ghp_[A-Za-z0-9]{15,}|"(?:password|wifiPassword|doorCode|accessToken|token)"\s*:/i.test(serialized))errors.push('Non inserire chiavi di accesso, password o codici privati nei contenuti pubblici.');

@@ -6,6 +6,14 @@ Static guest hub for OPENDOOR in Pegognaga. The permanent QR URL remains https:/
 
 Repository scope is **manubaba108/opendoor** only. Work on `guest-hub-v1` and do not merge into `main` without the owner's explicit approval. GitHub Pages publishes the existing URL after the approved merge. This branch does not change the current QR destination.
 
+## Guest journey update, 6 October 2026
+
+The current Home prioritizes the full address and native Maps navigation, then four stages: travel/arrival, settling in, nearby breaks and departure. Food is accessible before arrival, from persistent navigation and again through breakfast/ice-cream shortcuts. There is no clock-based hiding or assumed guest schedule. Reviews follow departure; assistance and emergency access remain available throughout.
+
+`assets/guest-journey.js` adds missing defaults without replacing Host edits, including seven-language labels, researched local-food metadata and the first-aid location field. `assets/journey.css` supplies consistent functional icon colours. Both public content files are synchronized. The Host panel also normalizes older drafts, so later saves retain the additions. Public source notes are linked within each food card; research decisions are recorded in `docs/LOCAL-FOOD-SOURCES.md`.
+
+Maps and WhatsApp retain the corrected same-tab navigation, touch manipulation and mouse-only hover effects. Door closing now has its own route and uses the existing `door-closing` video slot. The video source and first-aid location still require Host-supplied content; no operational detail or private access code has been invented.
+
 ## Guest experience
 
 Four primary areas are Home, House, Explore and Help. Direct routes cover check-in, Wi-Fi, parking, dining, local services, health, waste, check-out, emergency assistance, the photo gallery, reviews and private suggestions.
