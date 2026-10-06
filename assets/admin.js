@@ -39,6 +39,7 @@
   function slots(kind) {
     const result=[];
     if(kind==='photo') {
+      state.content.modules.checkinPhotos.items.forEach((item,index)=>result.push({id:'checkin-'+item.id,title:t(item.titleKey),group:'Check-in · ingresso e appartamento',path:'modules.checkinPhotos.items.'+index+'.src'}));
       state.content.modules.gallery.items.forEach((item,index)=>result.push({id:'gallery-'+item.id,title:t(item.altKey),group:'Galleria della casa',path:'modules.gallery.items.'+index+'.src',gallery:index}));
       state.content.houseManual.forEach((item,index)=>{if(item.id!=='rules')result.push({id:'guide-'+item.id,title:t(item.id),group:'Guide della casa',path:'houseManual.'+index+'.photo'});});
       state.content.explore.forEach((item,index)=>result.push({id:'place-'+index,title:item.name||t(item.nameKey),group:'Luoghi da visitare',path:'explore.'+index+'.image.src',place:index}));

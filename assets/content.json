@@ -129,6 +129,22 @@
     },
     "hospital": {
       "enabled": false
+    },
+    "checkinPhotos": {
+      "items": [
+        {
+          "id": "building-entrance",
+          "titleKey": "buildingEntrancePhoto",
+          "hintKey": "buildingEntranceHint",
+          "src": null
+        },
+        {
+          "id": "apartment-door",
+          "titleKey": "apartmentDoorPhoto",
+          "hintKey": "apartmentDoorHint",
+          "src": null
+        }
+      ]
     }
   },
   "houseRules": [
@@ -525,6 +541,47 @@
         ],
         "checked": "2026-10-06"
       }
+    },
+    {
+      "name": "Noble Experiment",
+      "category": "nobleCategory",
+      "address": "Viale San Lorenzo 22, 46020 Pegognaga (MN), Italia",
+      "distance": "300 m",
+      "description": "nobleGuide",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Noble%20Experiment%2C%20Pegognaga%2C%20Italia",
+      "guide": {
+        "id": "noble",
+        "summary": "nobleGuide",
+        "hours": "nobleHours",
+        "price": "€20–30",
+        "budget": "nobleBudget",
+        "phone": "+393534368001",
+        "groups": [
+          "meals"
+        ],
+        "rating": {
+          "value": 4.5,
+          "count": 252,
+          "provider": "Google · Restaurant Guru",
+          "url": "https://restaurantguru.it/Noble-Experiment-Pegognaga"
+        },
+        "sources": [
+          {
+            "label": "Restaurant Guru · recensioni e orari",
+            "url": "https://restaurantguru.it/Noble-Experiment-Pegognaga"
+          },
+          {
+            "label": "Noble Experiment · Instagram",
+            "url": "https://www.instagram.com/noble_experiment_pego/"
+          },
+          {
+            "label": "Menu indicato dal locale · disponibilità da verificare",
+            "url": "https://disv.it/NobleExperiment"
+          }
+        ],
+        "checked": "2026-10-06"
+      }
     }
   ],
   "nearbyServices": [
@@ -667,7 +724,7 @@
       "host": "Il tuo Host",
       "hostReply": "Scrivici su WhatsApp o chiamaci. Rispondiamo appena possibile.",
       "greeting": "Ciao, sono un ospite di OPENDOOR e ho bisogno di aiuto.",
-      "checkinIntro": "Ecco come arrivare ed entrare, passo dopo passo.",
+      "checkinIntro": "Dal portone del palazzo alla porta dell’appartamento.",
       "arriveTitle": "Come arrivare",
       "arriveText": "Prendi l’uscita Pegognaga dell’A22. L’appartamento dista circa 1,9 km dal casello. Per l’indirizzo esatto, consulta le informazioni di check-in ricevute.",
       "parkingTitle": "Parcheggio gratuito",
@@ -930,7 +987,7 @@
       "foodAll": "Tutti",
       "foodMeals": "Pranzo e cena",
       "foodCoffee": "Caffè e colazione",
-      "foodTreat": "Gelato",
+      "foodTreat": "Gelateria",
       "foodTakeaway": "Da asporto",
       "budgetLabel": "Budget indicativo / persona",
       "priceUnknown": "Prezzo da verificare",
@@ -964,7 +1021,17 @@
       "aaronGuide": "Gelato e torte artigianali. Diverse recensioni apprezzano gusti e cortesia, ma i giudizi non sono tutti concordi.",
       "aaronHours": "Pausa dolce di giorno e la sera. Gli orari pubblicati variano: controlla la scheda, anche per le aperture stagionali.",
       "coffeeNearby": "Altri bar nelle vicinanze",
-      "maiHours": "Cena 17:30–22, giovedì chiuso secondo Restaurant Guru. Conferma disponibilità e orari al locale."
+      "maiHours": "Cena 17:30–22, giovedì chiuso secondo Restaurant Guru. Conferma disponibilità e orari al locale.",
+      "buildingEntrancePhoto": "Ingresso del palazzo",
+      "buildingEntranceHint": "La foto dell’ingresso del palazzo sarà disponibile qui.",
+      "apartmentDoorPhoto": "Porta dell’appartamento",
+      "apartmentDoorHint": "La foto della porta di OPENDOOR sarà disponibile qui.",
+      "arrivalIntro": "Indirizzo, percorso e parcheggio per raggiungere OPENDOOR.",
+      "backArrival": "Torna a Come arrivare",
+      "nobleCategory": "Cucina & cocktail bar",
+      "nobleGuide": "Hamburger creativi, piadine, birre e cocktail. Le recensioni consultate apprezzano cucina e accoglienza. Locale piccolo e informale; per una cena con bambini, verifica disponibilità e proposte.",
+      "nobleHours": "Cena dalle 19. Mercoledì chiuso secondo Restaurant Guru. L’orario di chiusura del locale non coincide necessariamente con quello della cucina: chiama per conferma.",
+      "nobleBudget": "Fascia indicata nelle recensioni recenti. Listino del menu non verificato; bevande ed extra possono cambiare il conto."
     },
     "en": {
       "navHome": "Home",
@@ -1023,7 +1090,7 @@
       "host": "Your host",
       "hostReply": "Message us on WhatsApp or give us a call. We’ll reply as soon as we can.",
       "greeting": "Hi, I am a guest at OPENDOOR and I need some help.",
-      "checkinIntro": "You’re here. Here’s how to get in, step by step.",
+      "checkinIntro": "From the building entrance to your apartment door.",
       "arriveTitle": "Getting here",
       "arriveText": "Take the Pegognaga exit on the A22. The apartment is about 1.9 km from the motorway exit. You’ll find the exact address in your check-in information.",
       "parkingTitle": "Free parking",
@@ -1286,7 +1353,7 @@
       "foodAll": "All",
       "foodMeals": "Lunch and dinner",
       "foodCoffee": "Coffee and breakfast",
-      "foodTreat": "Ice cream",
+      "foodTreat": "Ice cream shop",
       "foodTakeaway": "Takeaway",
       "budgetLabel": "Indicative budget / person",
       "priceUnknown": "Price to be checked",
@@ -1320,7 +1387,17 @@
       "aaronGuide": "Artisan ice cream and cakes. Several reviews praise flavours and service, though opinions vary.",
       "aaronHours": "A sweet break during the day or evening. Published hours vary: check the listing, including seasonal opening.",
       "coffeeNearby": "Other nearby cafés",
-      "maiHours": "Dinner 17:30–22, Thursday closed according to Restaurant Guru. Confirm hours and availability with the venue."
+      "maiHours": "Dinner 17:30–22, Thursday closed according to Restaurant Guru. Confirm hours and availability with the venue.",
+      "buildingEntrancePhoto": "Building entrance",
+      "buildingEntranceHint": "The building entrance photo will appear here.",
+      "apartmentDoorPhoto": "Apartment door",
+      "apartmentDoorHint": "The photo of the OPENDOOR door will appear here.",
+      "arrivalIntro": "Address, directions and parking for OPENDOOR.",
+      "backArrival": "Back to directions",
+      "nobleCategory": "Food & cocktail bar",
+      "nobleGuide": "Creative burgers, piadina flatbreads, beers and cocktails. Reviewed feedback praises the food and welcome. A small, informal venue; check availability and food options when dining with children.",
+      "nobleHours": "Dinner from 19:00. Closed Wednesday according to Restaurant Guru. Kitchen closing times may differ from bar hours; call to confirm.",
+      "nobleBudget": "Range reported in recent reviews. Menu prices not verified; drinks and extras may change the total."
     },
     "de": {
       "navHome": "Start",
@@ -1379,7 +1456,7 @@
       "host": "Dein Gastgeber",
       "hostReply": "Schreib uns auf WhatsApp oder ruf uns an. Wir antworten so bald wie möglich.",
       "greeting": "Hallo, ich bin Gast bei OPENDOOR und brauche Hilfe.",
-      "checkinIntro": "Du bist angekommen. So kommst du hinein, Schritt für Schritt.",
+      "checkinIntro": "Vom Hauseingang bis zur Wohnungstür.",
       "arriveTitle": "So kommst du zu uns",
       "arriveText": "Nimm die Ausfahrt Pegognaga der A22. Die Wohnung ist etwa 1,9 km von der Autobahnausfahrt entfernt. Die genaue Adresse findest du in deinen Check-in-Informationen.",
       "parkingTitle": "Kostenlos parken",
@@ -1642,7 +1719,7 @@
       "foodAll": "Alle",
       "foodMeals": "Mittag- und Abendessen",
       "foodCoffee": "Kaffee und Frühstück",
-      "foodTreat": "Eis",
+      "foodTreat": "Eisdiele",
       "foodTakeaway": "Zum Mitnehmen",
       "budgetLabel": "Richtpreis / Person",
       "priceUnknown": "Preis bitte erfragen",
@@ -1676,7 +1753,17 @@
       "aaronGuide": "Handwerkliches Eis und Torten. Mehrere Bewertungen loben Sorten und Freundlichkeit, die Meinungen sind jedoch gemischt.",
       "aaronHours": "Eine süße Pause tagsüber oder abends. Veröffentlichte Zeiten variieren; Eintrag und saisonale Öffnung prüfen.",
       "coffeeNearby": "Weitere Cafés in der Nähe",
-      "maiHours": "Abends 17:30–22, laut Restaurant Guru donnerstags geschlossen. Zeiten und Verfügbarkeit beim Lokal bestätigen."
+      "maiHours": "Abends 17:30–22, laut Restaurant Guru donnerstags geschlossen. Zeiten und Verfügbarkeit beim Lokal bestätigen.",
+      "buildingEntrancePhoto": "Hauseingang",
+      "buildingEntranceHint": "Hier erscheint das Foto des Hauseingangs.",
+      "apartmentDoorPhoto": "Wohnungstür",
+      "apartmentDoorHint": "Hier erscheint das Foto der OPENDOOR-Wohnungstür.",
+      "arrivalIntro": "Adresse, Anfahrt und Parkmöglichkeiten für OPENDOOR.",
+      "backArrival": "Zurück zur Anfahrt",
+      "nobleCategory": "Küche & Cocktailbar",
+      "nobleGuide": "Kreative Burger, Piadine, Bier und Cocktails. Gelesene Bewertungen loben Essen und Gastfreundschaft. Kleines, ungezwungenes Lokal; bei einem Essen mit Kindern Plätze und Speisen erfragen.",
+      "nobleHours": "Abendessen ab 19 Uhr. Laut Restaurant Guru mittwochs geschlossen. Die Küche kann früher schließen als die Bar; bitte anrufen.",
+      "nobleBudget": "Preisspanne laut neueren Bewertungen. Speisekartenpreise nicht verifiziert; Getränke und Extras können den Betrag verändern."
     },
     "fr": {
       "navHome": "Accueil",
@@ -1735,7 +1822,7 @@
       "host": "Votre hôte",
       "hostReply": "Écrivez-nous sur WhatsApp ou appelez-nous. Nous vous répondrons dès que possible.",
       "greeting": "Bonjour, je séjourne à OPENDOOR et j’ai besoin d’aide.",
-      "checkinIntro": "Voici comment arriver et accéder au logement, étape par étape.",
+      "checkinIntro": "De l’entrée de l’immeuble à la porte de l’appartement.",
       "arriveTitle": "Comment venir",
       "arriveText": "Prenez la sortie Pegognaga de l’A22. L’appartement se trouve à environ 1,9 km de la sortie. Consultez vos informations d’arrivée pour connaître l’adresse exacte.",
       "parkingTitle": "Parking gratuit",
@@ -1998,7 +2085,7 @@
       "foodAll": "Tout",
       "foodMeals": "Déjeuner et dîner",
       "foodCoffee": "Café et petit-déjeuner",
-      "foodTreat": "Glaces",
+      "foodTreat": "Glacier",
       "foodTakeaway": "À emporter",
       "budgetLabel": "Budget indicatif / personne",
       "priceUnknown": "Prix à vérifier",
@@ -2032,7 +2119,17 @@
       "aaronGuide": "Glaces et gâteaux artisanaux. Plusieurs avis apprécient les saveurs et l’accueil, mais les opinions varient.",
       "aaronHours": "Une pause sucrée en journée ou en soirée. Horaires variables selon les sources ; vérifiez aussi l’ouverture saisonnière.",
       "coffeeNearby": "Autres cafés à proximité",
-      "maiHours": "Dîner 17:30–22, fermé le jeudi selon Restaurant Guru. Confirmez les horaires et disponibilités auprès du local."
+      "maiHours": "Dîner 17:30–22, fermé le jeudi selon Restaurant Guru. Confirmez les horaires et disponibilités auprès du local.",
+      "buildingEntrancePhoto": "Entrée de l’immeuble",
+      "buildingEntranceHint": "La photo de l’entrée de l’immeuble sera disponible ici.",
+      "apartmentDoorPhoto": "Porte de l’appartement",
+      "apartmentDoorHint": "La photo de la porte d’OPENDOOR sera disponible ici.",
+      "arrivalIntro": "Adresse, itinéraire et stationnement pour rejoindre OPENDOOR.",
+      "backArrival": "Retour à l’itinéraire",
+      "nobleCategory": "Cuisine & bar à cocktails",
+      "nobleGuide": "Burgers créatifs, piadines, bières et cocktails. Les avis consultés apprécient la cuisine et l’accueil. Petit établissement décontracté ; avec des enfants, vérifiez les places et les plats proposés.",
+      "nobleHours": "Dîner à partir de 19 h. Fermé le mercredi selon Restaurant Guru. La cuisine peut fermer avant le bar ; appelez pour confirmer.",
+      "nobleBudget": "Fourchette indiquée dans les avis récents. Prix de la carte non vérifiés ; boissons et suppléments peuvent modifier l’addition."
     },
     "nl": {
       "navHome": "Home",
@@ -2091,7 +2188,7 @@
       "host": "Je host",
       "hostReply": "Stuur ons een WhatsApp of bel ons. We reageren zo snel mogelijk.",
       "greeting": "Hallo, ik ben een gast van OPENDOOR en heb hulp nodig.",
-      "checkinIntro": "Je bent er. Zo kom je binnen, stap voor stap.",
+      "checkinIntro": "Van de ingang van het gebouw tot de deur van het appartement.",
       "arriveTitle": "Zo kom je hier",
       "arriveText": "Neem de afrit Pegognaga op de A22. Het appartement ligt op ongeveer 1,9 km van de afrit. Het exacte adres staat in je incheckinformatie.",
       "parkingTitle": "Gratis parkeren",
@@ -2354,7 +2451,7 @@
       "foodAll": "Alles",
       "foodMeals": "Lunch en diner",
       "foodCoffee": "Koffie en ontbijt",
-      "foodTreat": "IJs",
+      "foodTreat": "IJssalon",
       "foodTakeaway": "Afhalen",
       "budgetLabel": "Richtprijs / persoon",
       "priceUnknown": "Prijs navragen",
@@ -2388,7 +2485,17 @@
       "aaronGuide": "Ambachtelijk ijs en taarten. Verschillende reviews prijzen smaken en service, maar meningen verschillen.",
       "aaronHours": "Een zoete pauze overdag of ’s avonds. Gepubliceerde tijden verschillen; controleer ook seizoensopening.",
       "coffeeNearby": "Andere cafés in de buurt",
-      "maiHours": "Diner 17:30–22, donderdag gesloten volgens Restaurant Guru. Bevestig tijden en beschikbaarheid bij de zaak."
+      "maiHours": "Diner 17:30–22, donderdag gesloten volgens Restaurant Guru. Bevestig tijden en beschikbaarheid bij de zaak.",
+      "buildingEntrancePhoto": "Ingang van het gebouw",
+      "buildingEntranceHint": "Hier komt de foto van de ingang van het gebouw.",
+      "apartmentDoorPhoto": "Deur van het appartement",
+      "apartmentDoorHint": "Hier komt de foto van de deur van OPENDOOR.",
+      "arrivalIntro": "Adres, route en parkeren bij OPENDOOR.",
+      "backArrival": "Terug naar de route",
+      "nobleCategory": "Eten & cocktailbar",
+      "nobleGuide": "Creatieve burgers, piadina’s, bier en cocktails. Geraadpleegde reviews prijzen het eten en de ontvangst. Kleine, informele zaak; controleer beschikbaarheid en gerechten als je met kinderen eet.",
+      "nobleHours": "Diner vanaf 19.00 uur. Volgens Restaurant Guru woensdag gesloten. De keuken kan eerder sluiten dan de bar; bel ter bevestiging.",
+      "nobleBudget": "Prijsklasse uit recente reviews. Menuprijzen niet geverifieerd; drankjes en extra’s kunnen het totaal veranderen."
     },
     "pl": {
       "navHome": "Start",
@@ -2447,7 +2554,7 @@
       "host": "Twój gospodarz",
       "hostReply": "Napisz do nas przez WhatsApp lub zadzwoń. Odpowiemy tak szybko, jak to możliwe.",
       "greeting": "Cześć, jestem gościem OPENDOOR i potrzebuję pomocy.",
-      "checkinIntro": "Jesteś na miejscu. Oto jak wejść, krok po kroku.",
+      "checkinIntro": "Od wejścia do budynku do drzwi mieszkania.",
       "arriveTitle": "Jak dojechać",
       "arriveText": "Zjedź z A22 na zjeździe Pegognaga. Mieszkanie znajduje się około 1,9 km od zjazdu. Dokładny adres znajdziesz w otrzymanych informacjach o zameldowaniu.",
       "parkingTitle": "Bezpłatny parking",
@@ -2710,7 +2817,7 @@
       "foodAll": "Wszystkie",
       "foodMeals": "Obiad i kolacja",
       "foodCoffee": "Kawa i śniadanie",
-      "foodTreat": "Lody",
+      "foodTreat": "Lodziarnia",
       "foodTakeaway": "Na wynos",
       "budgetLabel": "Orientacyjny budżet / osoba",
       "priceUnknown": "Sprawdź cenę",
@@ -2744,7 +2851,17 @@
       "aaronGuide": "Rzemieślnicze lody i ciasta. Kilka opinii chwali smaki i obsługę, choć zdania są podzielone.",
       "aaronHours": "Słodka przerwa w ciągu dnia lub wieczorem. Podane godziny się różnią; sprawdź także otwarcie sezonowe.",
       "coffeeNearby": "Inne kawiarnie w pobliżu",
-      "maiHours": "Kolacja 17:30–22, według Restaurant Guru w czwartek zamknięte. Potwierdź godziny i dostępność w lokalu."
+      "maiHours": "Kolacja 17:30–22, według Restaurant Guru w czwartek zamknięte. Potwierdź godziny i dostępność w lokalu.",
+      "buildingEntrancePhoto": "Wejście do budynku",
+      "buildingEntranceHint": "Tutaj będzie zdjęcie wejścia do budynku.",
+      "apartmentDoorPhoto": "Drzwi do mieszkania",
+      "apartmentDoorHint": "Tutaj będzie zdjęcie drzwi OPENDOOR.",
+      "arrivalIntro": "Adres, dojazd i parking przy OPENDOOR.",
+      "backArrival": "Wróć do dojazdu",
+      "nobleCategory": "Kuchnia i cocktail bar",
+      "nobleGuide": "Pomysłowe burgery, piadiny, piwa i koktajle. Sprawdzone opinie chwalą kuchnię i obsługę. Mały, swobodny lokal; na kolację z dziećmi sprawdź dostępność miejsc i dań.",
+      "nobleHours": "Kolacja od 19:00. Według Restaurant Guru w środę zamknięte. Kuchnia może zamykać się wcześniej niż bar; zadzwoń, aby potwierdzić.",
+      "nobleBudget": "Przedział z niedawnych opinii. Ceny w menu niezweryfikowane; napoje i dodatki mogą zmienić rachunek."
     },
     "ro": {
       "navHome": "Acasă",
@@ -2803,7 +2920,7 @@
       "host": "Gazda ta",
       "hostReply": "Scrie-ne pe WhatsApp sau sună-ne. Răspundem cât mai curând posibil.",
       "greeting": "Bună, sunt un oaspete la OPENDOOR și am nevoie de ajutor.",
-      "checkinIntro": "Ai ajuns. Iată cum intri, pas cu pas.",
+      "checkinIntro": "De la intrarea în clădire până la ușa apartamentului.",
       "arriveTitle": "Cum ajungi",
       "arriveText": "Ieși de pe A22 la Pegognaga. Apartamentul se află la aproximativ 1,9 km de ieșirea de pe autostradă. Adresa exactă este în informațiile de check-in primite.",
       "parkingTitle": "Parcare gratuită",
@@ -3066,7 +3183,7 @@
       "foodAll": "Toate",
       "foodMeals": "Prânz și cină",
       "foodCoffee": "Cafea și mic dejun",
-      "foodTreat": "Înghețată",
+      "foodTreat": "Gelaterie",
       "foodTakeaway": "La pachet",
       "budgetLabel": "Buget orientativ / persoană",
       "priceUnknown": "Preț de verificat",
@@ -3100,7 +3217,17 @@
       "aaronGuide": "Înghețată și torturi artizanale. Mai multe recenzii apreciază gusturile și amabilitatea, dar părerile diferă.",
       "aaronHours": "O pauză dulce ziua sau seara. Programul publicat variază; verifică și deschiderea sezonieră.",
       "coffeeNearby": "Alte cafenele în apropiere",
-      "maiHours": "Cină 17:30–22, joi închis conform Restaurant Guru. Confirmă programul și disponibilitatea la local."
+      "maiHours": "Cină 17:30–22, joi închis conform Restaurant Guru. Confirmă programul și disponibilitatea la local.",
+      "buildingEntrancePhoto": "Intrarea în clădire",
+      "buildingEntranceHint": "Fotografia intrării în clădire va apărea aici.",
+      "apartmentDoorPhoto": "Ușa apartamentului",
+      "apartmentDoorHint": "Fotografia ușii OPENDOOR va apărea aici.",
+      "arrivalIntro": "Adresă, traseu și parcare pentru OPENDOOR.",
+      "backArrival": "Înapoi la indicații",
+      "nobleCategory": "Bucătărie și cocktail bar",
+      "nobleGuide": "Burgeri creativi, piadine, bere și cocktailuri. Recenziile consultate apreciază mâncarea și primirea. Local mic și informal; pentru cină cu copii, verifică locurile și preparatele disponibile.",
+      "nobleHours": "Cină de la ora 19. Miercuri închis conform Restaurant Guru. Bucătăria se poate închide mai devreme decât barul; sună pentru confirmare.",
+      "nobleBudget": "Interval indicat în recenzii recente. Prețurile meniului nu sunt verificate; băuturile și extraopțiunile pot schimba totalul."
     }
   },
   "reviews": {

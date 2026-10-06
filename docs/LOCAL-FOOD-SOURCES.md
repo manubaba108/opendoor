@@ -14,3 +14,11 @@ Only the six existing host selections are enriched. Summaries paraphrase accessi
 Distances and venue selections remain the host's existing approximate values. No claim of the objectively nearest café is made. Maps targets preserve the existing full venue addresses. Apartment and parking directions now include Pegognaga and Mantova.
 
 First-aid location and all three entrance video sources were absent in the current repository. No location, access code or device operation was fabricated. The host can add the location in the management panel; the closing page automatically uses the existing door-closing video slot when populated.
+
+
+## Noble Experiment · 6 ottobre 2026
+- Identità verificata a Pegognaga, profilo ufficiale https://www.instagram.com/noble_experiment_pego/ con cucina e hamburger creativi. Nessun dato degli omonimi di Rimini, San Diego o Melbourne.
+- https://restaurantguru.it/Noble-Experiment-Pegognaga riporta Google 4,5/5 su 252 recensioni nel risultato indicizzato consultato; non usato il punteggio aggregato di 356 voti. Due recensioni recenti indicano €20–30 a persona. L’apertura è serale dalle 19, mercoledì chiuso; la chiusura della cucina non è verificata.
+- Viale San Lorenzo 22 secondo Restaurant Guru, 20 nella scheda Tripadvisor senza recensioni. Il collegamento Maps cerca il nome del locale a Pegognaga per evitare di indirizzare a un civico discordante. Distanza indicativa circa 300 m, stessa zona del Tanino.
+- Menu esterno indicato da https://restaurantguru.it/Noble-Experiment-Pegognaga/menu: https://disv.it/NobleExperiment . Contenuto non accessibile durante la verifica. Nessun prezzo di singolo piatto inventato; budget esplicitamente basato sulle recensioni. Il link resta tra le fonti con disponibilità da verificare.
+- Sintesi delle recensioni accessibili, non lettura esaustiva. Non verificati seggioloni, menu bambini o servizi per famiglie.

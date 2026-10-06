@@ -22,15 +22,13 @@
 #main .info-line{background:#edf5f4}
 #main .guide-symbol{background:var(--tone-bg);color:var(--tone-ink)}
 .stay-welcome{padding:30px 0 20px}
-.stay-welcome h1{font-size:clamp(1.6rem,3vw,2.5rem);letter-spacing:-.05em;margin:8px 0 9px;line-height:1.15}
+.stay-welcome h1{font-size:clamp(2.75rem,5.7vw,4.65rem);letter-spacing:-.065em;margin:16px 0 18px;line-height:1.03;font-weight:780}
+.stay-welcome .home-word{color:var(--primary)}
 .stay-welcome p{font-size:1rem}
-.arrival-launch{display:flex;align-items:center;gap:17px;background:#fff;border:1px solid #c4d6ee;border-radius:23px;padding:25px}
 .arrival-address{flex:1;min-width:0}
 .arrival-address h2{font-size:1.1rem;letter-spacing:.01em}
 .arrival-address p{font-size:1rem;line-height:1.55;margin:5px 0;color:var(--ink)}
 .arrival-address>span{font-size:.875rem;color:var(--muted)}
-.arrival-launch .actions{margin:0;display:flex;flex-direction:column;gap:9px;min-width:205px}
-.arrival-launch .button{width:100%;min-height:47px}
 .arrival-road{margin:24px 0 10px}
 .arrival-address-text{font-weight:650;color:var(--ink)}
 .journey-section{margin-top:35px}
@@ -38,8 +36,8 @@
 .journey-heading h2{font-size:1.4rem}
 .journey-heading p{font-size:.925rem}
 .journey-number{background:var(--travel-bg);color:var(--travel-ink);border:0;font-size:.875rem;width:39px;height:39px}
-.journey-section:nth-of-type(4) .journey-number{background:var(--home-bg);color:var(--home-ink)}
-.journey-section:nth-of-type(5) .journey-number{background:var(--explore-bg);color:var(--explore-ink)}
+.journey-stage-2 .journey-number{background:var(--home-bg);color:var(--home-ink)}
+.journey-stage-3 .journey-number{background:var(--explore-bg);color:var(--explore-ink)}
 .journey-four .journey-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .journey-departure .journey-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .journey-departure .journey-grid .tile{flex-direction:column;align-items:flex-start;min-height:158px;background:#fff;border-color:#dbe4e3}
@@ -48,8 +46,8 @@
 .after-stay{padding-top:28px}
 .after-stay>h2{font-size:1.25rem}
 .after-stay .stay-links{margin-top:14px}
-.help-banner{background:#f1e7f9;border:1px solid #dac8e8}
-.help-banner h2,.help-banner p{color:var(--support-ink)}
+.help-banner{background:#e7faee;border:1px solid #b2e8c4}
+.help-banner h2,.help-banner p{color:#075e36}
 .manual-group-title{font-size:1.3rem;margin:27px 0 17px}
 .manual-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .manual-tile{min-height:158px}
@@ -103,11 +101,8 @@ a,button,summary,input,label,video{touch-action:manipulation}
 @media(max-width:1000px){.journey-four .journey-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:767px){
   .stay-welcome{padding:23px 0 18px}
-  .stay-welcome h1{font-size:1.65rem;margin-top:7px}
+  .stay-welcome h1{font-size:clamp(2.45rem,8.3vw,3.5rem);margin:13px 0 16px}
   .stay-welcome p{font-size:.925rem}
-  .arrival-launch{display:grid;grid-template-columns:42px minmax(0,1fr);padding:20px;gap:13px;border-radius:20px}
-  .arrival-launch .icon-box{width:42px!important;height:42px!important}
-  .arrival-launch .actions{grid-column:1/-1;min-width:0;flex-direction:column;gap:9px}
   .arrival-address p{font-size:.95rem;line-height:1.5}
   .arrival-address>span{font-size:.875rem}
   .journey-section{margin-top:29px}
@@ -136,3 +131,21 @@ a,button,summary,input,label,video{touch-action:manipulation}
 @media(prefers-reduced-motion:reduce){#main .tile,#main .manual-tile{transform:none!important}}
 
 .urgent-strip{display:flex;align-items:center;justify-content:space-between;gap:20px;border-color:#e9bdc4;margin-bottom:20px;background:#fff5f6}.urgent-strip h2{font-size:2.2rem;color:var(--safety-ink);margin:0}.urgent-strip p{font-size:.9rem}.urgent-strip .button{flex-shrink:0}.emergency-address{margin-top:20px;font-size:.925rem}@media(max-width:480px){.urgent-strip{padding:20px;gap:12px}.urgent-strip .button{padding:12px}.urgent-strip .button span{font-size:.9rem}}
+
+/* Arrival navigation has one card and a separate direct Maps action. */
+[data-tone="contact"],.tone-contact{--tone-ink:#075e36;--tone-bg:#c5f5d6}
+#main a.button.whatsapp-link,#main button.whatsapp-link{background:#25d366;border-color:#25d366;color:#063b24}
+.arrival-card{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid #dbe4e3;border-radius:23px;overflow:hidden}
+#main .arrival-card .tile{border:0;border-radius:0;flex:1;min-height:0}
+.arrival-map{display:flex;align-items:center;gap:7px;min-height:48px;padding:10px 24px;border-top:1px solid #e5ecf3;font-size:.9rem;font-weight:650;line-height:1.4}
+.arrival-map svg{width:19px;height:19px;flex-shrink:0}
+.arrival-next{margin-top:22px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.checkin-photo{margin:22px 0 0;overflow:hidden;border:1px solid #d9e3ee;border-radius:15px;background:#f4f8fc}
+.checkin-photo img{width:100%;height:auto;display:block;object-fit:contain}
+.checkin-photo-slot{min-height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:25px;text-align:center;gap:13px}
+.checkin-photo-slot svg{width:35px;height:35px;color:var(--travel-ink)}
+.checkin-photo-slot p{max-width:290px;margin:0;color:#657286}
+.checkin-photo figcaption{padding:13px 18px;background:#fff;font-weight:650;font-size:.9rem;color:var(--travel-ink)}
+.checkin-help .actions .button{width:100%}
+@media(hover:hover) and (pointer:fine){#main .arrival-card .tile:hover{transform:none;background:#f7faff}.arrival-map:hover{background:#eef5ff}#main .button.whatsapp-link:hover{background:#20bf5b;border-color:#20bf5b}}
+@media(max-width:767px){#main .journey-grid .arrival-card .tile{min-height:0}.arrival-map{padding:10px 16px;font-size:.875rem}.arrival-card{border-radius:19px}.arrival-next{grid-template-columns:1fr}.checkin-photo-slot{min-height:175px;padding:20px}}

@@ -87,7 +87,7 @@
       }
     }
     if(data.emergency?.number!=='112')errors.push('Il numero di emergenza deve restare 112.');
-    const photos=[...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
+    const photos=[...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.modules?.checkinPhotos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
     if(photos.some(value=>!mediaURL(value)))errors.push('Una foto ha un indirizzo non valido.');
     const videos=[...(data.modules?.videos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.video)];
     if(videos.some(value=>!mediaURL(value,true)))errors.push('Usa un video MP4 o WebM, oppure un link diretto al file.');

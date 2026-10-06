@@ -52,6 +52,8 @@
     mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 5 9 7 9-7"/>',
     close:'<path d="m6 6 12 12M6 18 18 6"/>'
   };
+  paths.extinguisher='<path d="M9 8h6v13H9zM10 8V5h4v3M12 5V2m0 0h5M14 5h3a3 3 0 0 1 3 3v5m0 0h2v4h-2M9 12h6"/>';
+  paths.icecream='<path d="m7 11 5 11 5-11M6 11a3 3 0 0 1-1-5 4 4 0 0 1 7-3 4 4 0 0 1 7 3 3 3 0 0 1-1 5ZM9 15h6"/>';
   paths.coffee='<path d="M3 8h14v7a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5ZM17 8h1a3 3 0 1 1 0 6h-1M6 2v2m4-2v2m4-2v2"/>';
   const icon=name=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]||paths.info}</svg>`;
   let lang=window.OPENDOOR_PREVIEW_LANGUAGE||'it';
@@ -71,7 +73,7 @@
       return ['www.google.com','google.com','maps.google.com','maps.app.goo.gl','g.page','wa.me','api.whatsapp.com'].includes(host)?'_self':'_blank';
     }catch{return '_blank';}
   };
-  const external=(url,text,iconName,cls='button')=>`<a class="${cls}" href="${esc(url)}" target="${externalTarget(url)}" rel="noopener noreferrer">${iconName?icon(iconName):''}<span>${esc(text)}</span></a>`;
+  const external=(url,text,iconName,cls='button')=>`<a class="${cls}${iconName==='whatsapp'?' whatsapp-link':''}" href="${esc(url)}" target="${externalTarget(url)}" rel="noopener noreferrer">${iconName?icon(iconName):''}<span>${esc(text)}</span></a>`;
   const call=(number,text,cls='button outline')=>`<a class="${cls}" href="tel:${esc(number)}">${icon('phone')}<span>${esc(text)}</span></a>`;
   const emailButton=host=>`<a class="button outline" href="mailto:${esc(host.email)}">${icon('mail')}<span>${lang==='de'?'E-Mail':'Email'}</span></a>`;
   const helpButtons=(host=primaryHost)=>`<div class="actions">${host.whatsapp?external(whatsappURL(t('greeting'),host),t('whatsapp'),'whatsapp'):''}${host.phone?call(host.phone,t('callHost')):''}${host.email?emailButton(host):''}</div>`;
@@ -80,7 +82,8 @@
   const toneFor=url=>{
     const path=url.split('?')[0];
     if(['emergency','health','house/safety'].includes(path))return 'safety';
-    if(['help','feedback','reviews'].includes(path))return 'support';
+    if(path==='help')return 'contact';
+    if(['feedback','reviews'].includes(path))return 'support';
     if(path==='food')return 'food';
     if(path==='explore')return 'explore';
     if(path==='services')return 'food';
@@ -91,8 +94,8 @@
   const fullAddress=value=>value?(value.toLocaleLowerCase().includes(config.property.town.toLocaleLowerCase())?value:`${value}, ${config.property.town}, ${config.property.province}, Italia`):'';
   const foodGroup=()=>new URLSearchParams(location.hash.split('?')[1]||'').get('group')||'all';
   const activeArea=()=>route==='food'?'food':route.startsWith('house/')?'house':route==='services'?'explore':['wifi','waste','leaving','gallery'].includes(route)?'house':['book','arrival','closing','checkin','parking','videos','checkout','reviews'].includes(route)?'home':['health','emergency','feedback'].includes(route)?'help':route;
-  const routeParents={arrival:'home',closing:'checkout',book:'home',house:'home',explore:'home',help:'home',checkin:'home',parking:'checkin',videos:'checkin',wifi:'house',waste:'house',leaving:'house',gallery:'house',food:'home',services:'explore',health:'help',emergency:'help',checkout:'home',reviews:'checkout',feedback:'help'};
-  const parentLabels={home:'backHome',house:'backHouse',explore:'backExplore',help:'backHelp',checkin:'backCheckin',checkout:'backCheckout'};
+  const routeParents={arrival:'home',closing:'checkout',book:'home',house:'home',explore:'home',help:'home',checkin:'home',parking:'arrival',videos:'checkin',wifi:'house',waste:'house',leaving:'house',gallery:'house',food:'home',services:'explore',health:'help',emergency:'help',checkout:'home',reviews:'checkout',feedback:'help'};
+  const parentLabels={arrival:'backArrival',home:'backHome',house:'backHouse',explore:'backExplore',help:'backHelp',checkin:'backCheckin',checkout:'backCheckout'};
   const heading=(title,intro,parent=routeParents[route]||'home')=>`<a href="#/${parent}" class="back-link" data-parent-route="${parent}">${icon('back')}${esc(t(parentLabels[parent]||'back'))}</a><div class="page-header"><div class="eyebrow">OPENDOOR · ${esc(t('propertyIntro'))}</div><h1>${esc(t(title))}</h1>${intro?`<p>${esc(t(intro))}</p>`:''}</div>`;
   const info=key=>`<div class="info-line">${icon('info')}<p>${esc(t(key))}</p></div>`;
   function platformLogos() {
@@ -119,20 +122,22 @@
     return `${heading('book','bookingIntro')}${bookingLinks.length?`<div class="booking-grid">${bookingLinks.map(item=>`<article class="panel booking-card"><h2>${esc(item.name)}</h2>${window.OpendoorBooking.validURL(item.url)?external(item.url,t('bookingWith')+' '+item.name,'bed'):`<span class="booking-pending">${esc(t('bookingPending'))}</span>`}</article>`).join('')}</div><p class="booking-note">${esc(t('bookingNote'))}</p>`:`<section class="panel content-narrow"><p>${esc(t('bookingEmpty'))}</p><a class="button" href="#/help">${esc(t('contactHost'))}</a></section>`}`;
   }
   function home() {
-    const journey=(number,key,items,cls='')=>`<section class="journey-section ${cls}" aria-labelledby="journey-${number}"><div class="journey-heading"><span class="journey-number" aria-hidden="true">0${number}</span><div><h2 id="journey-${number}">${esc(t(key))}</h2><p>${esc(t(key+'Desc'))}</p></div></div><div class="journey-grid">${items.map(tile).join('')}</div></section>`;
+    const journey=(number,key,items,cls='')=>`<section class="journey-section journey-stage-${number} ${cls}" aria-labelledby="journey-${number}"><div class="journey-heading"><span class="journey-number" aria-hidden="true">0${number}</span><div><h2 id="journey-${number}">${esc(t(key))}</h2><p>${esc(t(key+'Desc'))}</p></div></div><div class="journey-grid">${items.map(item=>item[0]==='arrival'?arrivalTile():tile(item)).join('')}</div></section>`;
     const card=id=>cards.find(item=>item[0]===id);
-    return `<section class="stay-welcome"><div class="eyebrow">${esc(config.property.town)} · ${esc(config.property.province)}</div><h1>${esc(config.property.slogan)}</h1><p>${esc(t('hubSubtitle'))}</p></section>
-      <section class="arrival-launch tone-travel" aria-label="${esc(t('arrival'))}"><span class="icon-box">${icon('pin')}</span><div class="arrival-address"><h2>OPENDOOR</h2><p>${esc(fullAddress(config.property.address))}</p><span>${esc(t('nearA22'))} · ${esc(t('nearA22Sub'))}</span></div><div class="actions">${external(mapURL(fullAddress(config.property.address)),t('maps'),'pin')}<a class="button outline tone-food" href="#/food">${icon('utensils')}<span>${esc(t('food'))}</span></a></div></section>
+    return `<section class="stay-welcome"><div class="eyebrow">${esc(config.property.town)} · ${esc(config.property.province)}</div><h1>${config.property.slogan==="COME IN. YOU'RE HOME."?"COME IN.<br>YOU'RE <span class=\"home-word\">HOME.</span>":esc(config.property.slogan)}</h1><p>${esc(t('hubSubtitle'))}</p></section>
       ${journey(1,'travelStage',[["arrival","pin","arrival","arrivalDesc"],card('food'),card('parking'),card('checkin')],'journey-four')}
       ${journey(2,'settleStage',[card('wifi'),['house/tv','tv','tv','openGuide'],['house/kitchen','utensils','kitchen','openGuide'],['house/hotWater','shower','bathroomGuide','openGuide'],['house/rest','bed','rest','restDesc'],['house','home','allHouseGuides','houseDesc']])}
       <div class="always-help">${tile(['help','message','help','helpDesc'])}${tile(['emergency','cross','firstAid','firstAidDesc'])}</div>
-      ${journey(3,'nearbyStage',[['food?group=treat','sun','foodTreat','aaronDesc'],card('services'),card('explore')])}
+      ${journey(3,'nearbyStage',[['food?group=treat','icecream','foodTreat','aaronDesc'],card('services'),card('explore')])}
       ${journey(4,'departStage',[['food?group=coffee','coffee','breakfast','breakfastDesc'],card('checkout'),['closing','key','closing','closingDesc']],'journey-departure')}
       <section class="after-stay" aria-labelledby="after-stay-title"><h2 id="after-stay-title">${esc(t('laterReview'))}</h2>${stayLinks()}</section>
-      <section class="help-banner tone-support"><div><h2>${esc(t('contactHost'))}</h2><p>${esc(t('hostReply'))}</p></div>${quickContact()}</section>${config.modules.gallery.items.some(item=>item.src)?gallery():''}`;
+      <section class="help-banner tone-contact"><div><h2>${esc(t('contactHost'))}</h2><p>${esc(t('hostReply'))}</p></div>${quickContact()}</section>${config.modules.gallery.items.some(item=>item.src)?gallery():''}`;
+  }
+  function arrivalTile(){
+    return `<div class="arrival-card tone-travel"><a class="tile" href="#/arrival"><span class="icon-box">${icon('pin')}</span><span><span class="tile-title">${esc(t('arrival'))}</span><span class="tile-description">${esc(fullAddress(config.property.address))}</span></span></a>${external(mapURL(fullAddress(config.property.address)),t('maps'),'pin','inline-link arrival-map')}</div>`;
   }
   function arrival(){
-    return `${heading('arrival','checkinIntro')}<section class="panel tone-travel"><div class="panel-heading"><span class="icon-box">${icon('pin')}</span><h2>${esc(fullAddress(config.property.address))}</h2></div><div class="actions">${external(mapURL(fullAddress(config.property.address)),t('maps'),'pin')}</div><h3 class="arrival-road">${esc(t('motorway'))}</h3><p>${esc(t('motorwayText'))}</p><p>${esc(t('parkingText'))}</p></section><div class="category-links">${tile(['parking','car','parking','parkingDesc'])}${tile(['checkin','key','checkin','checkinDesc'])}${tile(['food','utensils','food','foodDesc'])}</div>`;
+    return `${heading('arrival','arrivalIntro')}<section class="panel tone-travel"><div class="panel-heading"><span class="icon-box">${icon('pin')}</span><h2>${esc(fullAddress(config.property.address))}</h2></div><div class="actions">${external(mapURL(fullAddress(config.property.address)),t('maps'),'pin')}</div><h3 class="arrival-road">${esc(t('motorway'))}</h3><p>${esc(t('motorwayText'))}</p><details class="accordion"><summary>${esc(t('train'))}</summary><div class="accordion-body"><p>${esc(t('trainText'))}</p></div></details></section><div class="category-links arrival-next">${tile(['parking','car','parking','parkingDesc'])}${tile(['checkin','key','checkin','checkinDesc'])}</div>`;
   }
   function closing(){
     const item=config.modules.videos.items.find(video=>video.id==='door-closing');
@@ -150,17 +155,20 @@
     const data=config.modules.videos;if(!data.enabled)return '';
     return `<section class="arrival-videos" aria-labelledby="arrival-video-title"><div class="section-heading"><div><h2 id="arrival-video-title">${esc(t('watchArrival'))}</h2><p>${esc(t('watchArrivalIntro'))}</p></div></div><div class="video-grid">${data.items.map(videoCard).join('')}</div></section>`;
   }
+  function checkinPhoto(id){
+    const item=config.modules.checkinPhotos.items.find(photo=>photo.id===id);if(!item)return '';
+    return `<figure class="checkin-photo" data-checkin-photo="${esc(id)}">${item.src?`<img src="${esc(item.src)}" alt="${esc(t(item.titleKey))}" width="600" height="450" loading="lazy">`:`<div class="checkin-photo-slot">${icon('camera')}<p>${esc(t(item.hintKey))}</p></div>`}<figcaption>${esc(t(item.titleKey))}</figcaption></figure>`;
+  }
   function checkin() {
-    const steps=[['arriveTitle',`<div class="arrival-mode"><span class="icon-box">${icon('road')}</span><h3>${esc(t('motorway'))}</h3></div><p>${esc(t('motorwayText'))}</p><p class="arrival-address-text">${esc(fullAddress(config.property.address))}</p><details class="accordion"><summary>${esc(t('train'))}</summary><div class="accordion-body"><p>${esc(t('trainText'))}</p></div></details>${config.property.address?external(mapURL(fullAddress(config.property.address)),t('maps'),'pin','inline-link'):''}`],['parkingTitle',`<p>${esc(t('parkingText'))}</p><p>${esc(t('evText'))}</p><a class="inline-link" href="#/parking">${esc(t('parking'))}</a>`],['buildingTitle',`<p>${esc(t('buildingText'))}</p>`],['apartmentTitle',`<p>${esc(t('apartmentText'))}</p>${info('codeInfo')}`]];
-    const access=config.houseManual.find(item=>item.id==='access');
-    return `${heading('checkin','checkinIntro')}<div class="content-grid"><div class="panel"><ol class="steps">${steps.map(([title,body],i)=>`<li class="step"><span class="step-number">${i+1}</span><div><h2>${esc(t(title))}</h2>${body}</div></li>`).join('')}</ol>${config.property.checkInTime?`<div class="info-line"><p>${esc(t('checkinTime'))} ${esc(config.property.checkInTime)}</p></div>`:''}</div><aside>${guidePhoto(access)}<div class="panel teal-panel"><div class="panel-heading"><span class="icon-box">${icon('message')}</span><h2>${esc(t('arrivalTrouble'))}</h2></div><div class="actions">${quickContact()}</div><a class="inline-link" href="#/help">${esc(t('contactHost'))}</a></div></aside></div>${arrivalVideos()}<div class="next-step"><a class="button secondary" href="#/house">${icon('home')}<span>${esc(t('continueHouse'))}</span></a></div>`;
+    const steps=[['buildingTitle',`<p>${esc(t('buildingText'))}</p>${checkinPhoto('building-entrance')}`],['apartmentTitle',`<p>${esc(t('apartmentText'))}</p>${info('codeInfo')}${checkinPhoto('apartment-door')}`]];
+    return `${heading('checkin','checkinIntro')}<div class="content-grid"><div class="panel">${config.property.checkInTime?`<div class="info-line"><p>${esc(t('checkinTime'))} ${esc(config.property.checkInTime)}</p></div>`:''}<ol class="steps">${steps.map(([title,body],i)=>`<li class="step"><span class="step-number">${i+1}</span><div><h2>${esc(t(title))}</h2>${body}</div></li>`).join('')}</ol></div><aside><div class="panel checkin-help tone-contact"><div class="panel-heading"><span class="icon-box">${icon('message')}</span><h2>${esc(t('arrivalTrouble'))}</h2></div><div class="actions">${quickContact()}</div></div></aside></div>${arrivalVideos()}<div class="next-step"><a class="button secondary" href="#/house">${icon('home')}<span>${esc(t('continueHouse'))}</span></a></div>`;
   }
   function wifi() {
     return `${heading('wifi','wifiIntro')}<div class="content-narrow"><section class="panel"><div class="network"><div><div class="label">${esc(t('network'))}</div><strong id="network-name">${esc(config.property.wifiNetwork)}</strong></div><button class="copy-button" data-copy type="button">${icon('copy')}<span>${esc(t('copy'))}</span></button></div><div class="panel-heading"><span class="icon-box">${icon('shield')}</span><h2>${esc(t('passwordLabel'))}</h2></div><p>${esc(t('passwordInfo'))}</p></section></div>`;
   }
   function safetyBody(showCall=true) {
     const note=(symbol,title,body)=>`<div class="safety-note"><span class="icon-box">${icon(symbol)}</span><div><h3>${esc(t(title))}</h3>${body}</div></div>`;
-    return `<div class="safety-notes">${note('shield','safetyDevicesTitle',`<p>${esc(t('safetyText'))}</p>${config.property.fireExtinguisherLocation?`<p><strong>${esc(t('extinguisher'))}</strong> ${esc(config.property.fireExtinguisherLocation)}</p>`:''}`)}${note('key','safetyPassagesTitle',`<p>${esc(t('safetyPassagesText'))}</p>`)}${note('sun','safetyWindowsTitle',`<p>${esc(t('balconyText'))}</p><p>${esc(t('childrenText'))}</p>`)}${showCall?note('siren','safetyEmergencyTitle',`<p>${esc(t('safetyEmergencyText'))}</p><div class="actions">${call(config.emergency.number,t('call112'),'button danger')}</div>`):''}</div>`;
+    return `<div class="safety-notes">${note('extinguisher','safetyDevicesTitle',`<p>${esc(t('safetyText'))}</p>${config.property.fireExtinguisherLocation?`<p><strong>${esc(t('extinguisher'))}</strong> ${esc(config.property.fireExtinguisherLocation)}</p>`:''}`)}${note('key','safetyPassagesTitle',`<p>${esc(t('safetyPassagesText'))}</p>`)}${note('sun','safetyWindowsTitle',`<p>${esc(t('balconyText'))}</p><p>${esc(t('childrenText'))}</p>`)}${showCall?note('siren','safetyEmergencyTitle',`<p>${esc(t('safetyEmergencyText'))}</p><div class="actions">${call(config.emergency.number,t('call112'),'button danger')}</div>`):''}</div>`;
   }
   function house() {
     const manual=config.houseManual.filter(item=>item.enabled);
@@ -208,7 +216,7 @@
     return `<section class="panel first-aid-panel tone-safety"><div class="panel-heading"><span class="icon-box">${icon('cross')}</span><h2>${esc(t('firstAid'))}</h2></div><p>${esc(config.property.firstAidLocation||t('firstAidUnknown'))}</p>${!config.property.firstAidLocation?`<a class="button outline" href="#/help">${esc(t('contactHost'))}</a>`:''}</section>`;
   }
   function emergency(health=false) {
-    return `${heading(health?'health':'emergency',health?'healthIntro':'emergencyIntro')}<section class="panel urgent-strip"><div><h2>112</h2><p>${esc(t('emergencyNumber'))}</p></div>${call('112',t('call112'),'button danger')}</section><div class="content-grid"><div>${firstAidPanel()}</div><aside><section class="panel tone-support"><div class="panel-heading"><span class="icon-box">${icon('message')}</span><h2>${esc(t('apartmentProblem'))}</h2></div><a class="button secondary" href="#/help">${esc(t('contactHost'))}</a><p class="emergency-address">${esc(fullAddress(config.property.address))} · ${esc(t('floor'))}</p></section></aside></div><section class="panel content-narrow emergency-safety"><div class="panel-heading"><span class="icon-box">${icon('shield')}</span><h2>${esc(t('safety'))}</h2></div>${safetyBody(false)}</section>`;
+    return `${heading(health?'health':'emergency',health?'healthIntro':'emergencyIntro')}<section class="panel urgent-strip"><div><h2>112</h2><p>${esc(t('emergencyNumber'))}</p></div>${call('112',t('call112'),'button danger')}</section><div class="content-grid"><div>${firstAidPanel()}</div><aside><section class="panel tone-contact"><div class="panel-heading"><span class="icon-box">${icon('message')}</span><h2>${esc(t('apartmentProblem'))}</h2></div><a class="button secondary" href="#/help">${esc(t('contactHost'))}</a><p class="emergency-address">${esc(fullAddress(config.property.address))} · ${esc(t('floor'))}</p></section></aside></div><section class="panel content-narrow emergency-safety"><div class="panel-heading"><span class="icon-box">${icon('shield')}</span><h2>${esc(t('safety'))}</h2></div>${safetyBody(false)}</section>`;
   }
   function foodDetails(place){
     const guide=place.guide;if(!guide)return '';
@@ -227,7 +235,7 @@
     const filters=[['all','foodAll'],['meals','foodMeals'],['takeaway','foodTakeaway'],['coffee','foodCoffee'],['treat','foodTreat']];
     const group=filters.some(([id])=>id===foodGroup())?foodGroup():'all';
     const visible=data.filter(item=>item.enabled&&(kind!=='food'||group==='all'||item.guide?.groups?.includes(group)));
-    if(kind==='food'&&group==='all')visible.sort((a,b)=>{const order={tanino:0,azzoni:1,pinko:2,mai:3,fastidia:4,aaron:5};return (order[a.guide?.id]??9)-(order[b.guide?.id]??9);});
+    if(kind==='food'&&group==='all')visible.sort((a,b)=>{const order={tanino:0,azzoni:1,noble:2,pinko:3,mai:4,fastidia:5,aaron:6};return (order[a.guide?.id]??9)-(order[b.guide?.id]??9);});
     return `${heading(kind,kind==='food'?'foodGuideIntro':kind+'Intro')}${kind==='explore'?`<div class="category-links explore-links">${tile(['food','utensils','food','foodDesc'])}${tile(['services','basket','services','servicesDesc'])}</div>`:''}${kind==='food'?`<nav class="food-filters" aria-label="${esc(t('food'))}">${filters.map(([id,key])=>`<a href="#/food${id==='all'?'':'?group='+id}" ${id===group?'aria-current="true"':''}>${esc(t(key))}</a>`).join('')}</nav><p class="food-notice">${esc(t('foodNotice'))}</p>`:''}<p class="local-note">${esc(t('approximate'))}</p><div class="place-grid ${kind==='food'?'food-grid':''}">${visible.map(placeCard).join('')}</div>${kind==='food'&&group==='coffee'?`<div class="coffee-more">${external('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('bar colazione vicino '+fullAddress(config.property.address)),t('coffeeNearby'),'pin','button outline')}</div>`:''}`;
   }
   function stayLinks() {return `<div class="stay-links">${tile(['reviews','star','reviews','reviewsDesc'])}${tile(['feedback','message','feedback','feedbackDesc'])}</div>`;}
@@ -235,7 +243,7 @@
     return `${heading('reviews','reviewsIntro')}<section class="review-section"><h2>${esc(t('bookedWith'))}</h2><div class="review-grid"><article class="panel review-card"><span class="platform-label">Airbnb</span><p>${esc(t('airbnbReviewIntro'))}</p>${external(config.reviews.airbnb,t('openAirbnbTrips'),'star')}</article><article class="panel review-card"><span class="platform-label">Booking.com</span><p>${esc(t('bookingReviewIntro'))}</p>${external(config.reviews.booking,t('openBookingTrips'),'star')}</article>${config.reviews.google?`<article class="panel review-card"><span class="platform-label">Google</span><p>${esc(t('googleReviewIntro'))}</p>${external(config.reviews.google,t('googleReviews'),'star')}</article>`:''}</div></section><div class="review-private"><h2>${esc(t('feedback'))}</h2><p>${esc(t('privateFeedback'))}</p><a class="inline-link" href="#/feedback">${esc(t('feedbackDesc'))}</a></div>`;
   }
   function feedback() {
-    return `${heading('feedback','feedbackIntro')}<section class="panel content-narrow"><form id="feedback-form"><label class="feedback-label" for="feedback-message">${esc(t('feedbackLabel'))}</label><textarea id="feedback-message" name="message" rows="6" maxlength="2000" required placeholder="${esc(t('feedbackPlaceholder'))}" aria-describedby="feedback-note">${esc(feedbackDraft)}</textarea><p id="feedback-note" class="feedback-note">${esc(t('feedbackLocalNote'))}</p><div class="actions">${primaryHost.email||primaryHost.whatsapp?`<button class="button" type="submit">${icon(primaryHost.email?'mail':'whatsapp')}<span>${esc(t(primaryHost.email?'sendFeedbackEmail':'sendFeedbackWhatsapp'))}</span></button>`:`<a class="button secondary" href="#/help">${esc(t('contactHost'))}</a>`}</div></form></section>`;
+    return `${heading('feedback','feedbackIntro')}<section class="panel content-narrow"><form id="feedback-form"><label class="feedback-label" for="feedback-message">${esc(t('feedbackLabel'))}</label><textarea id="feedback-message" name="message" rows="6" maxlength="2000" required placeholder="${esc(t('feedbackPlaceholder'))}" aria-describedby="feedback-note">${esc(feedbackDraft)}</textarea><p id="feedback-note" class="feedback-note">${esc(t('feedbackLocalNote'))}</p><div class="actions">${primaryHost.email||primaryHost.whatsapp?`<button class="button ${primaryHost.email?'':'whatsapp-link'}" type="submit">${icon(primaryHost.email?'mail':'whatsapp')}<span>${esc(t(primaryHost.email?'sendFeedbackEmail':'sendFeedbackWhatsapp'))}</span></button>`:`<a class="button secondary" href="#/help">${esc(t('contactHost'))}</a>`}</div></form></section>`;
   }
   function videos() {return `${heading('videos','watchArrivalIntro')}${arrivalVideos()}`;}
   function unavailable() {return `<div class="page-header unavailable"><h1>${esc(t('unavailableTitle'))}</h1><p>${esc(t('unavailableText'))}</p><div class="actions"><a class="button" href="#/home">${esc(t('goHome'))}</a></div></div>`;}

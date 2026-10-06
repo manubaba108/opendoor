@@ -62,6 +62,117 @@
     aaronHours:['Pausa dolce di giorno e la sera. Gli orari pubblicati variano: controlla la scheda, anche per le aperture stagionali.','A sweet break during the day or evening. Published hours vary: check the listing, including seasonal opening.','Eine süße Pause tagsüber oder abends. Veröffentlichte Zeiten variieren; Eintrag und saisonale Öffnung prüfen.','Une pause sucrée en journée ou en soirée. Horaires variables selon les sources ; vérifiez aussi l’ouverture saisonnière.','Een zoete pauze overdag of ’s avonds. Gepubliceerde tijden verschillen; controleer ook seizoensopening.','Słodka przerwa w ciągu dnia lub wieczorem. Podane godziny się różnią; sprawdź także otwarcie sezonowe.','O pauză dulce ziua sau seara. Programul publicat variază; verifică și deschiderea sezonieră.'],
     coffeeNearby:['Altri bar nelle vicinanze','Other nearby cafés','Weitere Cafés in der Nähe','Autres cafés à proximité','Andere cafés in de buurt','Inne kawiarnie w pobliżu','Alte cafenele în apropiere']
   };
+  Object.assign(rows,{
+  "foodTreat": [
+    "Gelateria",
+    "Ice cream shop",
+    "Eisdiele",
+    "Glacier",
+    "IJssalon",
+    "Lodziarnia",
+    "Gelaterie"
+  ],
+  "buildingEntrancePhoto": [
+    "Ingresso del palazzo",
+    "Building entrance",
+    "Hauseingang",
+    "Entrée de l’immeuble",
+    "Ingang van het gebouw",
+    "Wejście do budynku",
+    "Intrarea în clădire"
+  ],
+  "buildingEntranceHint": [
+    "La foto dell’ingresso del palazzo sarà disponibile qui.",
+    "The building entrance photo will appear here.",
+    "Hier erscheint das Foto des Hauseingangs.",
+    "La photo de l’entrée de l’immeuble sera disponible ici.",
+    "Hier komt de foto van de ingang van het gebouw.",
+    "Tutaj będzie zdjęcie wejścia do budynku.",
+    "Fotografia intrării în clădire va apărea aici."
+  ],
+  "apartmentDoorPhoto": [
+    "Porta dell’appartamento",
+    "Apartment door",
+    "Wohnungstür",
+    "Porte de l’appartement",
+    "Deur van het appartement",
+    "Drzwi do mieszkania",
+    "Ușa apartamentului"
+  ],
+  "apartmentDoorHint": [
+    "La foto della porta di OPENDOOR sarà disponibile qui.",
+    "The photo of the OPENDOOR door will appear here.",
+    "Hier erscheint das Foto der OPENDOOR-Wohnungstür.",
+    "La photo de la porte d’OPENDOOR sera disponible ici.",
+    "Hier komt de foto van de deur van OPENDOOR.",
+    "Tutaj będzie zdjęcie drzwi OPENDOOR.",
+    "Fotografia ușii OPENDOOR va apărea aici."
+  ],
+  "checkinIntro": [
+    "Dal portone del palazzo alla porta dell’appartamento.",
+    "From the building entrance to your apartment door.",
+    "Vom Hauseingang bis zur Wohnungstür.",
+    "De l’entrée de l’immeuble à la porte de l’appartement.",
+    "Van de ingang van het gebouw tot de deur van het appartement.",
+    "Od wejścia do budynku do drzwi mieszkania.",
+    "De la intrarea în clădire până la ușa apartamentului."
+  ],
+  "arrivalIntro": [
+    "Indirizzo, percorso e parcheggio per raggiungere OPENDOOR.",
+    "Address, directions and parking for OPENDOOR.",
+    "Adresse, Anfahrt und Parkmöglichkeiten für OPENDOOR.",
+    "Adresse, itinéraire et stationnement pour rejoindre OPENDOOR.",
+    "Adres, route en parkeren bij OPENDOOR.",
+    "Adres, dojazd i parking przy OPENDOOR.",
+    "Adresă, traseu și parcare pentru OPENDOOR."
+  ],
+  "backArrival": [
+    "Torna a Come arrivare",
+    "Back to directions",
+    "Zurück zur Anfahrt",
+    "Retour à l’itinéraire",
+    "Terug naar de route",
+    "Wróć do dojazdu",
+    "Înapoi la indicații"
+  ],
+  "nobleCategory": [
+    "Cucina & cocktail bar",
+    "Food & cocktail bar",
+    "Küche & Cocktailbar",
+    "Cuisine & bar à cocktails",
+    "Eten & cocktailbar",
+    "Kuchnia i cocktail bar",
+    "Bucătărie și cocktail bar"
+  ],
+  "nobleGuide": [
+    "Hamburger creativi, piadine, birre e cocktail. Le recensioni consultate apprezzano cucina e accoglienza. Locale piccolo e informale; per una cena con bambini, verifica disponibilità e proposte.",
+    "Creative burgers, piadina flatbreads, beers and cocktails. Reviewed feedback praises the food and welcome. A small, informal venue; check availability and food options when dining with children.",
+    "Kreative Burger, Piadine, Bier und Cocktails. Gelesene Bewertungen loben Essen und Gastfreundschaft. Kleines, ungezwungenes Lokal; bei einem Essen mit Kindern Plätze und Speisen erfragen.",
+    "Burgers créatifs, piadines, bières et cocktails. Les avis consultés apprécient la cuisine et l’accueil. Petit établissement décontracté ; avec des enfants, vérifiez les places et les plats proposés.",
+    "Creatieve burgers, piadina’s, bier en cocktails. Geraadpleegde reviews prijzen het eten en de ontvangst. Kleine, informele zaak; controleer beschikbaarheid en gerechten als je met kinderen eet.",
+    "Pomysłowe burgery, piadiny, piwa i koktajle. Sprawdzone opinie chwalą kuchnię i obsługę. Mały, swobodny lokal; na kolację z dziećmi sprawdź dostępność miejsc i dań.",
+    "Burgeri creativi, piadine, bere și cocktailuri. Recenziile consultate apreciază mâncarea și primirea. Local mic și informal; pentru cină cu copii, verifică locurile și preparatele disponibile."
+  ],
+  "nobleHours": [
+    "Cena dalle 19. Mercoledì chiuso secondo Restaurant Guru. L’orario di chiusura del locale non coincide necessariamente con quello della cucina: chiama per conferma.",
+    "Dinner from 19:00. Closed Wednesday according to Restaurant Guru. Kitchen closing times may differ from bar hours; call to confirm.",
+    "Abendessen ab 19 Uhr. Laut Restaurant Guru mittwochs geschlossen. Die Küche kann früher schließen als die Bar; bitte anrufen.",
+    "Dîner à partir de 19 h. Fermé le mercredi selon Restaurant Guru. La cuisine peut fermer avant le bar ; appelez pour confirmer.",
+    "Diner vanaf 19.00 uur. Volgens Restaurant Guru woensdag gesloten. De keuken kan eerder sluiten dan de bar; bel ter bevestiging.",
+    "Kolacja od 19:00. Według Restaurant Guru w środę zamknięte. Kuchnia może zamykać się wcześniej niż bar; zadzwoń, aby potwierdzić.",
+    "Cină de la ora 19. Miercuri închis conform Restaurant Guru. Bucătăria se poate închide mai devreme decât barul; sună pentru confirmare."
+  ],
+  "nobleBudget": [
+    "Fascia indicata nelle recensioni recenti. Listino del menu non verificato; bevande ed extra possono cambiare il conto.",
+    "Range reported in recent reviews. Menu prices not verified; drinks and extras may change the total.",
+    "Preisspanne laut neueren Bewertungen. Speisekartenpreise nicht verifiziert; Getränke und Extras können den Betrag verändern.",
+    "Fourchette indiquée dans les avis récents. Prix de la carte non vérifiés ; boissons et suppléments peuvent modifier l’addition.",
+    "Prijsklasse uit recente reviews. Menuprijzen niet geverifieerd; drankjes en extra’s kunnen het totaal veranderen.",
+    "Przedział z niedawnych opinii. Ceny w menu niezweryfikowane; napoje i dodatki mogą zmienić rachunek.",
+    "Interval indicat în recenzii recente. Prețurile meniului nu sunt verificate; băuturile și extraopțiunile pot schimba totalul."
+  ]
+});
+  const previousLabels={"foodTreat": ["Gelato", "Ice cream", "Eis", "Glaces", "IJs", "Lody", "Înghețată"], "checkinIntro": ["Ecco come arrivare ed entrare, passo dopo passo.", "You’re here. Here’s how to get in, step by step.", "Du bist angekommen. So kommst du hinein, Schritt für Schritt.", "Voici comment arriver et accéder au logement, étape par étape.", "Je bent er. Zo kom je binnen, stap voor stap.", "Jesteś na miejscu. Oto jak wejść, krok po kroku.", "Ai ajuns. Iată cum intri, pas cu pas."]};
   const rg='https://restaurantguru.it/';
   const tanino='https://www.tripadvisor.it/Restaurant_Review-g1973849-d3259362-Reviews-Tanino-Pegognaga_Province_of_Mantua_Lombardy.html';
   const azzoni='https://www.tripadvisor.it/Restaurant_Review-g1973849-d4040848-Reviews-Trattoria_Azzoni-Pegognaga_Province_of_Mantua_Lombardy.html';
@@ -75,6 +186,8 @@
   };
   function normalize(data){
     for(const [key,values] of Object.entries(rows))for(const [i,language] of languages.entries())if(data.strings?.[language]&&!Object.hasOwn(data.strings[language],key))data.strings[language][key]=values[i];
+    for(const [key,values] of Object.entries(previousLabels))for(const [i,language] of languages.entries())if(data.strings?.[language]?.[key]===values[i])data.strings[language][key]=rows[key][i];
+    data.modules.checkinPhotos??={"items": [{"id": "building-entrance", "titleKey": "buildingEntrancePhoto", "hintKey": "buildingEntranceHint", "src": null}, {"id": "apartment-door", "titleKey": "apartmentDoorPhoto", "hintKey": "apartmentDoorHint", "src": null}]};
     data.property.firstAidLocation??=null;
     for(const place of data.localFood||[])if(!place.guide&&profiles[place.name])place.guide={...JSON.parse(JSON.stringify(profiles[place.name])),checked:'2026-10-06'};
     if(!data.houseManual.some(item=>item.id==='rest'))data.houseManual.push({id:'rest',icon:'bed',enabled:true,instructions:['restText']});
