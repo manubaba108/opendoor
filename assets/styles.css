@@ -319,3 +319,5 @@ body{overflow-wrap:anywhere}
 
 /* Keep native link activation and pinch zoom; avoid double-tap delays on controls. */
 a[href],button,summary{touch-action:manipulation}
+
+.first-aid-photo{display:block;width:100%;max-height:420px;object-fit:cover;border-radius:16px;margin:16px 0 2px}

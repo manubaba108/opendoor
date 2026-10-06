@@ -87,7 +87,7 @@
       }
     }
     if(data.emergency?.number!=='112')errors.push('Il numero di emergenza deve restare 112.');
-    const photos=[...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.modules?.checkinPhotos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
+    const photos=[data.property?.firstAidPhoto,...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.modules?.checkinPhotos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
     if(photos.some(value=>!mediaURL(value)))errors.push('Una foto ha un indirizzo non valido.');
     const videos=[...(data.modules?.videos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.video)];
     if(videos.some(value=>!mediaURL(value,true)))errors.push('Usa un video MP4 o WebM, oppure un link diretto al file.');
@@ -99,7 +99,7 @@
       if(guide.menu&&!httpsURL(guide.menu))errors.push('Il menu deve usare un collegamento HTTPS.');
       if(guide.phone&&!/^\+?\d[\d ()-]{6,22}$/.test(guide.phone))errors.push('Controlla il telefono di '+place.name+'.');
       if(guide.price!=null&&(typeof guide.price!=='string'||guide.price.length>1000))errors.push('Controlla il budget di '+place.name+'.');
-      if(guide.rating&&(!Number.isFinite(guide.rating.value)||guide.rating.value<0||guide.rating.value>5||!httpsURL(guide.rating.url)))errors.push('Controlla la valutazione di '+place.name+'.');
+      if(guide.rating&&(!Number.isFinite(guide.rating.value)||guide.rating.value<0||guide.rating.value>5||!httpsURL(guide.rating.url)||(guide.rating.count!=null&&(!Number.isInteger(guide.rating.count)||guide.rating.count<0))))errors.push('Controlla la valutazione di '+place.name+'.');
       if(guide.sources&&(!Array.isArray(guide.sources)||guide.sources.some(source=>!httpsURL(source.url))))errors.push('Controlla le fonti di '+place.name+'.');
     }
     for(const manual of data.houseManual||[])for(const key of manual.instructions||[])if(!keys.includes(key))errors.push('Un’istruzione non è collegata ai testi tradotti.');
