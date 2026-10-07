@@ -68,6 +68,14 @@
       "enabled": true,
       "items": [
         {
+          "id": "intercom",
+          "titleKey": "intercomVideo",
+          "descriptionKey": "intercomVideoDesc",
+          "src": null,
+          "thumbnail": null,
+          "captions": []
+        },
+        {
           "id": "door-opening",
           "titleKey": "openingVideo",
           "descriptionKey": "openingVideoDesc",
@@ -79,14 +87,6 @@
           "id": "door-closing",
           "titleKey": "closingVideo",
           "descriptionKey": "closingVideoDesc",
-          "src": null,
-          "thumbnail": null,
-          "captions": []
-        },
-        {
-          "id": "intercom",
-          "titleKey": "intercomVideo",
-          "descriptionKey": "intercomVideoDesc",
           "src": null,
           "thumbnail": null,
           "captions": []
@@ -583,6 +583,47 @@
         ],
         "checked": "2026-10-06"
       }
+    },
+    {
+      "name": "Wild Eagle Saloon",
+      "category": "wildEagleCategory",
+      "address": "Strada Zottole 34/B, 46027 San Benedetto Po (MN), Italia",
+      "distance": "9 km",
+      "description": "wildEagleGuide",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Strada%20Zottole%2034%2FB%2C%2046027%20San%20Benedetto%20Po%20%28MN%29%2C%20Italia",
+      "guide": {
+        "id": "wildEagle",
+        "summary": "wildEagleGuide",
+        "hours": "wildEagleHours",
+        "price": "€10–20",
+        "budget": "sourceRange",
+        "phone": "+393288059420",
+        "groups": [
+          "meals"
+        ],
+        "rating": {
+          "value": 4.8,
+          "count": 377,
+          "provider": "Google · MenuRadar",
+          "url": "https://menuradar.it/it/lombardia/mantova/"
+        },
+        "sources": [
+          {
+            "label": "MenuRadar · valutazione Google e fascia prezzi",
+            "url": "https://menuradar.it/it/lombardia/mantova/"
+          },
+          {
+            "label": "Restaurant Guru · recensioni, cucina e prezzi",
+            "url": "https://restaurantguru.it/Wild-Eagle-Saloon-San-Benedetto-Po"
+          },
+          {
+            "label": "Tripadvisor · orari e recensioni",
+            "url": "https://www.tripadvisor.it/Restaurant_Review-g1204807-d11734162-Reviews-Wild_Eagle_Saloon-San_Benedetto_Po_Province_of_Mantua_Lombardy.html"
+          }
+        ],
+        "checked": "2026-10-07"
+      }
     }
   ],
   "nearbyServices": [
@@ -603,6 +644,42 @@
       "description": "evDesc",
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Strada%20Provinciale%2052%2C%2023A%2C%2046020%20Pegognaga%20(MN)%2C%20Italia"
+    },
+    {
+      "name": "ACI Suzzara",
+      "category": "aciCategory",
+      "address": "Via Luppi Menotti 6, 46029 Suzzara (MN), Italia",
+      "distance": "11 km",
+      "description": "aciDesc",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20Luppi%20Menotti%206%2C%2046029%20Suzzara%20%28MN%29%2C%20Italia"
+    },
+    {
+      "name": "Pegognaga Service",
+      "category": "mechanicCategory",
+      "address": "Via S.P. 49, 35, 46020 Pegognaga (MN), Italia",
+      "distance": "2 km",
+      "description": "pegognagaServiceDesc",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20S.P.%2049%2C%2035%2C%2046020%20Pegognaga%20%28MN%29%2C%20Italia"
+    },
+    {
+      "name": "Brico io Suzzara",
+      "category": "hardwareCategory",
+      "address": "Centro Commerciale Po, Viale Europa, s.c., 46029 Suzzara (MN), Italia",
+      "distance": "11 km",
+      "description": "bricoDesc",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Centro%20Commerciale%20Po%2C%20Viale%20Europa%2C%2046029%20Suzzara%20%28MN%29%2C%20Italia"
+    },
+    {
+      "name": "Lidl Gonzaga",
+      "category": "supermarket",
+      "address": "Via Cooperazione, s.n.c., 46023 Gonzaga (MN), Italia",
+      "distance": "7 km",
+      "description": "lidlDesc",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20Cooperazione%2C%20s.n.c.%2C%2046023%20Gonzaga%20%28MN%29%2C%20Italia"
     }
   ],
   "explore": [
@@ -926,11 +1003,11 @@
       "backCheckin": "Torna al check-in",
       "backCheckout": "Torna al check-out",
       "continueHouse": "Sei in casa? Apri il manuale",
-      "openingVideo": "01 · Come aprire la porta",
+      "openingVideo": "02 · Come aprire la porta",
       "openingVideoDesc": "La video guida all’apertura della porta di OPENDOOR.",
-      "closingVideo": "02 · Come chiudere la porta",
+      "closingVideo": "03 · Come chiudere la porta",
       "closingVideoDesc": "La video guida per chiudere correttamente la porta quando esci.",
-      "intercomVideo": "03 · Come usare il citofono",
+      "intercomVideo": "01 · Come usare il citofono",
       "intercomVideoDesc": "La video guida per riconoscere e utilizzare il citofono.",
       "doorVideosLink": "Come si chiude la porta? Guarda la guida",
       "livingKitchen": "Soggiorno e cucina",
@@ -1033,7 +1110,17 @@
       "nobleGuide": "Hamburger creativi, piadine, birre e cocktail. Le recensioni consultate apprezzano cucina e accoglienza. Locale piccolo e informale; per una cena con bambini, verifica disponibilità e proposte.",
       "nobleHours": "Cena dalle 19. Mercoledì chiuso secondo Restaurant Guru. L’orario di chiusura del locale non coincide necessariamente con quello della cucina: chiama per conferma.",
       "nobleBudget": "Fascia indicata nelle recensioni recenti. Listino del menu non verificato; bevande ed extra possono cambiare il conto.",
-      "firstAidLocationText": "Nell’atrio, dentro l’armadio a vista."
+      "firstAidLocationText": "Nell’atrio, dentro l’armadio a vista.",
+      "aciCategory": "ACI · pratiche auto",
+      "mechanicCategory": "Officina meccanica",
+      "hardwareCategory": "Fai da te & bricolage",
+      "aciDesc": "Delegazione ACI per pratiche auto e servizi per automobilisti.",
+      "pegognagaServiceDesc": "Officina e assistenza per auto, a Pegognaga.",
+      "bricoDesc": "Negozio di fai da te, casa e giardino al Centro Commerciale Po.",
+      "lidlDesc": "Supermercato per la spesa alimentare e i prodotti di uso quotidiano.",
+      "wildEagleCategory": "Birreria & pub",
+      "wildEagleGuide": "Birreria informale con birre, panini, hamburger e piatti caldi. Le recensioni apprezzano la scelta di birre e gli hamburger. Atmosfera da pub con musica: se viaggi con bambini, verifica prima la serata.",
+      "wildEagleHours": "Solo cena. Lunedì chiuso; mar–gio 19:00–02:00, ven–sab 19:00–06:00, dom 19:00–02:00. Orari pubblicati su Tripadvisor, da verificare."
     },
     "en": {
       "navHome": "Home",
@@ -1293,11 +1380,11 @@
       "backCheckin": "Back to check-in",
       "backCheckout": "Back to checkout",
       "continueHouse": "Settled in? Explore the apartment guide",
-      "openingVideo": "01 · How to open the door",
+      "openingVideo": "02 · How to open the door",
       "openingVideoDesc": "See how to open the door to OPENDOOR.",
-      "closingVideo": "02 · How to close the door",
+      "closingVideo": "03 · How to close the door",
       "closingVideoDesc": "See how to close the door properly when you leave.",
-      "intercomVideo": "03 · How to use the intercom",
+      "intercomVideo": "01 · How to use the intercom",
       "intercomVideoDesc": "Find out which intercom to use and how it works.",
       "doorVideosLink": "Closing the door? Watch the guide",
       "livingKitchen": "Living room and kitchen",
@@ -1400,7 +1487,17 @@
       "nobleGuide": "Creative burgers, piadina flatbreads, beers and cocktails. Reviewed feedback praises the food and welcome. A small, informal venue; check availability and food options when dining with children.",
       "nobleHours": "Dinner from 19:00. Closed Wednesday according to Restaurant Guru. Kitchen closing times may differ from bar hours; call to confirm.",
       "nobleBudget": "Range reported in recent reviews. Menu prices not verified; drinks and extras may change the total.",
-      "firstAidLocationText": "Inside the cabinet in the entrance hall."
+      "firstAidLocationText": "Inside the cabinet in the entrance hall.",
+      "aciCategory": "ACI · motoring services",
+      "mechanicCategory": "Car mechanic",
+      "hardwareCategory": "DIY & hardware store",
+      "aciDesc": "ACI office for vehicle paperwork and motoring services.",
+      "pegognagaServiceDesc": "Car repair and vehicle assistance in Pegognaga.",
+      "bricoDesc": "DIY, home and garden store at Centro Commerciale Po.",
+      "lidlDesc": "Supermarket for groceries and everyday essentials.",
+      "wildEagleCategory": "Beer pub",
+      "wildEagleGuide": "Casual beer pub serving beer, sandwiches, burgers and hot dishes. Reviews praise the beer selection and burgers. It has a pub atmosphere with music; check the evening first if you are travelling with children.",
+      "wildEagleHours": "Dinner only. Closed Monday; Tue–Thu 19:00–02:00, Fri–Sat 19:00–06:00, Sun 19:00–02:00. Hours published by Tripadvisor; please confirm."
     },
     "de": {
       "navHome": "Start",
@@ -1660,11 +1757,11 @@
       "backCheckin": "Zurück zum Check-in",
       "backCheckout": "Zurück zum Check-out",
       "continueHouse": "Angekommen? Entdecke den Wegweiser für die Wohnung",
-      "openingVideo": "01 · So öffnest du die Tür",
+      "openingVideo": "02 · Die Tür öffnen",
       "openingVideoDesc": "So öffnest du die Tür zur OPENDOOR-Wohnung.",
-      "closingVideo": "02 · So schließt du die Tür",
+      "closingVideo": "03 · Die Tür schließen",
       "closingVideoDesc": "So schließt du die Tür richtig, wenn du die Wohnung verlässt.",
-      "intercomVideo": "03 · Die Gegensprechanlage benutzen",
+      "intercomVideo": "01 · Die Gegensprechanlage benutzen",
       "intercomVideoDesc": "So findest und bedienst du die Gegensprechanlage.",
       "doorVideosLink": "Wie schließe ich die Tür? Anleitung ansehen",
       "livingKitchen": "Wohnzimmer und Küche",
@@ -1767,7 +1864,17 @@
       "nobleGuide": "Kreative Burger, Piadine, Bier und Cocktails. Gelesene Bewertungen loben Essen und Gastfreundschaft. Kleines, ungezwungenes Lokal; bei einem Essen mit Kindern Plätze und Speisen erfragen.",
       "nobleHours": "Abendessen ab 19 Uhr. Laut Restaurant Guru mittwochs geschlossen. Die Küche kann früher schließen als die Bar; bitte anrufen.",
       "nobleBudget": "Preisspanne laut neueren Bewertungen. Speisekartenpreise nicht verifiziert; Getränke und Extras können den Betrag verändern.",
-      "firstAidLocationText": "Im Schrank im Eingangsbereich."
+      "firstAidLocationText": "Im Schrank im Eingangsbereich.",
+      "aciCategory": "ACI · Kfz-Services",
+      "mechanicCategory": "Autowerkstatt",
+      "hardwareCategory": "Baumarkt",
+      "aciDesc": "ACI-Delegation für Fahrzeugangelegenheiten und Dienstleistungen rund ums Auto.",
+      "pegognagaServiceDesc": "Kfz-Werkstatt und Fahrzeugservice in Pegognaga.",
+      "bricoDesc": "Baumarkt für Heimwerken, Haus und Garten im Centro Commerciale Po.",
+      "lidlDesc": "Supermarkt für Lebensmittel und Dinge des täglichen Bedarfs.",
+      "wildEagleCategory": "Bierpub",
+      "wildEagleGuide": "Ungezwungener Bierpub mit Bier, Sandwiches, Burgern und warmen Gerichten. Bewertungen loben die Bierauswahl und Burger. Pub-Atmosphäre mit Musik; bei einem Besuch mit Kindern bitte den Abend vorher prüfen.",
+      "wildEagleHours": "Nur Abendessen. Montag geschlossen; Di–Do 19:00–02:00, Fr–Sa 19:00–06:00, So 19:00–02:00. Laut Tripadvisor; bitte vorher bestätigen."
     },
     "fr": {
       "navHome": "Accueil",
@@ -2027,11 +2134,11 @@
       "backCheckin": "Retour à l’arrivée",
       "backCheckout": "Retour au départ",
       "continueHouse": "Déjà dans le logement ? Consultez le guide",
-      "openingVideo": "01 · Comment ouvrir la porte",
+      "openingVideo": "02 · Ouvrir la porte",
       "openingVideoDesc": "Découvrez comment ouvrir la porte d’OPENDOOR.",
-      "closingVideo": "02 · Comment fermer la porte",
+      "closingVideo": "03 · Fermer la porte",
       "closingVideoDesc": "Découvrez comment bien fermer la porte en sortant.",
-      "intercomVideo": "03 · Comment utiliser l’interphone",
+      "intercomVideo": "01 · Utiliser l’interphone",
       "intercomVideoDesc": "Repérez le bon interphone et découvrez comment l’utiliser.",
       "doorVideosLink": "Comment fermer la porte ? Voir le guide",
       "livingKitchen": "Salon et cuisine",
@@ -2134,7 +2241,17 @@
       "nobleGuide": "Burgers créatifs, piadines, bières et cocktails. Les avis consultés apprécient la cuisine et l’accueil. Petit établissement décontracté ; avec des enfants, vérifiez les places et les plats proposés.",
       "nobleHours": "Dîner à partir de 19 h. Fermé le mercredi selon Restaurant Guru. La cuisine peut fermer avant le bar ; appelez pour confirmer.",
       "nobleBudget": "Fourchette indiquée dans les avis récents. Prix de la carte non vérifiés ; boissons et suppléments peuvent modifier l’addition.",
-      "firstAidLocationText": "Dans le placard du hall d’entrée."
+      "firstAidLocationText": "Dans le placard du hall d’entrée.",
+      "aciCategory": "ACI · services auto",
+      "mechanicCategory": "Garage automobile",
+      "hardwareCategory": "Bricolage",
+      "aciDesc": "Délégation ACI : démarches automobiles et services aux automobilistes.",
+      "pegognagaServiceDesc": "Garage et assistance automobile à Pegognaga.",
+      "bricoDesc": "Magasin de bricolage, maison et jardin au Centro Commerciale Po.",
+      "lidlDesc": "Supermarché pour les courses et les produits du quotidien.",
+      "wildEagleCategory": "Pub-brasserie",
+      "wildEagleGuide": "Pub-brasserie décontracté avec bières, sandwichs, burgers et plats chauds. Les avis apprécient le choix de bières et les burgers. Ambiance de pub avec musique ; si vous venez avec des enfants, vérifiez la soirée à l’avance.",
+      "wildEagleHours": "Dîner uniquement. Fermé le lundi ; mar–jeu 19 h–2 h, ven–sam 19 h–6 h, dim 19 h–2 h. Horaires publiés par Tripadvisor, à confirmer."
     },
     "nl": {
       "navHome": "Home",
@@ -2394,11 +2511,11 @@
       "backCheckin": "Terug naar inchecken",
       "backCheckout": "Terug naar uitchecken",
       "continueHouse": "Ben je binnen? Bekijk de uitleg over het appartement",
-      "openingVideo": "01 · Zo open je de deur",
+      "openingVideo": "02 · De deur openen",
       "openingVideoDesc": "Zo open je de deur van OPENDOOR.",
-      "closingVideo": "02 · Zo sluit je de deur",
+      "closingVideo": "03 · De deur sluiten",
       "closingVideoDesc": "Zo sluit je de deur goed wanneer je weggaat.",
-      "intercomVideo": "03 · Zo gebruik je de intercom",
+      "intercomVideo": "01 · De intercom gebruiken",
       "intercomVideoDesc": "Bekijk welke intercom je nodig hebt en hoe je die gebruikt.",
       "doorVideosLink": "Hoe sluit ik de deur? Bekijk de gids",
       "livingKitchen": "Woonkamer en keuken",
@@ -2501,7 +2618,17 @@
       "nobleGuide": "Creatieve burgers, piadina’s, bier en cocktails. Geraadpleegde reviews prijzen het eten en de ontvangst. Kleine, informele zaak; controleer beschikbaarheid en gerechten als je met kinderen eet.",
       "nobleHours": "Diner vanaf 19.00 uur. Volgens Restaurant Guru woensdag gesloten. De keuken kan eerder sluiten dan de bar; bel ter bevestiging.",
       "nobleBudget": "Prijsklasse uit recente reviews. Menuprijzen niet geverifieerd; drankjes en extra’s kunnen het totaal veranderen.",
-      "firstAidLocationText": "In de kast in de hal."
+      "firstAidLocationText": "In de kast in de hal.",
+      "aciCategory": "ACI · autodiensten",
+      "mechanicCategory": "Autogarage",
+      "hardwareCategory": "Doe-het-zelfwinkel",
+      "aciDesc": "ACI-kantoor voor autozaken en diensten voor automobilisten.",
+      "pegognagaServiceDesc": "Autogarage en voertuighulp in Pegognaga.",
+      "bricoDesc": "Doe-het-zelf-, huis- en tuinwinkel bij Centro Commerciale Po.",
+      "lidlDesc": "Supermarkt voor boodschappen en dagelijkse benodigdheden.",
+      "wildEagleCategory": "Bierpub",
+      "wildEagleGuide": "Informele bierpub met bier, broodjes, hamburgers en warme gerechten. Reviews prijzen de bierkeuze en hamburgers. Pub-sfeer met muziek; controleer de avond vooraf als je met kinderen komt.",
+      "wildEagleHours": "Alleen diner. Maandag gesloten; di–do 19.00–02.00, vr–za 19.00–06.00, zo 19.00–02.00. Openingstijden volgens Tripadvisor; controleer vooraf."
     },
     "pl": {
       "navHome": "Start",
@@ -2761,11 +2888,11 @@
       "backCheckin": "Wróć do zameldowania",
       "backCheckout": "Wróć do wymeldowania",
       "continueHouse": "Jesteś już w środku? Poznaj wyposażenie mieszkania",
-      "openingVideo": "01 · Jak otworzyć drzwi",
+      "openingVideo": "02 · Jak otworzyć drzwi",
       "openingVideoDesc": "Zobacz, jak otworzyć drzwi do OPENDOOR.",
-      "closingVideo": "02 · Jak zamknąć drzwi",
+      "closingVideo": "03 · Jak zamknąć drzwi",
       "closingVideoDesc": "Zobacz, jak prawidłowo zamknąć drzwi, kiedy wychodzisz.",
-      "intercomVideo": "03 · Jak korzystać z domofonu",
+      "intercomVideo": "01 · Jak korzystać z domofonu",
       "intercomVideoDesc": "Sprawdź, który domofon wybrać i jak go używać.",
       "doorVideosLink": "Jak zamknąć drzwi? Zobacz instrukcję",
       "livingKitchen": "Salon i kuchnia",
@@ -2868,7 +2995,17 @@
       "nobleGuide": "Pomysłowe burgery, piadiny, piwa i koktajle. Sprawdzone opinie chwalą kuchnię i obsługę. Mały, swobodny lokal; na kolację z dziećmi sprawdź dostępność miejsc i dań.",
       "nobleHours": "Kolacja od 19:00. Według Restaurant Guru w środę zamknięte. Kuchnia może zamykać się wcześniej niż bar; zadzwoń, aby potwierdzić.",
       "nobleBudget": "Przedział z niedawnych opinii. Ceny w menu niezweryfikowane; napoje i dodatki mogą zmienić rachunek.",
-      "firstAidLocationText": "W szafce w holu wejściowym."
+      "firstAidLocationText": "W szafce w holu wejściowym.",
+      "aciCategory": "ACI · sprawy samochodowe",
+      "mechanicCategory": "Mechanik samochodowy",
+      "hardwareCategory": "Sklep budowlany",
+      "aciDesc": "Delegatura ACI: formalności samochodowe i usługi dla kierowców.",
+      "pegognagaServiceDesc": "Warsztat samochodowy i serwis aut w Pegognaga.",
+      "bricoDesc": "Sklep z artykułami do majsterkowania, domu i ogrodu w Centro Commerciale Po.",
+      "lidlDesc": "Supermarket z artykułami spożywczymi i codziennego użytku.",
+      "wildEagleCategory": "Pub piwny",
+      "wildEagleGuide": "Swobodny pub z piwem, kanapkami, burgerami i daniami na ciepło. Recenzje chwalą wybór piw i burgery. Pubowa atmosfera z muzyką; przy wizycie z dziećmi sprawdź wcześniej planowany wieczór.",
+      "wildEagleHours": "Tylko kolacja. W poniedziałki zamknięte; wt–czw 19:00–02:00, pt–sob 19:00–06:00, nd 19:00–02:00. Godziny podane przez Tripadvisor, warto potwierdzić."
     },
     "ro": {
       "navHome": "Acasă",
@@ -3128,11 +3265,11 @@
       "backCheckin": "Înapoi la check-in",
       "backCheckout": "Înapoi la check-out",
       "continueHouse": "Te-ai instalat? Descoperă ghidul locuinței",
-      "openingVideo": "01 · Cum deschizi ușa",
+      "openingVideo": "02 · Cum deschizi ușa",
       "openingVideoDesc": "Vezi cum deschizi ușa apartamentului OPENDOOR.",
-      "closingVideo": "02 · Cum închizi ușa",
+      "closingVideo": "03 · Cum închizi ușa",
       "closingVideoDesc": "Vezi cum închizi corect ușa atunci când ieși.",
-      "intercomVideo": "03 · Cum folosești interfonul",
+      "intercomVideo": "01 · Cum folosești interfonul",
       "intercomVideoDesc": "Află unde este interfonul și cum îl folosești.",
       "doorVideosLink": "Cum închid ușa? Vezi ghidul",
       "livingKitchen": "Living și bucătărie",
@@ -3235,7 +3372,17 @@
       "nobleGuide": "Burgeri creativi, piadine, bere și cocktailuri. Recenziile consultate apreciază mâncarea și primirea. Local mic și informal; pentru cină cu copii, verifică locurile și preparatele disponibile.",
       "nobleHours": "Cină de la ora 19. Miercuri închis conform Restaurant Guru. Bucătăria se poate închide mai devreme decât barul; sună pentru confirmare.",
       "nobleBudget": "Interval indicat în recenzii recente. Prețurile meniului nu sunt verificate; băuturile și extraopțiunile pot schimba totalul.",
-      "firstAidLocationText": "În dulapul din holul de la intrare."
+      "firstAidLocationText": "În dulapul din holul de la intrare.",
+      "aciCategory": "ACI · servicii auto",
+      "mechanicCategory": "Service auto",
+      "hardwareCategory": "Magazin bricolaj",
+      "aciDesc": "Delegație ACI: formalități auto și servicii pentru șoferi.",
+      "pegognagaServiceDesc": "Service auto și asistență pentru vehicule în Pegognaga.",
+      "bricoDesc": "Magazin pentru bricolaj, casă și grădină la Centro Commerciale Po.",
+      "lidlDesc": "Supermarket pentru cumpărături și produse de zi cu zi.",
+      "wildEagleCategory": "Pub cu bere",
+      "wildEagleGuide": "Pub relaxat cu bere, sandvișuri, burgeri și preparate calde. Recenziile apreciază selecția de bere și burgerii. Atmosferă de pub cu muzică; dacă vii cu copii, verifică dinainte programul serii.",
+      "wildEagleHours": "Doar cină. Închis luni; mar–joi 19:00–02:00, vin–sâm 19:00–06:00, dum 19:00–02:00. Program publicat de Tripadvisor; confirmă înainte."
     }
   },
   "reviews": {
