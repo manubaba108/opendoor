@@ -124,7 +124,8 @@
   function home() {
     const journey=(number,key,items,cls='')=>`<section class="journey-section journey-stage-${number} ${cls}" aria-labelledby="journey-${number}"><div class="journey-heading"><span class="journey-number" aria-hidden="true">0${number}</span><div><h2 id="journey-${number}">${esc(t(key))}</h2><p>${esc(t(key+'Desc'))}</p></div></div><div class="journey-grid">${items.map(item=>item[0]==='arrival'?arrivalTile():tile(item)).join('')}</div></section>`;
     const card=id=>cards.find(item=>item[0]===id);
-    return `<section class="stay-welcome"><div class="eyebrow">${esc(config.property.town)} · ${esc(config.property.province)}</div><h1>${config.property.slogan==="COME IN. YOU'RE HOME."?"COME IN.<br>YOU'RE <span class=\"home-word\">HOME.</span>":esc(config.property.slogan)}</h1><p>${esc(t('hubSubtitle'))}</p></section>
+    const heroVideo=config.property.heroVideo,heroPoster=config.property.heroVideoPoster;
+    return `<section class="stay-welcome${heroVideo?' has-video':''}">${heroVideo?`<video class="stay-welcome-video" src="${esc(heroVideo)}" ${heroPoster?`poster="${esc(heroPoster)}"`:''} muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>`:''}<div class="eyebrow">${esc(config.property.town)} · ${esc(config.property.province)}</div><h1>${config.property.slogan==="COME IN. YOU'RE HOME."?"COME IN.<br>YOU'RE <span class=\"home-word\">HOME.</span>":esc(config.property.slogan)}</h1><p>${esc(t('hubSubtitle'))}</p></section>
       ${journey(1,'travelStage',[["arrival","pin","arrival","arrivalDesc"],card('food'),card('parking'),card('checkin')],'journey-four')}
       ${journey(2,'settleStage',[card('wifi'),['house/tv','tv','tv','openGuide'],['house/kitchen','utensils','kitchen','openGuide'],['house/hotWater','shower','bathroomGuide','openGuide'],['house/rest','bed','rest','restDesc'],['house','home','allHouseGuides','houseDesc']])}
       <div class="always-help">${tile(['help','message','help','helpDesc'])}${tile(['emergency','cross','firstAid','firstAidDesc'])}</div>
@@ -252,6 +253,11 @@
     document.querySelector('.photo-dialog')?.remove();route=location.hash.replace(/^#\/?/,'').split('?')[0]||'home';renderChrome();
     document.getElementById('main').dataset.tone=toneFor(route);
     document.getElementById('main').innerHTML=!routes.includes(route)?unavailable():route.startsWith('house/')?applianceGuide(route.split('/')[1]):renderers[route]();
+    const heroVideo=document.querySelector('.stay-welcome-video');
+    if(heroVideo){
+      if(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches){heroVideo.autoplay=false;heroVideo.pause();}
+      else{heroVideo.autoplay=true;heroVideo.play().catch(()=>{});}
+    }
     if(navigation){window.scrollTo({top:0,behavior:'instant'});document.getElementById('main').focus({preventScroll:true});}
   }
   function closeLanguage() {document.getElementById('language-menu').hidden=true;document.getElementById('language-trigger').setAttribute('aria-expanded','false');}
@@ -290,5 +296,6 @@
     const id=event.target.dataset.check;if(!id)return;const [mode,index]=id.split(':'),state=checks.get(mode);event.target.checked?state.add(Number(index)):state.delete(Number(index));const count=document.querySelectorAll('[data-check]').length;document.querySelector('.check-progress').textContent=`${state.size} / ${count} ${state.size===count?t('allSet'):t('checklistProgress')}`;
   });
   window.addEventListener('hashchange',()=>{const next=location.hash.replace(/^#\/?/,'').split('?')[0]||'home';if(history.state?.opendoorRoute!==next)history.replaceState({...history.state,opendoorRoute:next,opendoorFrom:true},'');render({navigation:true});});
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change',event=>{const heroVideo=document.querySelector('.stay-welcome-video');if(!heroVideo)return;if(event.matches){heroVideo.autoplay=false;heroVideo.pause();}else{heroVideo.autoplay=true;heroVideo.play().catch(()=>{});}});
   render();if(history.state?.opendoorRoute!==route)history.replaceState({...history.state,opendoorRoute:route,opendoorFrom:false},'');
 })();

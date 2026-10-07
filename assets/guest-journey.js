@@ -189,6 +189,8 @@
     for(const [key,values] of Object.entries(previousLabels))for(const [i,language] of languages.entries())if(data.strings?.[language]?.[key]===values[i])data.strings[language][key]=rows[key][i];
     data.modules.checkinPhotos??={"items": [{"id": "building-entrance", "titleKey": "buildingEntrancePhoto", "hintKey": "buildingEntranceHint", "src": null}, {"id": "apartment-door", "titleKey": "apartmentDoorPhoto", "hintKey": "apartmentDoorHint", "src": null}]};
     data.property.firstAidLocation??=null;
+    data.property.heroVideo??=null;
+    data.property.heroVideoPoster??=null;
     for(const place of data.localFood||[])if(!place.guide&&profiles[place.name])place.guide={...JSON.parse(JSON.stringify(profiles[place.name])),checked:'2026-10-06'};
     if(!data.houseManual.some(item=>item.id==='rest'))data.houseManual.push({id:'rest',icon:'bed',enabled:true,instructions:['restText']});
     return data;

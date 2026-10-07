@@ -20,6 +20,8 @@
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
+    "heroVideo": null,
+    "heroVideoPoster": null,
     "firstAidPhoto": "assets/uploads/first-aid-location.webp"
   },
   "host": {
