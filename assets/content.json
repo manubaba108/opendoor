@@ -675,11 +675,11 @@
     {
       "name": "Lidl Gonzaga",
       "category": "supermarket",
-      "address": "Via Cooperazione, s.n.c., 46023 Gonzaga (MN), Italia",
+      "address": "Via della Cooperazione, s.n.c., 46023 Gonzaga (MN), Italia",
       "distance": "7 km",
       "description": "lidlDesc",
       "enabled": true,
-      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20Cooperazione%2C%20s.n.c.%2C%2046023%20Gonzaga%20%28MN%29%2C%20Italia"
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20della%20Cooperazione%2C%20s.n.c.%2C%2046023%20Gonzaga%20%28MN%29%2C%20Italia"
     }
   ],
   "explore": [
