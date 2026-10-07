@@ -180,7 +180,7 @@
     else if(video&&bytes[0]===26&&bytes[1]===69&&bytes[2]===223&&bytes[3]===163){extension='webm';mime='video/webm';}
     else throw new Error(video?'Scegli un file video MP4 o WebM.':'Scegli una foto JPG, PNG o WebP. Per HEIC, esporta prima la foto in JPG.');
     const filename='assets/uploads/'+path.replace(/\./g,'-').toLowerCase()+'-'+crypto.randomUUID()+'.'+extension;
-    state.uploads.set(filename,{path:filename,bytes});state.media.set(filename,URL.createObjectURL(new Blob([bytes],{type:mime})));setPath(path,filename);
+    state.uploads.set(filename,{path:filename,bytes});state.media.set(filename,URL.createObjectURL(file.type===mime?file:new Blob([bytes],{type:mime})));setPath(path,filename);
     if(input.dataset.mimePath)setPath(input.dataset.mimePath,mime);
     if(path.startsWith('explore.')&&path.endsWith('.image.src')){const image=state.content.explore[Number(path.split('.')[1])].image;image.credit=null;image.source=null;image.license=null;}
     markDirty();render();notice(file.name+' inserito. Salva la bozza per conservarlo online.');
@@ -190,7 +190,7 @@
     state.busy=true;toolbar();
     try {
       const serialized=JSON.stringify(state.content),uploads=[...state.uploads.values()].filter(item=>serialized.includes(item.path));
-      await store.save(state.content,state.editorial,uploads,(done,total)=>{document.getElementById('save-status').textContent='Salvataggio online · '+done+' di '+total+' file';});
+      await store.save(state.content,state.editorial,uploads,(done,total,file)=>{const current=file?.size?' · '+file.path.split('/').pop()+' ('+(file.size/1024/1024).toFixed(1)+' MB)':'';document.getElementById('save-status').textContent='Caricamento online · '+done+' di '+total+' elementi'+current;});
       clearLocalMedia();state.dirty=false;state.lastSaved=new Intl.DateTimeFormat('it-IT',{hour:'2-digit',minute:'2-digit'}).format(new Date());notice('Bozza salvata online. Il sito per gli ospiti resta invariato.');render();
     }catch(error){if(!store.authenticated){state.busy=false;state.online=false;login(error.message);}else notice(error.message,true);}finally{state.busy=false;toolbar();}
   }

@@ -5,7 +5,7 @@ const ROOT='https://api.github.com/repos/manubaba108/opendoor';
 const hash=value=>createHash('sha1').update(value).digest('hex');
 export class GitHubSimulation {
   constructor(data,{released=true}={}) {
-    this.refs=new Map();this.blobs=new Map();this.trees=new Map();this.commits=new Map();this.calls=[];this.failure=null;
+    this.refs=new Map();this.blobs=new Map();this.trees=new Map();this.commits=new Map();this.calls=[];this.failure=null;this.networkFailure=null;
     const files=new Map([['index.html',this.blob('Guest Hub release')],['assets/content.js',this.blob('window.OPENDOOR = '+JSON.stringify(data)+';')],['assets/content.json',this.blob(JSON.stringify(data))],['assets/editorial.json',this.blob('{"pending":{}}')]]);
     if(released)files.set('assets/admin-release.json',this.blob('{"version":1}'));
     const source=this.commit(this.tree(files),[],'seed');this.refs.set('guest-hub-v1',source);
@@ -19,12 +19,14 @@ export class GitHubSimulation {
   files(ref){return this.trees.get(this.commits.get(this.refs.get(ref)||ref).tree.sha);}
   file(ref,path){const sha=this.files(ref).get(path);return sha?this.blobs.get(sha).toString('utf8'):null;}
   failNext(path,status=503){this.failure={path,status};}
+  failNextNetwork(path,after=1){this.networkFailure={path,after};}
   async fetch(url,options={}) {
     if(!url.startsWith(ROOT))throw new Error('Unexpected repository');
     const suffix=url.slice(ROOT.length),method=options.method||'GET',body=options.body?JSON.parse(options.body):null;
     this.calls.push({url,suffix,method,body});
     const respond=(status,value)=>new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json'}});
     if(options.headers?.Authorization!=='Bearer '+TEST_KEY)return respond(401,{message:'Bad credentials'});
+    if(this.networkFailure&&suffix===this.networkFailure.path){if(--this.networkFailure.after===0){this.networkFailure=null;throw new TypeError('Failed to fetch');}}
     if(this.failure&&suffix===this.failure.path){const status=this.failure.status;this.failure=null;return respond(status,{message:'Fixture failure'});}
     if(!suffix)return respond(200,{full_name:'manubaba108/opendoor',permissions:{push:true}});
     const readRef=suffix.match(/^\/git\/ref\/heads\/(.+)$/);

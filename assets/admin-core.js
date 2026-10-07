@@ -16,9 +16,13 @@
     return new TextDecoder().decode(Uint8Array.from(binary,char=>char.charCodeAt(0)));
   }
   function encodeBytes(bytes) {
-    let binary='';
-    for(let index=0;index<bytes.length;index+=32768)binary+=String.fromCharCode(...bytes.subarray(index,index+32768));
-    return btoa(binary);
+    const pieces=[],chunkSize=3*1024*1024;
+    for(let start=0;start<bytes.length;start+=chunkSize){
+      const end=Math.min(start+chunkSize,bytes.length);let binary='';
+      for(let index=start;index<end;index+=32768)binary+=String.fromCharCode(...bytes.subarray(index,Math.min(index+32768,end)));
+      pieces.push(btoa(binary));
+    }
+    return pieces.join('');
   }
   function httpsURL(value) {
     if(!value)return true;
@@ -117,8 +121,10 @@
       if(!this.#token)throw new Error('Accedi prima di salvare.');
       if(path!==''&&!/^\/(?:git\/(?:ref\/heads\/(?:main|guest-hub-v1|content-draft)|refs(?:\/heads\/(?:main|content-draft))?|commits(?:\/[a-f0-9]{40,64})?|trees(?:\/[a-f0-9]{40,64}(?:\?recursive=1)?)?|blobs)|contents\/assets\/(?:content\.(?:json|js)|editorial\.json|admin-release\.json)\?ref=[a-f0-9]{40,64})$/.test(path))throw new Error('Operazione non consentita.');
       let response;
-      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),method==='GET'?45000:180000);
-      try {response=await this.#fetch(API+path,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+this.#token,'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{}),cache:'no-store',redirect:'error',signal:controller.signal});}catch{throw new Error('Connessione non riuscita. Le modifiche restano aperte nel pannello. Riprova quando sei online.');}finally{clearTimeout(timer);}
+      const bodyText=body?JSON.stringify(body):undefined,isUpload=path==='/git/blobs'&&body?.encoding==='base64',encodedSize=isUpload?Math.floor(body.content.length*3/4):0;
+      const timeout=method==='GET'?45000:encodedSize>8*1024*1024?Math.min(720000,180000+Math.ceil((encodedSize-8*1024*1024)/(8*1024*1024))*60000):180000;
+      const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
+      try {response=await this.#fetch(API+path,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+this.#token,'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(bodyText!==undefined?{body:bodyText}:{}),cache:'no-store',redirect:'error',signal:controller.signal});}catch(error){const operation=isUpload?'l’invio del file a GitHub':'la richiesta a GitHub';if(error?.name==='AbortError')throw new Error('È scaduto il tempo per '+operation+'. Le modifiche restano aperte nel pannello; puoi riprovare.');throw new Error('Connessione interrotta durante '+operation+'. Le modifiche restano aperte nel pannello; riprova quando la connessione è stabile.');}finally{clearTimeout(timer);}
       if(optional&&response.status===404)return null;
       if(!response.ok){
         if(response.status===401){this.logout();throw new Error('Accesso scaduto o chiave non valida. Accedi di nuovo; le modifiche aperte non sono state cancellate.');}
@@ -173,11 +179,19 @@
       for(const item of uploads)if(!UPLOAD.test(item.path))throw new Error('Nome del file non valido.');
       await this.assertCurrent();
       const entries=[];
-      const files=[{path:CONTENT,content:serialize(data),encoding:'utf-8'},{path:'assets/content.js',content:scriptContent(data),encoding:'utf-8'},{path:EDITORIAL,content:serialize(editorial),encoding:'utf-8'},...uploads.map(item=>({path:item.path,content:encodeBytes(item.bytes),encoding:'base64'}))];
-      for(let index=0;index<files.length;index++){
-        onProgress(index+1,files.length);
-        const file=files[index],blob=await this.api('POST','/git/blobs',{content:file.content,encoding:file.encoding});
+      const files=[{path:CONTENT,content:serialize(data),encoding:'utf-8'},{path:'assets/content.js',content:scriptContent(data),encoding:'utf-8'},{path:EDITORIAL,content:serialize(editorial),encoding:'utf-8'}];
+      const total=files.length+uploads.length;
+      for(let index=0;index<total;index++){
+        const uploadIndex=index-files.length;
+        let file;
+        if(uploadIndex<0)file=files[index];
+        else {const item=uploads[uploadIndex];file={path:item.path,content:encodeBytes(item.bytes),encoding:'base64',size:item.bytes.byteLength};}
+        onProgress(index+1,total,file);
+        let blob;
+        try {blob=await this.api('POST','/git/blobs',{content:file.content,encoding:file.encoding});}
+        catch(error){if(file.size){const name=file.path.split('/').pop(),size=(file.size/1024/1024).toFixed(1);throw new Error('Invio interrotto per «'+name+'» ('+size+' MB). '+error.message);}throw error;}
         entries.push({path:file.path,mode:'100644',type:'blob',sha:blob.sha});
+        file.content=null;
       }
       const tree=await this.api('POST','/git/trees',{base_tree:this.snapshot.tree.sha,tree:entries});
       const commit=await this.api('POST','/git/commits',{message:'Save OPENDOOR content draft',tree:tree.sha,parents:[this.snapshot.source]});
