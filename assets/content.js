@@ -120,7 +120,7 @@ window.OPENDOOR = {
           "id": "balcony",
           "altKey": "balcony",
           "icon": "sun",
-          "src": null
+          "src": "assets/uploads/gallery-balcony.webp"
         }
       ]
     },
