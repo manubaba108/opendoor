@@ -102,19 +102,19 @@ window.OPENDOOR = {
           "id": "living-kitchen",
           "altKey": "livingKitchen",
           "icon": "sofa",
-          "src": null
+          "src": "assets/uploads/gallery-living-kitchen.webp"
         },
         {
           "id": "bedroom",
           "altKey": "bedroom",
           "icon": "bed",
-          "src": null
+          "src": "assets/uploads/gallery-bedroom.webp"
         },
         {
           "id": "bathroom",
           "altKey": "bathroom",
           "icon": "shower",
-          "src": null
+          "src": "assets/uploads/gallery-bathroom.webp"
         },
         {
           "id": "balcony",
@@ -692,7 +692,7 @@ window.OPENDOOR = {
       "distance": "1,5 km",
       "description": "joparkDesc",
       "image": {
-        "src": null,
+        "src": "assets/uploads/place-jopark.webp",
         "credit": null,
         "source": null,
         "license": null
@@ -707,10 +707,10 @@ window.OPENDOOR = {
       "distance": "9,5 km",
       "description": "polironeDesc",
       "image": {
-        "src": "assets/images/polirone.webp",
-        "credit": "Giampaolo Rebuzzi / Wikimedia Commons",
-        "source": "https://commons.wikimedia.org/wiki/File:Complesso_monastico_polironiano.jpg",
-        "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+        "src": "assets/uploads/place-polirone-abbey.webp",
+        "credit": null,
+        "source": null,
+        "license": null
       },
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Matilde%20di%20Canossa%207%2C%2046027%20San%20Benedetto%20Po%20(MN)%2C%20Italia"
@@ -722,7 +722,7 @@ window.OPENDOOR = {
       "distance": "15 km",
       "description": "villageDesc",
       "image": {
-        "src": null,
+        "src": "assets/uploads/place-mantova-village.webp",
         "credit": null,
         "source": null,
         "license": null
@@ -737,7 +737,7 @@ window.OPENDOOR = {
       "distance": "200 m",
       "description": "marketDesc",
       "image": {
-        "src": null,
+        "src": "assets/uploads/place-mercato-pegognaga.webp",
         "credit": null,
         "source": null,
         "license": null
