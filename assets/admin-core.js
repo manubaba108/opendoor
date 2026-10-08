@@ -121,16 +121,18 @@
       if(!this.#token)throw new Error('Accedi prima di salvare.');
       if(path!==''&&!/^\/(?:git\/(?:ref\/heads\/(?:main|guest-hub-v1|content-draft)|refs(?:\/heads\/(?:main|content-draft))?|commits(?:\/[a-f0-9]{40,64})?|trees(?:\/[a-f0-9]{40,64}(?:\?recursive=1)?)?|blobs)|contents\/assets\/(?:content\.(?:json|js)|editorial\.json|admin-release\.json)\?ref=[a-f0-9]{40,64})$/.test(path))throw new Error('Operazione non consentita.');
       let response;
-      const bodyText=body?JSON.stringify(body):undefined,isUpload=path==='/git/blobs'&&body?.encoding==='base64',encodedSize=isUpload?Math.floor(body.content.length*3/4):0;
+      const isUpload=path==='/git/blobs'&&body?.encoding==='base64',encodedSize=isUpload?Math.floor(body.content.length*3/4):0;
+      // Avoid JSON.stringify duplicating large Base64 strings in memory (especially on Safari).
+      const bodyText=!body?undefined:isUpload?new Blob(['{"content":"',body.content,'","encoding":"base64"}'],{type:'application/json'}):JSON.stringify(body);
       const timeout=method==='GET'?45000:encodedSize>8*1024*1024?Math.min(720000,180000+Math.ceil((encodedSize-8*1024*1024)/(8*1024*1024))*60000):180000;
       const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeout);
-      try {response=await this.#fetch(API+path,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+this.#token,'X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(bodyText!==undefined?{body:bodyText}:{}),cache:'no-store',redirect:'error',signal:controller.signal});}catch(error){const operation=isUpload?'l’invio del file a GitHub':'la richiesta a GitHub';if(error?.name==='AbortError')throw new Error('È scaduto il tempo per '+operation+'. Le modifiche restano aperte nel pannello; puoi riprovare.');throw new Error('Connessione interrotta durante '+operation+'. Le modifiche restano aperte nel pannello; riprova quando la connessione è stabile.');}finally{clearTimeout(timer);}
+      try {response=await this.#fetch(API+path,{method,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+this.#token,'X-GitHub-Api-Version':'2022-11-28',...(bodyText!==undefined?{'Content-Type':'application/json'}:{})},...(bodyText!==undefined?{body:bodyText}:{}),cache:'no-store',redirect:'error',signal:controller.signal});}catch(error){const operation=isUpload?'l’invio del file':'la richiesta',step=method+' '+path,kind=error?.name||'errore di rete';if(error?.name==='AbortError')throw new Error('Timeout durante '+operation+' a GitHub ('+step+'). Le modifiche restano aperte nel pannello; puoi riprovare.');const offline=globalThis.navigator?.onLine===false?' Il browser segnala che sei offline.':'';throw new Error('Connessione interrotta durante '+operation+' a GitHub ('+step+'; '+kind+').'+offline+' Le modifiche restano aperte nel pannello; riprova.');}finally{clearTimeout(timer);}
       if(optional&&response.status===404)return null;
       if(!response.ok){
         if(response.status===401){this.logout();throw new Error('Accesso scaduto o chiave non valida. Accedi di nuovo; le modifiche aperte non sono state cancellate.');}
-        if(response.status===403)throw new Error('GitHub non autorizza questa operazione. Controlla scadenza e permesso Contents: Read and write per il solo repository opendoor, oppure riprova più tardi.');
-        if([409,422].includes(response.status))throw new Error('La bozza è cambiata oppure il ramo è protetto. Le tue modifiche sono ancora aperte. Ricarica i contenuti prima di salvare; nessun aggiornamento viene forzato.');
-        throw new Error('Il salvataggio non è riuscito (risposta '+response.status+'). Le modifiche restano aperte.');
+        if(response.status===403)throw new Error('GitHub ha negato '+method+' '+path+'. Controlla scadenza e permesso Contents: Read and write per il solo repository opendoor, oppure riprova più tardi.');
+        if([409,422].includes(response.status))throw new Error('GitHub ha risposto '+response.status+' a '+method+' '+path+'. La bozza può essere cambiata o il ramo protetto. Le modifiche restano aperte; ricarica prima di riprovare.');
+        throw new Error('GitHub ha risposto '+response.status+' a '+method+' '+path+'. Le modifiche restano aperte.');
       }
       return response.status===204?null:response.json();
     }
@@ -189,7 +191,7 @@
         onProgress(index+1,total,file);
         let blob;
         try {blob=await this.api('POST','/git/blobs',{content:file.content,encoding:file.encoding});}
-        catch(error){if(file.size){const name=file.path.split('/').pop(),size=(file.size/1024/1024).toFixed(1);throw new Error('Invio interrotto per «'+name+'» ('+size+' MB). '+error.message);}throw error;}
+        catch(error){const name=file.path.split('/').pop(),size=file.size?' ('+(file.size/1024/1024).toFixed(1)+' MB)':'';throw new Error('Salvataggio interrotto su «'+name+'»'+size+'. '+error.message);}
         entries.push({path:file.path,mode:'100644',type:'blob',sha:blob.sha});
         file.content=null;
       }

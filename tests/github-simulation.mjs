@@ -22,8 +22,8 @@ export class GitHubSimulation {
   failNextNetwork(path,after=1){this.networkFailure={path,after};}
   async fetch(url,options={}) {
     if(!url.startsWith(ROOT))throw new Error('Unexpected repository');
-    const suffix=url.slice(ROOT.length),method=options.method||'GET',body=options.body?JSON.parse(options.body):null;
-    this.calls.push({url,suffix,method,body});
+    const suffix=url.slice(ROOT.length),method=options.method||'GET',rawBody=options.body,body=rawBody?JSON.parse(typeof rawBody==='string'?rawBody:await rawBody.text()):null;
+    this.calls.push({url,suffix,method,body,bodyType:rawBody?.constructor?.name||typeof rawBody});
     const respond=(status,value)=>new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json'}});
     if(options.headers?.Authorization!=='Bearer '+TEST_KEY)return respond(401,{message:'Bad credentials'});
     if(this.networkFailure&&suffix===this.networkFailure.path){if(--this.networkFailure.after===0){this.networkFailure=null;throw new TypeError('Failed to fetch');}}

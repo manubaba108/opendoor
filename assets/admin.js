@@ -190,7 +190,7 @@
     state.busy=true;toolbar();
     try {
       const serialized=JSON.stringify(state.content),uploads=[...state.uploads.values()].filter(item=>serialized.includes(item.path));
-      await store.save(state.content,state.editorial,uploads,(done,total,file)=>{const current=file?.size?' · '+file.path.split('/').pop()+' ('+(file.size/1024/1024).toFixed(1)+' MB)':'';document.getElementById('save-status').textContent='Caricamento online · '+done+' di '+total+' elementi'+current;});
+      await store.save(state.content,state.editorial,uploads,(done,total,file)=>{const current=file?.path?' · '+file.path.split('/').pop()+(file.size?' ('+(file.size/1024/1024).toFixed(1)+' MB)':''):'';document.getElementById('save-status').textContent='Salvataggio online · '+done+' di '+total+' elementi'+current;});
       clearLocalMedia();state.dirty=false;state.lastSaved=new Intl.DateTimeFormat('it-IT',{hour:'2-digit',minute:'2-digit'}).format(new Date());notice('Bozza salvata online. Il sito per gli ospiti resta invariato.');render();
     }catch(error){if(!store.authenticated){state.busy=false;state.online=false;login(error.message);}else notice(error.message,true);}finally{state.busy=false;toolbar();}
   }

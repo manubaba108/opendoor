@@ -30,6 +30,9 @@ data.strings.it.subtitle='Una casa accogliente, anche con accenti è e simboli <
 await store.save(data,editorial,[{path:data.host.photo,bytes:new Uint8Array([137,80,78,71])}]);
 check(backend.refs.get('main')===originalMain,'Saving draft never changes the live site');
 check(backend.files('content-draft').has(data.host.photo),'Upload and content commit together');
+const savedPhotoSha=backend.files('content-draft').get(data.host.photo),mediaBlobCall=backend.calls.find(call=>call.suffix==='/git/blobs'&&call.body?.encoding==='base64');
+check(backend.blobs.get(savedPhotoSha).equals(Buffer.from([137,80,78,71])),'Blob request preserves the exact uploaded image bytes');
+check(mediaBlobCall?.bodyType==='Blob','Large Base64 payload is sent as a Blob to avoid a duplicate JSON string');
 check(JSON.parse(backend.file('content-draft','assets/content.json')).host.photo===data.host.photo,'Uploaded profile is durable in the saved draft');
 await assert.rejects(()=>store.publish(),/prima pubblicazione/i);checks++;
 const another=new C.GitHubStore(backend.fetch);await another.login(TEST_KEY);
