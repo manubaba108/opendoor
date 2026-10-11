@@ -20,7 +20,9 @@ window.OPENDOOR = {
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
-    "firstAidPhoto": "assets/uploads/first-aid-location.webp"
+    "firstAidPhoto": "assets/uploads/first-aid-location.webp",
+    "heroVideo": null,
+    "heroVideoPoster": null
   },
   "host": {
     "name": "Manu",
@@ -559,7 +561,8 @@ window.OPENDOOR = {
         "budget": "nobleBudget",
         "phone": "+393534368001",
         "groups": [
-          "meals"
+          "meals",
+          "takeaway"
         ],
         "rating": {
           "value": 4.5,
@@ -1120,7 +1123,15 @@ window.OPENDOOR = {
       "lidlDesc": "Supermercato per la spesa alimentare e i prodotti di uso quotidiano.",
       "wildEagleCategory": "Birreria & pub",
       "wildEagleGuide": "Birreria informale con birre, panini, hamburger e piatti caldi. Le recensioni apprezzano la scelta di birre e gli hamburger. Atmosfera da pub con musica: se viaggi con bambini, verifica prima la serata.",
-      "wildEagleHours": "Solo cena. Lunedì chiuso; mar–gio 19:00–02:00, ven–sab 19:00–06:00, dom 19:00–02:00. Orari pubblicati su Tripadvisor, da verificare."
+      "wildEagleHours": "Solo cena. Lunedì chiuso; mar–gio 19:00–02:00, ven–sab 19:00–06:00, dom 19:00–02:00. Orari pubblicati su Tripadvisor, da verificare.",
+      "book": "Prenota",
+      "bookingIntro": "Scegli dove prenotare il tuo soggiorno a OPENDOOR.",
+      "bookingWith": "Prenota con",
+      "bookingNote": "Disponibilità, prezzi e condizioni sono indicati sulla piattaforma che scegli. Il collegamento si apre in una nuova scheda.",
+      "bookingHomeTitle": "Il tuo prossimo soggiorno",
+      "bookingHomeText": "Trova OPENDOOR sulla piattaforma che preferisci.",
+      "bookingEmpty": "Per informazioni sulle prenotazioni, contatta l’Host.",
+      "bookingPending": "Prossimamente"
     },
     "en": {
       "navHome": "Home",
@@ -1497,7 +1508,15 @@ window.OPENDOOR = {
       "lidlDesc": "Supermarket for groceries and everyday essentials.",
       "wildEagleCategory": "Beer pub",
       "wildEagleGuide": "Casual beer pub serving beer, sandwiches, burgers and hot dishes. Reviews praise the beer selection and burgers. It has a pub atmosphere with music; check the evening first if you are travelling with children.",
-      "wildEagleHours": "Dinner only. Closed Monday; Tue–Thu 19:00–02:00, Fri–Sat 19:00–06:00, Sun 19:00–02:00. Hours published by Tripadvisor; please confirm."
+      "wildEagleHours": "Dinner only. Closed Monday; Tue–Thu 19:00–02:00, Fri–Sat 19:00–06:00, Sun 19:00–02:00. Hours published by Tripadvisor; please confirm.",
+      "book": "Book",
+      "bookingIntro": "Choose where to book your stay at OPENDOOR.",
+      "bookingWith": "Book with",
+      "bookingNote": "Availability, prices and terms are shown on your chosen platform. The link opens in a new tab.",
+      "bookingHomeTitle": "Your next stay",
+      "bookingHomeText": "Find OPENDOOR on your preferred platform.",
+      "bookingEmpty": "Contact your host for booking information.",
+      "bookingPending": "Coming soon"
     },
     "de": {
       "navHome": "Start",
@@ -1874,7 +1893,15 @@ window.OPENDOOR = {
       "lidlDesc": "Supermarkt für Lebensmittel und Dinge des täglichen Bedarfs.",
       "wildEagleCategory": "Bierpub",
       "wildEagleGuide": "Ungezwungener Bierpub mit Bier, Sandwiches, Burgern und warmen Gerichten. Bewertungen loben die Bierauswahl und Burger. Pub-Atmosphäre mit Musik; bei einem Besuch mit Kindern bitte den Abend vorher prüfen.",
-      "wildEagleHours": "Nur Abendessen. Montag geschlossen; Di–Do 19:00–02:00, Fr–Sa 19:00–06:00, So 19:00–02:00. Laut Tripadvisor; bitte vorher bestätigen."
+      "wildEagleHours": "Nur Abendessen. Montag geschlossen; Di–Do 19:00–02:00, Fr–Sa 19:00–06:00, So 19:00–02:00. Laut Tripadvisor; bitte vorher bestätigen.",
+      "book": "Buchen",
+      "bookingIntro": "Wähle, wo du deinen Aufenthalt bei OPENDOOR buchen möchtest.",
+      "bookingWith": "Buchen bei",
+      "bookingNote": "Verfügbarkeit, Preise und Bedingungen findest du auf der gewählten Plattform. Der Link öffnet sich in einem neuen Tab.",
+      "bookingHomeTitle": "Dein nächster Aufenthalt",
+      "bookingHomeText": "Finde OPENDOOR auf deiner bevorzugten Plattform.",
+      "bookingEmpty": "Kontaktiere deinen Gastgeber für Informationen zur Buchung.",
+      "bookingPending": "Demnächst"
     },
     "fr": {
       "navHome": "Accueil",
@@ -2251,7 +2278,15 @@ window.OPENDOOR = {
       "lidlDesc": "Supermarché pour les courses et les produits du quotidien.",
       "wildEagleCategory": "Pub-brasserie",
       "wildEagleGuide": "Pub-brasserie décontracté avec bières, sandwichs, burgers et plats chauds. Les avis apprécient le choix de bières et les burgers. Ambiance de pub avec musique ; si vous venez avec des enfants, vérifiez la soirée à l’avance.",
-      "wildEagleHours": "Dîner uniquement. Fermé le lundi ; mar–jeu 19 h–2 h, ven–sam 19 h–6 h, dim 19 h–2 h. Horaires publiés par Tripadvisor, à confirmer."
+      "wildEagleHours": "Dîner uniquement. Fermé le lundi ; mar–jeu 19 h–2 h, ven–sam 19 h–6 h, dim 19 h–2 h. Horaires publiés par Tripadvisor, à confirmer.",
+      "book": "Réserver",
+      "bookingIntro": "Choisissez où réserver votre séjour à OPENDOOR.",
+      "bookingWith": "Réserver sur",
+      "bookingNote": "Les disponibilités, les tarifs et les conditions sont indiqués sur la plateforme choisie. Le lien s’ouvre dans un nouvel onglet.",
+      "bookingHomeTitle": "Votre prochain séjour",
+      "bookingHomeText": "Retrouvez OPENDOOR sur votre plateforme préférée.",
+      "bookingEmpty": "Contactez votre hôte pour toute information sur les réservations.",
+      "bookingPending": "Bientôt disponible"
     },
     "nl": {
       "navHome": "Home",
@@ -2628,7 +2663,15 @@ window.OPENDOOR = {
       "lidlDesc": "Supermarkt voor boodschappen en dagelijkse benodigdheden.",
       "wildEagleCategory": "Bierpub",
       "wildEagleGuide": "Informele bierpub met bier, broodjes, hamburgers en warme gerechten. Reviews prijzen de bierkeuze en hamburgers. Pub-sfeer met muziek; controleer de avond vooraf als je met kinderen komt.",
-      "wildEagleHours": "Alleen diner. Maandag gesloten; di–do 19.00–02.00, vr–za 19.00–06.00, zo 19.00–02.00. Openingstijden volgens Tripadvisor; controleer vooraf."
+      "wildEagleHours": "Alleen diner. Maandag gesloten; di–do 19.00–02.00, vr–za 19.00–06.00, zo 19.00–02.00. Openingstijden volgens Tripadvisor; controleer vooraf.",
+      "book": "Boeken",
+      "bookingIntro": "Kies waar je jouw verblijf bij OPENDOOR wilt boeken.",
+      "bookingWith": "Boek via",
+      "bookingNote": "Beschikbaarheid, prijzen en voorwaarden staan op het gekozen platform. De link opent in een nieuw tabblad.",
+      "bookingHomeTitle": "Je volgende verblijf",
+      "bookingHomeText": "Vind OPENDOOR op je favoriete platform.",
+      "bookingEmpty": "Neem contact op met je host voor informatie over boeken.",
+      "bookingPending": "Binnenkort"
     },
     "pl": {
       "navHome": "Start",
@@ -3005,7 +3048,15 @@ window.OPENDOOR = {
       "lidlDesc": "Supermarket z artykułami spożywczymi i codziennego użytku.",
       "wildEagleCategory": "Pub piwny",
       "wildEagleGuide": "Swobodny pub z piwem, kanapkami, burgerami i daniami na ciepło. Recenzje chwalą wybór piw i burgery. Pubowa atmosfera z muzyką; przy wizycie z dziećmi sprawdź wcześniej planowany wieczór.",
-      "wildEagleHours": "Tylko kolacja. W poniedziałki zamknięte; wt–czw 19:00–02:00, pt–sob 19:00–06:00, nd 19:00–02:00. Godziny podane przez Tripadvisor, warto potwierdzić."
+      "wildEagleHours": "Tylko kolacja. W poniedziałki zamknięte; wt–czw 19:00–02:00, pt–sob 19:00–06:00, nd 19:00–02:00. Godziny podane przez Tripadvisor, warto potwierdzić.",
+      "book": "Zarezerwuj",
+      "bookingIntro": "Wybierz, gdzie chcesz zarezerwować pobyt w OPENDOOR.",
+      "bookingWith": "Zarezerwuj przez",
+      "bookingNote": "Dostępność, ceny i warunki znajdziesz na wybranej platformie. Link otwiera się w nowej karcie.",
+      "bookingHomeTitle": "Twój następny pobyt",
+      "bookingHomeText": "Znajdź OPENDOOR na ulubionej platformie.",
+      "bookingEmpty": "Skontaktuj się z gospodarzem, aby uzyskać informacje o rezerwacji.",
+      "bookingPending": "Już wkrótce"
     },
     "ro": {
       "navHome": "Acasă",
@@ -3382,12 +3433,20 @@ window.OPENDOOR = {
       "lidlDesc": "Supermarket pentru cumpărături și produse de zi cu zi.",
       "wildEagleCategory": "Pub cu bere",
       "wildEagleGuide": "Pub relaxat cu bere, sandvișuri, burgeri și preparate calde. Recenziile apreciază selecția de bere și burgerii. Atmosferă de pub cu muzică; dacă vii cu copii, verifică dinainte programul serii.",
-      "wildEagleHours": "Doar cină. Închis luni; mar–joi 19:00–02:00, vin–sâm 19:00–06:00, dum 19:00–02:00. Program publicat de Tripadvisor; confirmă înainte."
+      "wildEagleHours": "Doar cină. Închis luni; mar–joi 19:00–02:00, vin–sâm 19:00–06:00, dum 19:00–02:00. Program publicat de Tripadvisor; confirmă înainte.",
+      "book": "Rezervă",
+      "bookingIntro": "Alege unde să rezervi sejurul la OPENDOOR.",
+      "bookingWith": "Rezervă prin",
+      "bookingNote": "Disponibilitatea, prețurile și condițiile sunt afișate pe platforma aleasă. Linkul se deschide într-o filă nouă.",
+      "bookingHomeTitle": "Următorul tău sejur",
+      "bookingHomeText": "Găsește OPENDOOR pe platforma preferată.",
+      "bookingEmpty": "Contactează gazda pentru informații despre rezervări.",
+      "bookingPending": "În curând"
     }
   },
   "reviews": {
     "airbnb": "https://www.airbnb.it/trips",
-    "booking": "https://www.booking.com/",
+    "booking": "https://www.booking.com/Share-9SuEww",
     "google": "https://g.page/r/CR3VDEdxvhIeEAE/review"
   },
   "bookingPlatforms": [
@@ -3506,6 +3565,28 @@ window.OPENDOOR = {
       "phone": null,
       "whatsapp": "https://wa.me/393426992850",
       "email": null
+    }
+  ],
+  "bookingLinks": [
+    {
+      "id": "airbnb",
+      "name": "Airbnb",
+      "url": "https://airbnb.it/h/opendoor/"
+    },
+    {
+      "id": "booking",
+      "name": "Booking.com",
+      "url": null
+    },
+    {
+      "id": "tripcom",
+      "name": "Trip.com",
+      "url": null
+    },
+    {
+      "id": "agoda",
+      "name": "Agoda",
+      "url": null
     }
   ]
 };
