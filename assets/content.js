@@ -3576,7 +3576,7 @@ window.OPENDOOR = {
     {
       "id": "booking",
       "name": "Booking.com",
-      "url": null
+      "url": "https://www.booking.com/Share-X2ilec"
     },
     {
       "id": "tripcom",
