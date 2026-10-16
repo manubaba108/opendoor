@@ -20,7 +20,7 @@
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
-    "firstAidPhoto": "assets/uploads/first-aid-location.webp",
+    "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
     "heroVideo": null,
     "heroVideoPoster": null
   },
@@ -142,13 +142,13 @@
           "id": "building-entrance",
           "titleKey": "buildingEntrancePhoto",
           "hintKey": "buildingEntranceHint",
-          "src": null
+          "src": "assets/uploads/modules-checkinphotos-items-0-src-4548c4ad-4334-4b4d-b076-50cb913c0c36.png"
         },
         {
           "id": "apartment-door",
           "titleKey": "apartmentDoorPhoto",
           "hintKey": "apartmentDoorHint",
-          "src": null
+          "src": "assets/uploads/modules-checkinphotos-items-1-src-2c5c327c-f543-4054-8581-412c67a0b0f9.png"
         }
       ]
     }
