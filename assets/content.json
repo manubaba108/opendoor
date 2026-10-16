@@ -73,7 +73,7 @@
           "id": "intercom",
           "titleKey": "intercomVideo",
           "descriptionKey": "intercomVideoDesc",
-          "src": "assets/uploads/modules-videos-items-0-src-72ac34c5-ee91-4b49-8e7f-ccd59a342c31.mp4",
+          "src": null,
           "thumbnail": null,
           "captions": [],
           "mime": "video/mp4"
@@ -82,17 +82,19 @@
           "id": "door-opening",
           "titleKey": "openingVideo",
           "descriptionKey": "openingVideoDesc",
-          "src": null,
+          "src": "assets/uploads/modules-videos-items-1-src-ace2692b-66e3-4144-98d3-4c3ab6be8db5.mp4",
           "thumbnail": null,
-          "captions": []
+          "captions": [],
+          "mime": "video/mp4"
         },
         {
           "id": "door-closing",
           "titleKey": "closingVideo",
           "descriptionKey": "closingVideoDesc",
-          "src": null,
+          "src": "assets/uploads/modules-videos-items-2-src-8a41ca99-fd95-4c64-9359-d554ffd0e2b6.mp4",
           "thumbnail": null,
-          "captions": []
+          "captions": [],
+          "mime": "video/mp4"
         }
       ]
     },
