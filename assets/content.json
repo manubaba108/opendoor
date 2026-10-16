@@ -73,9 +73,10 @@
           "id": "intercom",
           "titleKey": "intercomVideo",
           "descriptionKey": "intercomVideoDesc",
-          "src": null,
+          "src": "assets/uploads/modules-videos-items-0-src-72ac34c5-ee91-4b49-8e7f-ccd59a342c31.mp4",
           "thumbnail": null,
-          "captions": []
+          "captions": [],
+          "mime": "video/mp4"
         },
         {
           "id": "door-opening",
