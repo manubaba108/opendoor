@@ -29,7 +29,7 @@ window.OPENDOOR = {
     "photo": "assets/uploads/hosts-0-photo-cbed8b0e-e8ef-489a-abfe-6ad5b1d99a7e.jpg",
     "phone": "+393426992850",
     "whatsapp": "https://wa.me/393426992850",
-    "email": "italiaaj88@yahoo.it"
+    "email": "opendoor46020@gmail.com"
   },
   "emergency": {
     "number": "112",
@@ -3561,7 +3561,7 @@ window.OPENDOOR = {
       "photo": "assets/uploads/hosts-0-photo-cbed8b0e-e8ef-489a-abfe-6ad5b1d99a7e.jpg",
       "phone": "+393426992850",
       "whatsapp": "https://wa.me/393426992850",
-      "email": "italiaaj88@yahoo.it"
+      "email": "opendoor46020@gmail.com"
     },
     {
       "name": "Erika",
