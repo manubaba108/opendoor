@@ -20,7 +20,7 @@
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
-    "firstAidPhoto": "assets/uploads/first-aid-location.webp",
+    "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
     "heroVideo": null,
     "heroVideoPoster": null
   },
@@ -73,7 +73,7 @@
           "id": "intercom",
           "titleKey": "intercomVideo",
           "descriptionKey": "intercomVideoDesc",
-          "src": "assets/uploads/modules-videos-items-0-src-72ac34c5-ee91-4b49-8e7f-ccd59a342c31.mp4",
+          "src": null,
           "thumbnail": null,
           "captions": [],
           "mime": "video/mp4"
@@ -82,17 +82,19 @@
           "id": "door-opening",
           "titleKey": "openingVideo",
           "descriptionKey": "openingVideoDesc",
-          "src": null,
+          "src": "assets/uploads/modules-videos-items-1-src-ace2692b-66e3-4144-98d3-4c3ab6be8db5.mp4",
           "thumbnail": null,
-          "captions": []
+          "captions": [],
+          "mime": "video/mp4"
         },
         {
           "id": "door-closing",
           "titleKey": "closingVideo",
           "descriptionKey": "closingVideoDesc",
-          "src": null,
+          "src": "assets/uploads/modules-videos-items-2-src-8a41ca99-fd95-4c64-9359-d554ffd0e2b6.mp4",
           "thumbnail": null,
-          "captions": []
+          "captions": [],
+          "mime": "video/mp4"
         }
       ]
     },
@@ -140,13 +142,13 @@
           "id": "building-entrance",
           "titleKey": "buildingEntrancePhoto",
           "hintKey": "buildingEntranceHint",
-          "src": null
+          "src": "assets/uploads/modules-checkinphotos-items-0-src-4548c4ad-4334-4b4d-b076-50cb913c0c36.png"
         },
         {
           "id": "apartment-door",
           "titleKey": "apartmentDoorPhoto",
           "hintKey": "apartmentDoorHint",
-          "src": null
+          "src": "assets/uploads/modules-checkinphotos-items-1-src-2c5c327c-f543-4054-8581-412c67a0b0f9.png"
         }
       ]
     }
