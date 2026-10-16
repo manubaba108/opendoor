@@ -22,7 +22,7 @@ window.OPENDOOR = {
     "firstAidLocation": "firstAidLocationText",
     "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
     "heroVideo": null,
-    "heroVideoPoster": null
+    "heroVideoPoster": "assets/uploads/property-herovideoposter-ae32d5fd-1bfe-4dcb-a537-8f450a1299d5.png"
   },
   "host": {
     "name": "Manu",
@@ -105,25 +105,25 @@ window.OPENDOOR = {
           "id": "living-kitchen",
           "altKey": "livingKitchen",
           "icon": "sofa",
-          "src": null
+          "src": "assets/uploads/modules-gallery-items-0-src-7c0205ad-3c9a-4144-a1ef-e1e1c03159f1.png"
         },
         {
           "id": "bedroom",
           "altKey": "bedroom",
           "icon": "bed",
-          "src": null
+          "src": "assets/uploads/modules-gallery-items-1-src-c750c2d4-4ccd-4c47-9a1e-9c24bbce8a3d.png"
         },
         {
           "id": "bathroom",
           "altKey": "bathroom",
           "icon": "shower",
-          "src": null
+          "src": "assets/uploads/modules-gallery-items-2-src-2597e9a2-8bfe-4f7e-ad26-5ca044329e2a.png"
         },
         {
           "id": "balcony",
           "altKey": "balcony",
           "icon": "sun",
-          "src": null
+          "src": "assets/uploads/modules-gallery-items-3-src-3f938f89-bf36-4774-9c8c-8b8b3679a125.png"
         }
       ]
     },
@@ -186,7 +186,7 @@ window.OPENDOOR = {
       "id": "safety",
       "icon": "shield",
       "enabled": true,
-      "photo": null,
+      "photo": "assets/uploads/housemanual-2-photo-3be6a7f3-cb44-49d4-bcdc-03e88ebfc834.png",
       "photoTitleKey": "safetyPhoto",
       "photoHintKey": "safetyPhotoHint",
       "photoAltKey": "safetyPhoto"
@@ -200,7 +200,7 @@ window.OPENDOOR = {
         "kitchenClean"
       ],
       "model": null,
-      "photo": null,
+      "photo": "assets/uploads/housemanual-3-photo-f5aa57a2-058a-4d6f-b7f7-7b69ed61b3fb.png",
       "video": null
     },
     {
@@ -218,7 +218,7 @@ window.OPENDOOR = {
       "enabled": true,
       "instructions": [],
       "model": null,
-      "photo": null,
+      "photo": "assets/uploads/housemanual-5-photo-b817006c-e5ff-423e-8434-324801c1f99f.png",
       "video": null
     },
     {
@@ -227,7 +227,7 @@ window.OPENDOOR = {
       "enabled": true,
       "instructions": [],
       "model": null,
-      "photo": null,
+      "photo": "assets/uploads/housemanual-6-photo-d90d4a3e-99a6-46af-b3f7-d717f4d9cb0b.png",
       "video": null
     },
     {
@@ -289,7 +289,7 @@ window.OPENDOOR = {
         "balconyText",
         "childrenText"
       ],
-      "photo": null,
+      "photo": "assets/uploads/housemanual-12-photo-42770aaa-c47e-44f5-acc8-0e71019a90b4.png",
       "photoTitleKey": "balconyPhoto",
       "photoHintKey": "balconyPhotoHint",
       "photoAltKey": "balconyPhoto"
@@ -314,7 +314,8 @@ window.OPENDOOR = {
       "enabled": true,
       "instructions": [
         "restText"
-      ]
+      ],
+      "photo": "assets/uploads/housemanual-14-photo-a4c5e293-6ca4-4126-af95-4feef8acb445.png"
     }
   ],
   "localFood": [
@@ -696,7 +697,7 @@ window.OPENDOOR = {
       "distance": "1,5 km",
       "description": "joparkDesc",
       "image": {
-        "src": null,
+        "src": "assets/uploads/explore-0-image-src-a0d4001f-c87f-44ba-9497-dedaa08416ef.webp",
         "credit": null,
         "source": null,
         "license": null
@@ -711,10 +712,10 @@ window.OPENDOOR = {
       "distance": "9,5 km",
       "description": "polironeDesc",
       "image": {
-        "src": "assets/images/polirone.webp",
-        "credit": "Giampaolo Rebuzzi / Wikimedia Commons",
-        "source": "https://commons.wikimedia.org/wiki/File:Complesso_monastico_polironiano.jpg",
-        "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+        "src": "assets/uploads/explore-1-image-src-9c7282e1-6af3-4571-99ff-1f9fa2cc6bbd.webp",
+        "credit": null,
+        "source": null,
+        "license": null
       },
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Matilde%20di%20Canossa%207%2C%2046027%20San%20Benedetto%20Po%20(MN)%2C%20Italia"
@@ -726,7 +727,7 @@ window.OPENDOOR = {
       "distance": "15 km",
       "description": "villageDesc",
       "image": {
-        "src": null,
+        "src": "assets/uploads/explore-2-image-src-40c3924f-6fea-440e-af89-15cbd7e3b10b.webp",
         "credit": null,
         "source": null,
         "license": null
@@ -741,7 +742,7 @@ window.OPENDOOR = {
       "distance": "200 m",
       "description": "marketDesc",
       "image": {
-        "src": null,
+        "src": "assets/uploads/explore-3-image-src-89cad81f-2d2d-45e3-8a1d-57efe660d585.webp",
         "credit": null,
         "source": null,
         "license": null
