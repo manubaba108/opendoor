@@ -17,6 +17,7 @@
     basket:'<path d="m8 3-4 6m12-6 4 6M2 9h20l-3 12H5ZM8 13v4m4-4v4m4-4v4"/>',
     cross:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6Z"/>',
     compass:'<circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6Z"/>',
+    calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4m8-4v4M8 14h3m3 0h3m-9 3h3"/>',
     trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',
     logout:'<path d="M9 3H4v18h5m3-9h10m-4-4 4 4-4 4"/>',
     siren:'<path d="M5 21h14M6 21v-7a6 6 0 0 1 12 0v7M12 2v2M3 5l2 2m14 0 2-2M2 12h2m16 0h2M12 11v3"/>',
