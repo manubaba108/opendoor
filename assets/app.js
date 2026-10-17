@@ -63,7 +63,7 @@
   const navItems=[{route:'home',key:'navHome',icon:'home'},{route:'food',key:'navFood',icon:'utensils'},{route:'house',key:'navHouse',icon:'key'},{route:'explore',key:'navExplore',icon:'compass'},{route:'help',key:'navHelp',icon:'message'}];
   const cards=[['checkin','key','checkin','checkinDesc','featured'],['wifi','wifi','wifi','wifiDesc'],['house','home','house','houseDesc'],['parking','car','parking','parkingDesc'],['food','utensils','food','foodDesc'],['services','basket','services','servicesDesc'],['health','cross','health','healthDesc'],['explore','compass','explore','exploreDesc'],['waste','trash','waste','wasteDesc'],['checkout','logout','checkout','checkoutDesc'],['emergency','siren','emergency','emergencyDesc','danger'],['help','message','help','helpDesc']];
   const routes=['arrival','closing','accesso','book','home','house','explore','help','checkin','wifi','parking','food','services','health','waste','checkout','emergency','leaving','videos','gallery','reviews','feedback',...config.houseManual.filter(x=>x.enabled).map(x=>'house/'+x.id)];
-  let route='home',toastTimer,feedbackDraft='';
+  let route='home',previousRoute=null,toastTimer,feedbackDraft='';
   const checks=new Map();
   const whatsappURL=(message=t('greeting'),host=primaryHost)=>{if(!host.whatsapp)return null;const url=new URL(host.whatsapp);url.searchParams.set('text',message);return url.href;};
   // Maps and WhatsApp use native navigation, including mobile app handoff.
@@ -95,8 +95,8 @@
   const foodGroup=()=>new URLSearchParams(location.hash.split('?')[1]||'').get('group')||'all';
   const activeArea=()=>route==='food'?'food':route.startsWith('house/')?'house':route==='services'?'explore':['wifi','waste','leaving','gallery'].includes(route)?'house':['book','arrival','closing','checkin','parking','videos','checkout','reviews'].includes(route)?'home':['health','emergency','feedback'].includes(route)?'help':route;
   const routeParents={arrival:'home',accesso:'home',closing:'checkout',book:'home',house:'home',explore:'home',help:'home',checkin:'home',parking:'arrival',videos:'checkin',wifi:'house',waste:'house',leaving:'house',gallery:'house',food:'home',services:'explore',health:'help',emergency:'help',checkout:'home',reviews:'checkout',feedback:'help'};
-  const parentLabels={arrival:'backArrival',home:'backHome',house:'backHouse',explore:'backExplore',help:'backHelp',checkin:'backCheckin',checkout:'backCheckout'};
-  const heading=(title,intro,parent=routeParents[route]||'home')=>`<a href="#/${parent}" class="back-link" data-parent-route="${parent}">${icon('back')}${esc(t(parentLabels[parent]||'back'))}</a><div class="page-header"><div class="eyebrow">OPENDOOR · ${esc(t('propertyIntro'))}</div><h1>${esc(t(title))}</h1>${intro?`<p>${esc(t(intro))}</p>`:''}</div>`;
+  const parentLabels={arrival:'backArrival',home:'backHome',house:'backHouse',explore:'backExplore',help:'backHelp',accesso:'backAccesso',checkin:'backCheckin',checkout:'backCheckout'};
+  const heading=(title,intro,parent=routeParents[route]||'home')=>{const destination=route==='health'&&['accesso','home','help'].includes(previousRoute)?previousRoute:parent;return `<a href="#/${destination}" class="back-link" data-parent-route="${destination}">${icon('back')}${esc(t(parentLabels[destination]||'back'))}</a><div class="page-header"><div class="eyebrow">OPENDOOR · ${esc(t('propertyIntro'))}</div><h1>${esc(t(title))}</h1>${intro?`<p>${esc(t(intro))}</p>`:''}</div>`;};
   const info=key=>`<div class="info-line">${icon('info')}<p>${esc(t(key))}</p></div>`;
   function platformLogos() {
     const items=bookingLinks.map(link=>{const logo=(config.bookingPlatforms||[]).find(item=>item.id===link.id);return logo?{...logo,name:link.name,url:link.url}:null;}).filter(Boolean);if(!items.length)return '';
@@ -329,7 +329,7 @@
   document.addEventListener('change',event=>{
     const id=event.target.dataset.check;if(!id)return;const [mode,index]=id.split(':'),state=checks.get(mode);event.target.checked?state.add(Number(index)):state.delete(Number(index));const count=document.querySelectorAll('[data-check]').length;document.querySelector('.check-progress').textContent=`${state.size} / ${count} ${state.size===count?t('allSet'):t('checklistProgress')}`;
   });
-  window.addEventListener('hashchange',()=>{const next=location.hash.replace(/^#\/?/,'').split('?')[0]||'home';if(history.state?.opendoorRoute!==next)history.replaceState({...history.state,opendoorRoute:next,opendoorFrom:true},'');render({navigation:true});});
+  window.addEventListener('hashchange',()=>{previousRoute=route;const next=location.hash.replace(/^#\/?/,'').split('?')[0]||'home';if(history.state?.opendoorRoute!==next)history.replaceState({...history.state,opendoorRoute:next,opendoorFrom:true},'');render({navigation:true});});
   window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change',event=>{const heroVideo=document.querySelector('.stay-welcome-video');if(!heroVideo)return;if(event.matches){heroVideo.autoplay=false;heroVideo.pause();}else{heroVideo.autoplay=true;heroVideo.play().catch(()=>{});}});
   render();if(history.state?.opendoorRoute!==route)history.replaceState({...history.state,opendoorRoute:route,opendoorFrom:false},'');
 })();
