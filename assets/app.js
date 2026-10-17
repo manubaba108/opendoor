@@ -198,9 +198,9 @@
   }
   function house() {
     const ids=['appliances','boiler','oven','balcony','waste'];
-    const manual=config.houseManual.filter(item=>item.enabled&&ids.includes(item.id));
+    const manual=ids.map(id=>config.houseManual.find(item=>item.id===id&&item.enabled)).filter(Boolean);
     const manualTile=item=>`<a class="manual-tile tone-${toneFor("house/"+item.id)}" href="#/house/${item.id}"><span class="icon-box">${icon(item.icon)}</span><strong>${esc(t(item.id==="appliances"?"coffeeMachine":item.id))}</strong><span>${esc(t(item.id==="boiler"?"boilerTileDesc":"openGuide"))}</span></a>`;
-    return `${heading("house","extraGuidesDesc")}<div class="manual-grid focused-house-guides">${manual.map(manualTile).join("")}</div>`;
+    return `${heading("allHouseGuides","extraGuidesDesc")}<div class="manual-grid focused-house-guides">${manual.map(manualTile).join("")}</div>`;
   }
   function guidePhoto(item) {
     const title=item.photoTitleKey||'controlsPhoto',hint=item.photoHintKey||'guidePhotoPending',alt=item.photoAltKey||title;
