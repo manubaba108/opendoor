@@ -22,7 +22,8 @@ window.OPENDOOR = {
     "firstAidLocation": "firstAidLocationText",
     "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
     "heroVideo": "assets/uploads/property-herovideo-c8168c52-00ac-4d19-9938-4676a3128cbe.mp4",
-    "heroVideoPoster": null
+    "heroVideoPoster": null,
+    "parkingMapPhoto": "assets/uploads/property-parkingmapphoto-5c94bb02-9fed-426b-bcf4-67d61617a8d4.png"
   },
   "host": {
     "name": "Manu",
