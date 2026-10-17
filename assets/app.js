@@ -260,10 +260,13 @@
       :item.instructions?.length?`<ol class="guide-steps">${item.instructions.map(key=>`<li>${esc(t(key))}</li>`).join('')}</ol>`
       :`<div class="empty-guide">${icon('list')}<p>${esc(t('guideStepsPending'))}</p></div>`;
     if(id==='waste'&&config.property.wasteDropoffLocation)instructions+=`<div class="waste-location"><h3>${esc(t('wasteOutside'))}</h3><p>${esc(config.property.wasteDropoffLocation)}</p></div>`;
-    const body=`<h2>${esc(t(device?'stepsTitle':'guideNotes'))}</h2>${instructions}`;
+    // A single tip reads as prose, like the sofa-bed page; only multi-step guides need numbering.
+    if(item.instructions?.length===1&&device)instructions=`<p>${esc(t(item.instructions[0]))}</p>`;
+    const needsHeading=device&&item.instructions?.length!==1;
+    const body=`${needsHeading?`<h2>${esc(t('stepsTitle'))}</h2>`:''}${instructions}`;
     const image=(device||item.photo||item.photoTitleKey)?houseGuideImage(item.photo,item.photoAltKey||item.photoTitleKey||id,item.photoHintKey||'guidePhotoPending'):'';
     const video=['appliances','oven'].includes(id)||item.video?houseGuideVideo(item,id):'';
-    return houseGuideLayout(heading(id,intro,'house'),body,image,video);
+    return houseGuideLayout(heading(id,intro,id==='appliances'?'home':'house'),body,image,video);
   }
   function parking() {
     const ev=config.nearbyServices.find(x=>x.category==='ev');
