@@ -33,4 +33,23 @@ This is a **review-only working branch**. Do not merge into main or alter the ex
 6. Check all seven languages, mobile breakpoints, media on cellular connectivity, and no broken photo links.
 7. Verify service hours and any unconfirmed walkable distances locally. Only after explicit Host approval merge/publish.
 
+
+## Automated QA completed on 17 October 2026
+- Chrome 155 smartphone emulation (390×844): 10 guest-facing routes × seven languages = **70 route checks**. No JavaScript runtime errors, broken existing local media, missing primary headings or horizontal overflow.
+- Additional browser checks at 390 px and 1440 px: the four check-in steps render in order; the new `#/accesso` route contains both real video files and opening→closing instructions; both video metadata tracks loaded successfully (16.38 seconds and 17.77 seconds); access → safety → back returns to Accesso, and home → safety → back returns Home.
+- Photo of Mantova from Wikimedia loads at its source and reports natural width 960 px.
+- Primary home headline retains its original turquoise word HOME. (computed RGB 0, 166, 153); original banner MP4 is preserved from main. No image/media assets were replaced.
+- `node tests/admin-core.test.mjs`: all **46 integration assertions passed**, after fixing the test harness to load the booking link module before validating current content. Actual Booking URL and partner settings were not changed.
+- All seven language dictionaries contain identical sets of 412 keys. Repetitive double numbering in arrival steps and door videos removed; initial safety route title now correctly describes emergency and first aid, not an unrelated pharmacy directory.
+
+## Deployment blocker: physical QR
+The historic project QR destination recorded in README is `https://manubaba108.github.io/opendoor/`. On 17 October 2026 an HTTP request to it returned **301 to `https://opendoorstay.it/`**, which displays the Guest Hub Home. If the physical sticker encodes this exact address, it cannot resolve directly to `#/accesso` while the identical Home URL continues to show Home for ordinary visitors. Obtain the actual URL from a scan of the sticker and either print a replacement QR for `https://opendoorstay.it/#/accesso` or explicitly approve a Home-page access shortcut. Do not silently redirect every ordinary Home visit to door instructions.
+
+## Final manual checks before publication
+- Confirm physical fifth-floor QR URL and intended replacement/shortcut method.
+- Visually verify actual parking/entry photos and whether the existing apartment-door photograph adequately identifies the fifth-floor landing.
+- Confirm Bar IP tobacco/mobile top-up services and closing time, and check newly listed walking distances.
+- Test media playback and touch targets on one real phone, including Wi-Fi/cellular connection.
+- Approve deployment; do not merge this draft while the QR choice is unresolved.
+
 This branch is not a live publication.
