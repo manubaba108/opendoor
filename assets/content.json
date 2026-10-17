@@ -893,10 +893,10 @@
       "distance": "27 km",
       "description": "mantovaCityDesc",
       "image": {
-        "src": null,
-        "credit": null,
-        "source": null,
-        "license": null
+        "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Mantova_piazza_sordello_e_il_palazzo_ducale.jpg/960px-Mantova_piazza_sordello_e_il_palazzo_ducale.jpg",
+        "credit": "Carlo Alberto Magagnini",
+        "source": "https://commons.wikimedia.org/wiki/File:Mantova_piazza_sordello_e_il_palazzo_ducale.jpg",
+        "license": "https://creativecommons.org/licenses/by-sa/4.0/"
       },
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Sordello%2C%2046100%20Mantova%20(MN)%2C%20Italia"
