@@ -1378,7 +1378,7 @@ window.OPENDOOR = {
       "sofaVideoPending": "Qui aggiungeremo il video reale che mostra come aprire e chiudere il divano letto. Se ti serve subito, scrivimi.",
       "extinguisherLocationText": "L'estintore si trova dietro la porta d'ingresso dell'appartamento. Guarda la foto per riconoscerlo.",
       "coDetectorTitle": "Sensore di monossido di carbonio",
-      "coDetectorInfo": "Si informa che l'immobile è dotato di un sensore di monossido di carbonio, ubicato all'inizio del corridoio. Il dispositivo garantisce il monitoraggio continuo dell'aria per prevenire rischi legati alla presenza di monossido di carbonio (CO), gas inodore e incolore derivante da eventuali anomalie di combustione degli impianti.   \n\nProtocollo di emergenza in caso di attivazione del segnale acustico:\n- Ventilazione: Aprire immediatamente le finestre per garantire il ricambio d'aria.\n- Evacuazione: Abbandonare con sollecitudine i locali e recarsi all'esterno dell'edificio.\n- Segnalazione: Contattare tempestivamente la gestione della struttura.\n- Soccorsi: Per qualsiasi esigenza medica o di pubblica sicurezza, contattare il Servizio di Emergenza Unico Europeo al 112.",
+      "coDetectorInfo": "Il sensore si trova all'inizio del corridoio e rileva eventuali fughe di monossido di carbonio, un gas inodore e pericoloso.   \n\nIn caso di allarme acustico:\n- Aprire le finestre per aerare i locali.\n- Evacuare l'appartamento.\n- Contattare la proprietà.\n- In caso di emergenza o malessere, chiamare il 112.",
       "safetyPhotoPending": "Foto da aggiungere",
       "coffeeMachineInfo": "Trovi la macchinetta del caffè a disposizione. Se non sai come usarla, scrivimi e ti spiego volentieri.",
       "hotWaterTileDesc": "Orari dell’acqua calda",
