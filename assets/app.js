@@ -283,7 +283,7 @@
   }
   function emergency() {
     const safetyPhoto=config.houseManual.find(x=>x.id==="safety")?.photo;
-    const detectorPhoto=config.modules?.safetyPhotos?.coDetector||null;
+    const detectorPhoto=config.houseManual.find(x=>x.id==="coDetector")?.photo||null;
     const photo=(src,title,alt)=>src?`<img class="first-aid-photo" src="${esc(src)}" alt="${esc(t(alt))}" width="1200" height="675" loading="lazy">`:`<div class="controls-slot">${icon("camera")}<p>${esc(t("safetyPhotoPending"))}</p></div>`;
     return `${heading("health","healthIntro","home")}<div class="content-narrow single-safety-guide">
       <section class="panel urgent-strip"><div><h2>112</h2><p>${esc(t("emergencyNumber"))}</p></div>${call("112",t("call112"),"button danger")}</section>
