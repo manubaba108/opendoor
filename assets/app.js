@@ -203,65 +203,70 @@
     const manualTile=item=>`<a class="manual-tile tone-${toneFor("house/"+item.id)}" href="#/house/${item.id}"><span class="icon-box">${icon(item.icon)}</span><strong>${esc(t(item.id==="appliances"?"coffeeMachine":item.id))}</strong><span>${esc(t(item.id==="boiler"?"boilerTileDesc":"openGuide"))}</span></a>`;
     return `${heading("allHouseGuides","extraGuidesDesc")}<div class="manual-grid focused-house-guides">${manual.map(manualTile).join("")}</div>`;
   }
-  function guidePhoto(item) {
-    const title=item.photoTitleKey||'controlsPhoto',hint=item.photoHintKey||'guidePhotoPending',alt=item.photoAltKey||title;
-    return `<section class="panel guide-photo-panel" data-guide-photo="${esc(item.id)}"><h2>${esc(t(title))}</h2>${item.photo?`<img class="controls-photo" src="${esc(item.photo)}" alt="${esc(t(alt))}" width="600" height="450" loading="lazy">`:`<div class="controls-slot">${icon('camera')}<p>${esc(t(hint))}</p></div>`}</section>`;
-  }
+  // Keep images and videos in one vertical panel on every house guide.
+  const houseGuideImage=(src,titleKey='controlsPhoto',hintKey='guidePhotoPending')=>src
+    ?`<img class="controls-photo house-guide-visual" src="${esc(src)}" alt="${esc(t(titleKey))}" loading="lazy" width="900" height="550">`
+    :`<div class="controls-slot house-guide-visual house-guide-photo-placeholder">${icon('camera')}<p>${esc(t(hintKey))}</p></div>`;
+  const houseGuideVideo=(item,titleKey,placeholderKey='guideVideoPending')=>`<div class="house-guide-video">
+      <h2>${esc(t(titleKey))}</h2>
+      ${item?.video?videoCard({src:item.video,mime:item.videoMime,titleKey,thumbnail:item.videoPoster,captions:item.captions||[]}):`<div class="appliance-video-slot">${icon('play')}<p>${esc(t(placeholderKey))}</p></div>`}
+    </div>`;
+  const houseGuideLayout=(header,body,image='',video='')=>`${header}<div class="content-narrow house-guide-layout">
+    <section class="panel house-guide-panel">${body}${image}${video}</section>
+  </div>`;
   function rulesBody() {
     const groups=[['users','rulesAccess',['visitors','keypad']],['home','rulesNeighbours',['quiet','parties','commonAreas']],['sun','rulesCare',['smoking','pets']]];
     return `<div class="rule-highlights"><span>${icon('users')}${esc(t('guests'))}</span><span>${icon('home')}${esc(t('quietBadge'))}</span><span>${icon('shield')}${esc(t('noPartiesBadge'))}</span></div><div class="rules-groups">${groups.map(([symbol,title,keys])=>`<section class="panel"><div class="panel-heading"><span class="icon-box">${icon(symbol)}</span><h2>${esc(t(title))}</h2></div><ul class="rule-list">${keys.map(key=>`<li><h3>${esc(t(key+'Title'))}</h3><p>${esc(t(key+'Text'))}</p></li>`).join('')}</ul></section>`).join('')}</div>`;
   }
 
-  function instructionVideo(item,titleKey){
-    return `<section class="panel appliance-video-section"><h2>${esc(t(titleKey))}</h2>${item?.video?videoCard({src:item.video,mime:item.videoMime,titleKey,thumbnail:item.videoPoster,captions:item.captions||[]}):`<div class="appliance-video-slot">${icon('play')}<p>${esc(t('guideVideoPending'))}</p></div>`}</section>`;
-  }
   function inductionGuide(){
     const hob=config.houseManual.find(x=>x.id==='hob'),kitchen=config.houseManual.find(x=>x.id==='kitchen');
-    const photo=hob?.photo||kitchen?.photo;
-    return `${heading("inductionTitle","inductionIntro","home")}<div class="content-narrow">
-      <section class="panel"><h2>${esc(t("inductionTitle"))}</h2><p>${esc(t("inductionHowTo"))}</p><p>${esc(t("inductionSafety"))}</p>
-      ${photo?`<img class="controls-photo" src="${esc(photo)}" alt="${esc(t('inductionTitle'))}" width="1000" height="650" loading="lazy">`:""}
-      <p>${esc(t("guideAskHost"))}</p><div class="actions">${quickContact()}</div></section>
-      ${instructionVideo(kitchen,"inductionTitle")}</div>`;
+    const body=`<h2>${esc(t('inductionTitle'))}</h2><p>${esc(t('inductionHowTo'))}</p><p>${esc(t('inductionSafety'))}</p>`;
+    const followUp=`<div class="house-guide-followup"><p>${esc(t('guideAskHost'))}</p><div class="actions">${quickContact()}</div></div>`;
+    const photo=houseGuideImage(hob?.photo||kitchen?.photo,'inductionTitle');
+    return houseGuideLayout(heading('inductionTitle','inductionIntro','home'),body,photo,houseGuideVideo(kitchen,'inductionTitle')+followUp);
   }
   function hotWaterGuide(){
-    return `${heading("bathroomGuide","hotWaterIntro","house")}<div class="content-narrow"><section class="panel">
-      <h2>${esc(t("hotWater"))}</h2><p>${esc(t("hotWaterAvailable"))}</p>
-      <p class="priority-note">${esc(t("hotWaterHours"))}</p><p>${esc(t("hotWaterEco"))}</p>
-      ${config.property.hotWaterPhoto?`<img class="controls-photo" src="${esc(config.property.hotWaterPhoto)}" alt="${esc(t("hotWater"))}" width="900" height="550" loading="lazy">`:`<div class="controls-slot">${icon("camera")}<p>${esc(t("boilerPhotoPending"))}</p></div>`}
-      </section></div>`;
+    const body=`<h2>${esc(t('hotWater'))}</h2><p>${esc(t('hotWaterAvailable'))}</p>
+      <p class="priority-note">${esc(t('hotWaterHours'))}</p><p>${esc(t('hotWaterEco'))}</p>`;
+    return houseGuideLayout(heading('bathroomGuide','hotWaterIntro','house'),body,
+      houseGuideImage(config.property.hotWaterPhoto,'hotWater','boilerPhotoPending'));
   }
   function boilerGuide(){
     const item=config.houseManual.find(x=>x.id==='boiler');
-    return `${heading("kettleName","kettleIntro","home")}<div class="content-narrow">
-      <section class="panel"><h2>${esc(t("kettleName"))}</h2><p>${esc(t("kettleHowTo"))}</p>
-      ${item?.photo?`<img class="controls-photo" src="${esc(item.photo)}" alt="${esc(t("kettleName"))}" width="900" height="550" loading="lazy">`:`<div class="controls-slot">${icon("camera")}<p>${esc(t("guidePhotoPending"))}</p></div>`}
-      </section>${instructionVideo(item,"kettleName")}</div>`;
+    const body=`<p>${esc(t('kettleHowTo'))}</p>`;
+    return houseGuideLayout(heading('kettleName','kettleIntro','home'),body,
+      houseGuideImage(item?.photo,'kettleName'),houseGuideVideo(item,'kettleName'));
   }
   function sofaGuide(){
     const item=config.houseManual.find(x=>x.id==='rest');
-    return `${heading("rest","restDesc","home")}<div class="content-narrow"><section class="panel"><p>${esc(t("restText"))}</p>
-      ${item?.photo?`<img class="controls-photo" src="${esc(item.photo)}" alt="${esc(t("rest"))}" width="900" height="550" loading="lazy">`:""}
-      <h2>${esc(t("sofaVideoTitle"))}</h2>
-      ${item?.video?videoCard({src:item.video,mime:item.videoMime,titleKey:"sofaVideoTitle",thumbnail:item.videoPoster,captions:item.captions||[]}):`<div class="appliance-video-slot">${icon("play")}<p>${esc(t("sofaVideoPending"))}</p></div>`}
-      </section></div>`;
+    return houseGuideLayout(heading('rest','restDesc','home'),`<p>${esc(t('restText'))}</p>`,
+      houseGuideImage(item?.photo,'rest'),houseGuideVideo(item,'sofaVideoTitle','sofaVideoPending'));
   }
-
   function applianceGuide(id) {
     const item=config.houseManual.find(x=>x.id===id&&x.enabled);if(!item)return unavailable();
     if(id==='access')return accesso();
-    if(id==='safety')return emergency(true);
+    if(id==='safety')return emergency();
     if(id==='kitchen')return inductionGuide();
     if(id==='hotWater')return hotWaterGuide();
     if(id==='boiler')return boilerGuide();
     if(id==='rest')return sofaGuide();
     if(id==='rules')return `${heading(id,'rulesIntro','home')}${rulesBody()}`;
-    const device=['heating','climate','tv','kitchen','oven','hob','hotWater','lights','appliances'].includes(id);
-    const intro={rest:'restDesc',safety:'safetyIntro',balcony:'balconyIntro',waste:'wasteIntro'}[id];
-    let instructions=id==='safety'?safetyBody():id==='balcony'?`<div class="balcony-notes"><h3>${esc(t('balconyUseTitle'))}</h3><p>${esc(t('balconyText'))}</p><h3>${esc(t('balconyChildrenTitle'))}</h3><p>${esc(t('childrenText'))}</p></div>`:id==='waste'?`<p>${esc(t('wasteText'))}</p>`:item.instructions?.length?`<ol class="guide-steps">${item.instructions.map(key=>`<li>${esc(t(key))}</li>`).join('')}</ol>`:`<div class="empty-guide">${icon('list')}<p>${esc(t('guideStepsPending'))}</p></div>`;
+    const device=['heating','climate','tv','oven','hob','lights','appliances'].includes(id);
+    const intro={balcony:'balconyIntro',waste:'wasteIntro'}[id];
+    let instructions=id==='balcony'
+      ?`<div class="balcony-notes"><h3>${esc(t('balconyUseTitle'))}</h3><p>${esc(t('balconyText'))}</p><h3>${esc(t('balconyChildrenTitle'))}</h3><p>${esc(t('childrenText'))}</p></div>`
+      :id==='waste'?`<p>${esc(t('wasteText'))}</p>`
+      :item.instructions?.length?`<ol class="guide-steps">${item.instructions.map(key=>`<li>${esc(t(key))}</li>`).join('')}</ol>`
+      :`<div class="empty-guide">${icon('list')}<p>${esc(t('guideStepsPending'))}</p></div>`;
     if(id==='waste'&&config.property.wasteDropoffLocation)instructions+=`<div class="waste-location"><h3>${esc(t('wasteOutside'))}</h3><p>${esc(config.property.wasteDropoffLocation)}</p></div>`;
-    const hasPhoto=device||Boolean(item.photoTitleKey);
-    return `${heading(id==='hotWater'?'bathroomGuide':id,intro,'house')}${device||id==='access'?`<div class="guide-top"><span class="guide-symbol">${icon(item.icon)}</span><div><span class="label">${esc(t('guide'))}</span>${item.model?`<p>${esc(t('modelLabel'))} · ${esc(item.model)}</p>`:`<p>${esc(t(item.instructions?.length?'openGuide':'guidePending'))}</p>`}</div></div>`:''}<div class="guide-layout ${hasPhoto?'':'guide-single'}"><section class="panel">${id==='safety'?'':`<h2>${esc(t(device||id==='access'?'stepsTitle':'guideNotes'))}</h2>`}${instructions}${id==='access'?`<div class="actions"><a class="button secondary" href="#/accesso">${icon('play')}<span>${esc(t('watchArrival'))}</span></a><a class="inline-link" href="#/checkin">${esc(t('checkin'))}</a></div>`:''}</section>${hasPhoto?guidePhoto(item):''}</div>${['appliances','oven'].includes(id)?instructionVideo(item,id):device&&item.video?`<section class="appliance-video-section"><div class="section-heading"><h2>${esc(t('applianceVideo'))}</h2></div>${videoCard({src:item.video,mime:item.videoMime,titleKey:id,thumbnail:item.videoPoster,captions:item.captions||[]})}</section>`:''}`;
+    // A single tip reads as prose, like the sofa-bed page; only multi-step guides need numbering.
+    if(item.instructions?.length===1&&device)instructions=`<p>${esc(t(item.instructions[0]))}</p>`;
+    const needsHeading=device&&item.instructions?.length!==1;
+    const body=`${needsHeading?`<h2>${esc(t('stepsTitle'))}</h2>`:''}${instructions}`;
+    const image=(device||item.photo||item.photoTitleKey)?houseGuideImage(item.photo,item.photoAltKey||item.photoTitleKey||id,item.photoHintKey||'guidePhotoPending'):'';
+    const video=['appliances','oven'].includes(id)||item.video?houseGuideVideo(item,id):'';
+    return houseGuideLayout(heading(id,intro,id==='appliances'?'home':'house'),body,image,video);
   }
   function parking() {
     const ev=config.nearbyServices.find(x=>x.category==='ev');

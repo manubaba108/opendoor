@@ -204,3 +204,19 @@ a,button,summary,input,label,video{touch-action:manipulation}
 .platform-google span:nth-child(3){color:#fbbc05}
 .platform-google span:nth-child(5){color:#34a853}
 @media(max-width:600px){.events-official-links{display:grid;grid-template-columns:1fr}.events-official-links .button{width:100%}.food-contact{margin-top:22px}}
+
+/* One consistent vertical reading path for every house appliance and room guide.
+   The sofa-bed page defines the reference: instructions, full-width photo, then video. */
+.house-guide-layout{max-width:760px;margin-inline:auto;min-width:0}
+.house-guide-panel{display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:16px;min-width:0}
+.house-guide-panel>h2,.house-guide-video>h2{font-size:1.2rem;line-height:1.3;margin:0}
+.house-guide-panel>.house-guide-visual{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:auto;object-fit:contain;margin:0;border-radius:15px}
+.house-guide-panel>.house-guide-photo-placeholder{display:flex;min-height:220px;aspect-ratio:16/9}
+.house-guide-panel>.house-guide-video{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;width:100%;min-width:0;margin:0}
+.house-guide-panel .house-guide-video>.video-card{margin:0;min-width:0}
+.house-guide-panel .house-guide-video .video-copy{display:none}
+.house-guide-panel .house-guide-video .appliance-video-slot{margin:0;min-width:0;width:100%}
+.house-guide-panel .guide-steps{margin:0}
+.house-guide-panel .house-guide-followup{display:grid;gap:14px}
+.house-guide-panel .house-guide-followup p{margin:0}
+@media(max-width:767px){.house-guide-layout{max-width:100%}.house-guide-panel{gap:15px}.house-guide-panel>.house-guide-photo-placeholder{min-height:170px}}
