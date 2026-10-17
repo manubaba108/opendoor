@@ -30,7 +30,8 @@
 .stay-welcome.has-video .stay-welcome-video{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover}
 .stay-welcome.has-video>*:not(.stay-welcome-video){position:relative;z-index:2}
 .stay-welcome.has-video .eyebrow{color:#def5f1}
-.stay-welcome.has-video h1,.stay-welcome.has-video .home-word{color:#fff}
+.stay-welcome.has-video h1{color:#fff}
+.stay-welcome.has-video .home-word{color:var(--primary)}
 .stay-welcome.has-video p{color:#f1f8f7}
 .stay-welcome.has-video h1{margin:14px 0 12px}
 .arrival-address{flex:1;min-width:0}
