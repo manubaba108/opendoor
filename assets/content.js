@@ -22,7 +22,9 @@ window.OPENDOOR = {
     "firstAidLocation": "firstAidLocationText",
     "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
     "heroVideo": "assets/uploads/property-herovideo-c8168c52-00ac-4d19-9938-4676a3128cbe.mp4",
-    "heroVideoPoster": null
+    "heroVideoPoster": null,
+    "parkingMapPhoto": null,
+    "hotWaterPhoto": null
   },
   "host": {
     "name": "Manu",
@@ -143,6 +145,12 @@ window.OPENDOOR = {
           "titleKey": "buildingEntrancePhoto",
           "hintKey": "buildingEntranceHint",
           "src": "assets/uploads/modules-checkinphotos-items-0-src-4548c4ad-4334-4b4d-b076-50cb913c0c36.png"
+        },
+        {
+          "id": "intercom",
+          "titleKey": "intercomPhoto",
+          "hintKey": "intercomPhotoHint",
+          "src": null
         },
         {
           "id": "apartment-door",
@@ -328,7 +336,8 @@ window.OPENDOOR = {
       "model": null,
       "photo": null,
       "video": null,
-      "instructions": []
+      "instructions": [],
+      "videoPoster": null
     },
     {
       "id": "coDetector",
@@ -843,6 +852,15 @@ window.OPENDOOR = {
       "description": "barIpDesc",
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Bar%20IP%2C%20Strada%20Provinciale%20Ovest%2030%2C%2046020%20Pegognaga%20(MN)%2C%20Italia"
+    },
+    {
+      "name": "Schizzoteca · Lavanderia",
+      "category": "laundryCategory",
+      "address": "Via Monte Grappa 7, 46020 Pegognaga (MN), Italia",
+      "distance": "da verificare",
+      "description": "laundryDesc",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20Monte%20Grappa%207%2C%2046020%20Pegognaga%20(MN)%2C%20Italia"
     }
   ],
   "explore": [
@@ -1364,7 +1382,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Foto da aggiungere",
       "coffeeMachineInfo": "Trovi la macchinetta del caffè a disposizione. Se non sai come usarla, scrivimi e ti spiego volentieri.",
       "hotWaterTileDesc": "Orari dell’acqua calda",
-      "coDetector": "Sensore di monossido di carbonio"
+      "coDetector": "Sensore di monossido di carbonio",
+      "parkingMapTitle": "Mappa dei parcheggi",
+      "parkingMapIntro": "Qui troverai la mappa con i posti dove lasciare l’auto vicino a OPENDOOR.",
+      "parkingMapPending": "Mappa dei parcheggi da aggiungere",
+      "intercomPhoto": "Citofono OPENDOOR",
+      "intercomPhotoHint": "Qui aggiungeremo la foto del citofono al civico 12.",
+      "intercomStepIntro": "Cerca il nome OPENDOOR sul citofono. Quando suoni, ti apro io da remoto.",
+      "foodAskHostTitle": "Non hai trovato quello che ti piace?",
+      "foodAskHostText": "Scrivimi, ti consiglio volentieri qualche altro posto in zona!",
+      "navEvents": "Eventi",
+      "events": "Eventi e sagre",
+      "eventsIntro": "Scopri feste, sagre e appuntamenti tradizionali a Pegognaga e nei dintorni. Le date possono cambiare: controlla sempre il programma ufficiale.",
+      "eventCheckDates": "Verifica date e programma ufficiale",
+      "eventRepeat": "Appuntamento tradizionale. Date 2027 da confermare.",
+      "eventConfirmed2027": "Edizione 2027 confermata: 16–19 settembre.",
+      "eventAnnualMonth": "Periodo abituale, non una data confermata",
+      "eventsLocal": "In paese e nei dintorni",
+      "eventsMajor": "Grandi appuntamenti mantovani",
+      "laundryDesc": "Lavanderia Schizzoteca, in Via Monte Grappa 7. Segnalata aperta ogni giorno dalle 06:00 alle 00:00. Tariffe di lavaggio e asciugatura da verificare sul posto.",
+      "laundryCategory": "Lavanderia",
+      "kettleName": "Bollitore elettrico",
+      "kettleIntro": "Per scaldare l’acqua per tè e tisane. Il bollitore non regola l’acqua calda della doccia.",
+      "kettleHowTo": "Riempi con acqua entro i livelli MIN e MAX, appoggialo sulla base e premi il comando di accensione. Aspetta che si spenga automaticamente, poi versa con attenzione. Non accenderlo mai vuoto."
     },
     "en": {
       "navHome": "Home",
@@ -1807,7 +1847,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Photo to be added",
       "coffeeMachineInfo": "The coffee machine is yours to use. If you're not sure how it works, just message me.",
       "hotWaterTileDesc": "Hot-water schedule",
-      "coDetector": "Carbon monoxide sensor"
+      "coDetector": "Carbon monoxide sensor",
+      "parkingMapTitle": "Parking map",
+      "parkingMapIntro": "Here you'll find a map showing where to park near OPENDOOR.",
+      "parkingMapPending": "Parking map to be added",
+      "intercomPhoto": "OPENDOOR intercom",
+      "intercomPhotoHint": "A photo of the intercom at number 12 will be added here.",
+      "intercomStepIntro": "Find OPENDOOR on the intercom and ring; I’ll open the building door remotely.",
+      "foodAskHostTitle": "Didn't find what you're looking for?",
+      "foodAskHostText": "Message me! I'll happily recommend another place nearby.",
+      "navEvents": "Events",
+      "events": "Events & local festivals",
+      "eventsIntro": "Discover traditional festivals and recurring events around Pegognaga. Dates may change, so check the official programme.",
+      "eventCheckDates": "Check official dates & programme",
+      "eventRepeat": "Traditional annual event. 2027 dates to be confirmed.",
+      "eventConfirmed2027": "2027 confirmed: 16–19 September.",
+      "eventAnnualMonth": "Typical season, not a confirmed date",
+      "eventsLocal": "Local events",
+      "eventsMajor": "Major events in Mantua",
+      "laundryDesc": "Schizzoteca laundrette at Via Monte Grappa 7, reportedly open daily 6 am to midnight. Please check washing and drying prices on site.",
+      "laundryCategory": "Laundrette",
+      "kettleName": "Electric kettle",
+      "kettleIntro": "For heating water for tea. This kettle does not control the shower's hot water.",
+      "kettleHowTo": "Fill with water between MIN and MAX, set it on its base and switch it on. Wait for automatic shut-off before pouring carefully. Never run it empty."
     },
     "de": {
       "navHome": "Start",
@@ -2250,7 +2312,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Foto folgt",
       "coffeeMachineInfo": "Die Kaffeemaschine steht dir zur Verfügung. Wenn du Hilfe brauchst, schreib mir einfach.",
       "hotWaterTileDesc": "Warmwasserzeiten",
-      "coDetector": "Kohlenmonoxidmelder"
+      "coDetector": "Kohlenmonoxidmelder",
+      "parkingMapTitle": "Parkplatzkarte",
+      "parkingMapIntro": "Hier findest du die Karte mit Parkmöglichkeiten bei OPENDOOR.",
+      "parkingMapPending": "Parkplatzkarte folgt",
+      "intercomPhoto": "OPENDOOR-Gegensprechanlage",
+      "intercomPhotoHint": "Hier folgt das Foto der Sprechanlage an Hausnummer 12.",
+      "intercomStepIntro": "Suche OPENDOOR an der Sprechanlage und klingele. Ich öffne dir die Haustür aus der Ferne.",
+      "foodAskHostTitle": "Noch nicht das Richtige gefunden?",
+      "foodAskHostText": "Schreib mir, ich empfehle dir gerne etwas in der Nähe.",
+      "navEvents": "Events",
+      "events": "Veranstaltungen & Feste",
+      "eventsIntro": "Entdecke traditionelle Feste und Veranstaltungen rund um Pegognaga. Die Termine können sich ändern; prüfe das offizielle Programm.",
+      "eventCheckDates": "Termine & Programm prüfen",
+      "eventRepeat": "Traditionelle Veranstaltung. Termine für 2027 noch offen.",
+      "eventConfirmed2027": "Ausgabe 2027 bestätigt: 16.–19. September.",
+      "eventAnnualMonth": "Üblicher Zeitraum, kein bestätigter Termin",
+      "eventsLocal": "Vor Ort und Umgebung",
+      "eventsMajor": "Große Veranstaltungen in Mantua",
+      "laundryDesc": "Schizzoteca-Waschsalon, Via Monte Grappa 7. Laut Verzeichnis täglich von 6 bis 24 Uhr geöffnet. Wasch- und Trocknerpreise vor Ort prüfen.",
+      "laundryCategory": "Waschsalon",
+      "kettleName": "Wasserkocher",
+      "kettleIntro": "Zum Erhitzen von Wasser für Tee. Der Wasserkocher steuert nicht das Duschwasser.",
+      "kettleHowTo": "Wasser bis zwischen MIN und MAX einfüllen, auf die Basis stellen und einschalten. Nach dem automatischen Abschalten vorsichtig ausgießen. Niemals leer einschalten."
     },
     "fr": {
       "navHome": "Accueil",
@@ -2693,7 +2777,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Photo à venir",
       "coffeeMachineInfo": "La machine à café est à votre disposition. Si vous avez besoin d'aide, écrivez-moi.",
       "hotWaterTileDesc": "Horaires de l’eau chaude",
-      "coDetector": "Détecteur de monoxyde de carbone"
+      "coDetector": "Détecteur de monoxyde de carbone",
+      "parkingMapTitle": "Plan du stationnement",
+      "parkingMapIntro": "Voici le plan des places de stationnement près d’OPENDOOR.",
+      "parkingMapPending": "Plan à ajouter",
+      "intercomPhoto": "Interphone OPENDOOR",
+      "intercomPhotoHint": "Une photo de l'interphone au numéro 12 sera ajoutée ici.",
+      "intercomStepIntro": "Repérez OPENDOOR sur l'interphone et sonnez. Je vous ouvrirai à distance.",
+      "foodAskHostTitle": "Vous n'avez pas trouvé votre bonheur ?",
+      "foodAskHostText": "Écrivez-moi, je vous conseillerai volontiers une autre adresse !",
+      "navEvents": "Événements",
+      "events": "Événements et fêtes",
+      "eventsIntro": "Découvrez les fêtes et événements traditionnels autour de Pegognaga. Les dates peuvent changer : vérifiez le programme officiel.",
+      "eventCheckDates": "Vérifier les dates officielles",
+      "eventRepeat": "Événement traditionnel. Dates 2027 à confirmer.",
+      "eventConfirmed2027": "Édition 2027 confirmée : du 16 au 19 septembre.",
+      "eventAnnualMonth": "Période habituelle, non confirmée",
+      "eventsLocal": "Dans les environs",
+      "eventsMajor": "Grands rendez-vous à Mantoue",
+      "laundryDesc": "Laverie Schizzoteca, Via Monte Grappa 7. Horaires indiqués de 6 h à minuit chaque jour. Tarifs de lavage et séchage à vérifier sur place.",
+      "laundryCategory": "Laverie",
+      "kettleName": "Bouilloire électrique",
+      "kettleIntro": "Pour chauffer l'eau du thé. La bouilloire ne commande pas l'eau chaude de la douche.",
+      "kettleHowTo": "Remplissez entre MIN et MAX, posez-la sur son socle et allumez-la. Attendez l'arrêt automatique avant de verser prudemment. Ne la faites jamais chauffer à vide."
     },
     "nl": {
       "navHome": "Home",
@@ -3136,7 +3242,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Foto volgt",
       "coffeeMachineInfo": "Je kunt de koffiemachine gebruiken. Weet je niet hoe hij werkt? Stuur me gerust een bericht.",
       "hotWaterTileDesc": "Tijden voor warm water",
-      "coDetector": "Koolmonoxidemelder"
+      "coDetector": "Koolmonoxidemelder",
+      "parkingMapTitle": "Parkeerkaart",
+      "parkingMapIntro": "Hier komt een kaart met parkeerplaatsen bij OPENDOOR.",
+      "parkingMapPending": "Parkeerkaart volgt",
+      "intercomPhoto": "OPENDOOR-intercom",
+      "intercomPhotoHint": "Hier komt een foto van de intercom bij nummer 12.",
+      "intercomStepIntro": "Zoek OPENDOOR op de intercom en bel aan. Ik doe op afstand open.",
+      "foodAskHostTitle": "Nog niets naar je smaak gevonden?",
+      "foodAskHostText": "Stuur me gerust een bericht voor nog een leuke tip in de buurt!",
+      "navEvents": "Evenementen",
+      "events": "Evenementen en feesten",
+      "eventsIntro": "Ontdek jaarlijkse feesten en evenementen rond Pegognaga. Data kunnen veranderen; controleer het officiële programma.",
+      "eventCheckDates": "Bekijk officiële data",
+      "eventRepeat": "Jaarlijks evenement. Data voor 2027 volgen nog.",
+      "eventConfirmed2027": "2027 bevestigd: 16 t/m 19 september.",
+      "eventAnnualMonth": "Gebruikelijke periode, geen bevestigde datum",
+      "eventsLocal": "In de buurt",
+      "eventsMajor": "Grote evenementen in Mantova",
+      "laundryDesc": "Wasserette Schizzoteca, Via Monte Grappa 7. Vermeld als dagelijks open van 06.00 tot 00.00 uur. Prijzen ter plaatse controleren.",
+      "laundryCategory": "Wasserette",
+      "kettleName": "Waterkoker",
+      "kettleIntro": "Voor water voor thee. De waterkoker regelt niet het warme douchewater.",
+      "kettleHowTo": "Vul tussen MIN en MAX, zet de waterkoker op de voet en schakel hem in. Wacht tot hij vanzelf uitschakelt. Gebruik hem nooit leeg."
     },
     "pl": {
       "navHome": "Start",
@@ -3579,7 +3707,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Zdjęcie do dodania",
       "coffeeMachineInfo": "Ekspres do kawy jest do Twojej dyspozycji. Jeśli nie wiesz, jak go używać, napisz do mnie.",
       "hotWaterTileDesc": "Godziny dostępności ciepłej wody",
-      "coDetector": "Czujnik tlenku węgla"
+      "coDetector": "Czujnik tlenku węgla",
+      "parkingMapTitle": "Mapa parkingów",
+      "parkingMapIntro": "Tutaj znajdziesz mapę miejsc parkingowych przy OPENDOOR.",
+      "parkingMapPending": "Mapa parkingów do dodania",
+      "intercomPhoto": "Domofon OPENDOOR",
+      "intercomPhotoHint": "Tutaj dodamy zdjęcie domofonu pod numerem 12.",
+      "intercomStepIntro": "Znajdź OPENDOOR na domofonie i zadzwoń. Otworzę zdalnie.",
+      "foodAskHostTitle": "Nie znalazłeś nic dla siebie?",
+      "foodAskHostText": "Napisz do mnie, chętnie polecę kolejne miejsca w okolicy!",
+      "navEvents": "Wydarzenia",
+      "events": "Wydarzenia i festyny",
+      "eventsIntro": "Poznaj lokalne festyny i cykliczne wydarzenia w okolicy Pegognagi. Daty mogą się zmieniać; sprawdź oficjalny program.",
+      "eventCheckDates": "Sprawdź oficjalne terminy",
+      "eventRepeat": "Cykliczne wydarzenie. Terminy 2027 do potwierdzenia.",
+      "eventConfirmed2027": "Termin 2027 potwierdzony: 16–19 września.",
+      "eventAnnualMonth": "Zwyczajowy termin, niepotwierdzony",
+      "eventsLocal": "W najbliższej okolicy",
+      "eventsMajor": "Duże wydarzenia w Mantui",
+      "laundryDesc": "Pralnia Schizzoteca, Via Monte Grappa 7. Podawane godziny 06:00–00:00 codziennie. Ceny prania i suszenia sprawdź na miejscu.",
+      "laundryCategory": "Pralnia",
+      "kettleName": "Czajnik elektryczny",
+      "kettleIntro": "Do podgrzewania wody na herbatę. Czajnik nie steruje ciepłą wodą pod prysznicem.",
+      "kettleHowTo": "Napełnij wodą między MIN a MAX, ustaw na podstawie i włącz. Poczekaj na automatyczne wyłączenie; nalewaj ostrożnie. Nigdy nie włączaj pustego czajnika."
     },
     "ro": {
       "navHome": "Acasă",
@@ -4022,7 +4172,29 @@ window.OPENDOOR = {
       "safetyPhotoPending": "Fotografie în curs de adăugare",
       "coffeeMachineInfo": "Aparatul de cafea îți stă la dispoziție. Dacă nu știi cum funcționează, scrie-mi.",
       "hotWaterTileDesc": "Programul apei calde",
-      "coDetector": "Detector de monoxid de carbon"
+      "coDetector": "Detector de monoxid de carbon",
+      "parkingMapTitle": "Harta parcărilor",
+      "parkingMapIntro": "Aici vei găsi harta locurilor de parcare de lângă OPENDOOR.",
+      "parkingMapPending": "Hartă de parcare de adăugat",
+      "intercomPhoto": "Interfon OPENDOOR",
+      "intercomPhotoHint": "Aici vom adăuga fotografia interfonului de la numărul 12.",
+      "intercomStepIntro": "Caută OPENDOOR la interfon și sună. Îți deschid de la distanță.",
+      "foodAskHostTitle": "Nu ai găsit ceva pe gustul tău?",
+      "foodAskHostText": "Scrie-mi și îți recomand cu drag alte locuri din zonă!",
+      "navEvents": "Evenimente",
+      "events": "Evenimente și festivaluri",
+      "eventsIntro": "Descoperă festivalurile și evenimentele tradiționale din jurul Pegognaga. Datele se pot modifica; verifică programul oficial.",
+      "eventCheckDates": "Verifică datele oficiale",
+      "eventRepeat": "Eveniment tradițional. Datele pentru 2027 urmează să fie confirmate.",
+      "eventConfirmed2027": "Ediția 2027 confirmată: 16–19 septembrie.",
+      "eventAnnualMonth": "Perioadă obișnuită, dată neconfirmată",
+      "eventsLocal": "Evenimente din apropiere",
+      "eventsMajor": "Evenimente mari în Mantova",
+      "laundryDesc": "Spălătoria Schizzoteca, Via Monte Grappa 7. Program indicat zilnic 06:00–00:00. Verifică prețurile de spălare și uscare la fața locului.",
+      "laundryCategory": "Spălătorie",
+      "kettleName": "Fierbător electric",
+      "kettleIntro": "Pentru încălzirea apei pentru ceai. Fierbătorul nu controlează apa caldă a dușului.",
+      "kettleHowTo": "Umple între MIN și MAX, așază pe bază și pornește. Așteaptă oprirea automată, apoi toarnă cu grijă. Nu porni niciodată fără apă."
     }
   },
   "reviews": {
@@ -4168,6 +4340,90 @@ window.OPENDOOR = {
       "id": "agoda",
       "name": "Agoda",
       "url": null
+    }
+  ],
+  "localEvents": [
+    {
+      "id": "sagra-lorenzo",
+      "name": "Antica Sagra di San Lorenzo",
+      "town": "Pegognaga",
+      "category": "eventsLocal",
+      "period": "August · agosto",
+      "url": "https://www.comune.pegognaga.mn.it/vivere_il_comune/eventi/evento_447.html",
+      "statusKey": "eventRepeat",
+      "enabled": true
+    },
+    {
+      "id": "millenaria",
+      "name": "Fiera Millenaria di Gonzaga",
+      "town": "Gonzaga",
+      "category": "eventsLocal",
+      "period": "September · settembre",
+      "url": "https://www.fieramillenaria.it/manifestazioni",
+      "statusKey": "eventRepeat",
+      "enabled": true
+    },
+    {
+      "id": "sagra-angelo",
+      "name": "Antica Sagra dell’Angelo Custode",
+      "town": "Bagnolo San Vito",
+      "category": "eventsLocal",
+      "period": "September · settembre",
+      "url": "https://comune.bagnolosanvito.mn.it/it/news/avviso-divieto-di-transito",
+      "statusKey": "eventRepeat",
+      "enabled": true
+    },
+    {
+      "id": "trame-sonore",
+      "name": "Trame Sonore",
+      "town": "Mantova",
+      "category": "eventsMajor",
+      "period": "May–June · maggio–giugno",
+      "url": "https://www.comune.mantova.it/it/eventi/trame-sonore-dal-29-maggio-al-2-giugno",
+      "statusKey": "eventRepeat",
+      "enabled": true
+    },
+    {
+      "id": "festivaletteratura",
+      "name": "Festivaletteratura",
+      "town": "Mantova",
+      "category": "eventsMajor",
+      "period": "September · settembre",
+      "url": "https://www.festivaletteratura.it/it/home",
+      "statusKey": "eventRepeat",
+      "enabled": true
+    },
+    {
+      "id": "nuvolari",
+      "name": "Gran Premio Nuvolari",
+      "town": "Mantova",
+      "category": "eventsMajor",
+      "period": "16–19 September 2027",
+      "url": "https://www.gpnuvolari.it/",
+      "statusKey": "eventConfirmed2027",
+      "enabled": true
+    }
+  ],
+  "eventCalendars": [
+    {
+      "name": "Comune di Pegognaga",
+      "url": "https://www.comune.pegognaga.mn.it/"
+    },
+    {
+      "name": "Comune di Gonzaga",
+      "url": "https://www.comune.gonzaga.mn.it/"
+    },
+    {
+      "name": "Comune di Suzzara",
+      "url": "https://www.comune.suzzara.mn.it/"
+    },
+    {
+      "name": "Comune di Bagnolo San Vito",
+      "url": "https://comune.bagnolosanvito.mn.it/"
+    },
+    {
+      "name": "Comune di Mantova",
+      "url": "https://www.comune.mantova.it/it/eventi"
     }
   ]
 };
