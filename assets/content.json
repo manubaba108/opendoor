@@ -20,10 +20,10 @@
     "cin": "IT020039B44755EW83",
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
-    "firstAidPhoto": "assets/uploads/property-firstaidphoto-740eae5d-3a44-4de2-b697-96feb3975cf0.webp",
+    "firstAidPhoto": "assets/uploads/property-firstaidphoto-939a2534-244c-4ac3-b461-9789576a1071.webp",
     "heroVideo": "assets/uploads/property-herovideo-c8168c52-00ac-4d19-9938-4676a3128cbe.mp4",
     "heroVideoPoster": null,
-    "parkingMapPhoto": "assets/uploads/property-parkingmapphoto-7871d65a-4120-415a-a5b8-815cb8bc1c5b.webp",
+    "parkingMapPhoto": "assets/uploads/property-parkingmapphoto-ce58c63a-1e31-4c3e-b465-790d45c3e8d1.webp",
     "hotWaterPhoto": null
   },
   "host": {
@@ -194,7 +194,7 @@
       "id": "safety",
       "icon": "shield",
       "enabled": true,
-      "photo": "assets/uploads/housemanual-2-photo-ab1b34c7-1ff9-4aba-ab96-ec913c7c9dc1.webp",
+      "photo": "assets/uploads/housemanual-2-photo-a2ae4048-f1d8-4b14-81db-dc8df86d594b.webp",
       "photoTitleKey": "safetyPhoto",
       "photoHintKey": "safetyPhotoHint",
       "photoAltKey": "safetyPhoto"
