@@ -71,6 +71,14 @@
       "nl",
       "pl",
       "ro"
+    ],
+    "wasteOutside": [
+      "en",
+      "de",
+      "fr",
+      "nl",
+      "pl",
+      "ro"
     ]
   }
 }
