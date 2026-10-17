@@ -1355,7 +1355,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Sensore di monossido di carbonio",
       "coDetectorInfo": "Completeremo questa sezione con la foto e la posizione esatta del dispositivo. Per qualsiasi dubbio, contattami.",
       "safetyPhotoPending": "Foto da aggiungere",
-      "coffeeMachineInfo": "Trovi la macchinetta del caffè a disposizione. Se non sai come usarla, scrivimi e ti spiego volentieri."
+      "coffeeMachineInfo": "Trovi la macchinetta del caffè a disposizione. Se non sai come usarla, scrivimi e ti spiego volentieri.",
+      "hotWaterTileDesc": "Orari dell’acqua calda"
     },
     "en": {
       "navHome": "Home",
@@ -1796,7 +1797,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Carbon monoxide sensor",
       "coDetectorInfo": "We'll add a real photo and the exact location of this device here. Please contact me if you need details.",
       "safetyPhotoPending": "Photo to be added",
-      "coffeeMachineInfo": "The coffee machine is yours to use. If you're not sure how it works, just message me."
+      "coffeeMachineInfo": "The coffee machine is yours to use. If you're not sure how it works, just message me.",
+      "hotWaterTileDesc": "Hot-water schedule"
     },
     "de": {
       "navHome": "Start",
@@ -2237,7 +2239,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Kohlenmonoxidmelder",
       "coDetectorInfo": "Ein Foto und der genaue Standort werden hier noch ergänzt. Bei Fragen melde dich bitte.",
       "safetyPhotoPending": "Foto folgt",
-      "coffeeMachineInfo": "Die Kaffeemaschine steht dir zur Verfügung. Wenn du Hilfe brauchst, schreib mir einfach."
+      "coffeeMachineInfo": "Die Kaffeemaschine steht dir zur Verfügung. Wenn du Hilfe brauchst, schreib mir einfach.",
+      "hotWaterTileDesc": "Warmwasserzeiten"
     },
     "fr": {
       "navHome": "Accueil",
@@ -2678,7 +2681,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Détecteur de monoxyde de carbone",
       "coDetectorInfo": "Nous ajouterons ici une photo et l'emplacement exact du dispositif. Contactez-moi si besoin.",
       "safetyPhotoPending": "Photo à venir",
-      "coffeeMachineInfo": "La machine à café est à votre disposition. Si vous avez besoin d'aide, écrivez-moi."
+      "coffeeMachineInfo": "La machine à café est à votre disposition. Si vous avez besoin d'aide, écrivez-moi.",
+      "hotWaterTileDesc": "Horaires de l’eau chaude"
     },
     "nl": {
       "navHome": "Home",
@@ -3119,7 +3123,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Koolmonoxidemelder",
       "coDetectorInfo": "Hier voegen we een foto en de exacte locatie toe. Heb je vragen? Neem contact op.",
       "safetyPhotoPending": "Foto volgt",
-      "coffeeMachineInfo": "Je kunt de koffiemachine gebruiken. Weet je niet hoe hij werkt? Stuur me gerust een bericht."
+      "coffeeMachineInfo": "Je kunt de koffiemachine gebruiken. Weet je niet hoe hij werkt? Stuur me gerust een bericht.",
+      "hotWaterTileDesc": "Tijden voor warm water"
     },
     "pl": {
       "navHome": "Start",
@@ -3560,7 +3565,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Czujnik tlenku węgla",
       "coDetectorInfo": "Dodamy tutaj zdjęcie i dokładną lokalizację urządzenia. Jeśli masz pytania, skontaktuj się ze mną.",
       "safetyPhotoPending": "Zdjęcie do dodania",
-      "coffeeMachineInfo": "Ekspres do kawy jest do Twojej dyspozycji. Jeśli nie wiesz, jak go używać, napisz do mnie."
+      "coffeeMachineInfo": "Ekspres do kawy jest do Twojej dyspozycji. Jeśli nie wiesz, jak go używać, napisz do mnie.",
+      "hotWaterTileDesc": "Godziny dostępności ciepłej wody"
     },
     "ro": {
       "navHome": "Acasă",
@@ -4001,7 +4007,8 @@ window.OPENDOOR = {
       "coDetectorTitle": "Detector de monoxid de carbon",
       "coDetectorInfo": "Vom adăuga aici o fotografie și poziția exactă a dispozitivului. Contactează-mă pentru detalii.",
       "safetyPhotoPending": "Fotografie în curs de adăugare",
-      "coffeeMachineInfo": "Aparatul de cafea îți stă la dispoziție. Dacă nu știi cum funcționează, scrie-mi."
+      "coffeeMachineInfo": "Aparatul de cafea îți stă la dispoziție. Dacă nu știi cum funcționează, scrie-mi.",
+      "hotWaterTileDesc": "Programul apei calde"
     }
   },
   "reviews": {
