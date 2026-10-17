@@ -91,7 +91,7 @@
       }
     }
     if(data.emergency?.number!=='112')errors.push('Il numero di emergenza deve restare 112.');
-    const photos=[data.property?.firstAidPhoto,data.property?.heroVideoPoster,...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.modules?.checkinPhotos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
+    const photos=[data.property?.firstAidPhoto,data.property?.parkingMapPhoto,data.property?.hotWaterPhoto,data.property?.heroVideoPoster,...hosts.map(host=>host?.photo),...(data.modules?.gallery?.items||[]).map(item=>item.src),...(data.modules?.checkinPhotos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.photo),...(data.explore||[]).map(item=>item.image?.src)];
     if(photos.some(value=>!mediaURL(value)))errors.push('Una foto ha un indirizzo non valido.');
     const videos=[data.property?.heroVideo,...(data.modules?.videos?.items||[]).map(item=>item.src),...(data.houseManual||[]).map(item=>item.video)];
     if(videos.some(value=>!mediaURL(value,true)))errors.push('Usa un video MP4 o WebM, oppure un link diretto al file.');
@@ -107,6 +107,8 @@
       if(guide.sources&&(!Array.isArray(guide.sources)||guide.sources.some(source=>!httpsURL(source.url))))errors.push('Controlla le fonti di '+place.name+'.');
     }
     for(const manual of data.houseManual||[])for(const key of manual.instructions||[])if(!keys.includes(key))errors.push('Un’istruzione non è collegata ai testi tradotti.');
+    for(const event of data.localEvents||[]){if(!event.name?.trim()||!event.town?.trim()||!event.period?.trim()||!httpsURL(event.url)||!keys.includes(event.statusKey))errors.push('Controlla la manifestazione '+(event.name||'senza nome')+'.');}
+    for(const source of data.eventCalendars||[])if(!source.name?.trim()||!httpsURL(source.url))errors.push('Controlla il collegamento al calendario ufficiale '+(source.name||'del Comune')+'.');
     const serialized=JSON.stringify(data);
     if(/github_pat_|ghp_[A-Za-z0-9]{15,}|"(?:password|wifiPassword|doorCode|accessToken|token)"\s*:/i.test(serialized))errors.push('Non inserire chiavi di accesso, password o codici privati nei contenuti pubblici.');
     if(publishing&&pendingCount(editorial))errors.push('Rivedi le traduzioni segnalate prima di pubblicare.');
