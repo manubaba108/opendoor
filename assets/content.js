@@ -1314,7 +1314,8 @@ window.OPENDOOR = {
       "checkinFifth": "Prendi l'ascensore fino al quinto piano",
       "checkinBellText": "Quando arrivi, cerca OPENDOOR sul citofono e suona: ti apro io da remoto.",
       "checkinFifthText": "L'alloggio è al quinto piano. Il tuo codice personale per la porta viene inviato separatamente, non compare sul sito.",
-      "checkinParkText": "Puoi parcheggiare gratuitamente vicino al condominio o nel parcheggio accanto. Se hai un'auto elettrica, trovi una colonnina di ricarica nelle vicinanze."
+      "checkinParkText": "Puoi parcheggiare gratuitamente vicino al condominio o nel parcheggio accanto. Se hai un'auto elettrica, trovi una colonnina di ricarica nelle vicinanze.",
+      "backAccesso": "Torna alle istruzioni della porta"
     },
     "en": {
       "navHome": "Home",
@@ -1727,7 +1728,8 @@ window.OPENDOOR = {
       "checkinFifth": "Take the lift to the fifth floor",
       "checkinBellText": "When you arrive, find OPENDOOR on the intercom and ring. I'll open the building door remotely.",
       "checkinFifthText": "The apartment is on the fifth floor. Your personal door code is sent separately and is never shown on this website.",
-      "checkinParkText": "Free parking is available by the building or in the nearby car park. There's also an EV charging point nearby."
+      "checkinParkText": "Free parking is available by the building or in the nearby car park. There's also an EV charging point nearby.",
+      "backAccesso": "Back to door instructions"
     },
     "de": {
       "navHome": "Start",
@@ -2140,7 +2142,8 @@ window.OPENDOOR = {
       "checkinFifth": "Mit dem Aufzug in den fünften Stock",
       "checkinBellText": "Suche OPENDOOR an der Klingel und klingele. Ich öffne die Haustür aus der Ferne.",
       "checkinFifthText": "Die Wohnung liegt im fünften Stock. Deinen persönlichen Türcode erhältst du separat; er steht nicht auf dieser Website.",
-      "checkinParkText": "Du kannst kostenlos am Gebäude oder auf dem nahegelegenen Parkplatz parken. Eine E-Ladestation ist ebenfalls in der Nähe."
+      "checkinParkText": "Du kannst kostenlos am Gebäude oder auf dem nahegelegenen Parkplatz parken. Eine E-Ladestation ist ebenfalls in der Nähe.",
+      "backAccesso": "Zurück zur Türanleitung"
     },
     "fr": {
       "navHome": "Accueil",
@@ -2553,7 +2556,8 @@ window.OPENDOOR = {
       "checkinFifth": "Prenez l'ascenseur jusqu'au 5e étage",
       "checkinBellText": "À votre arrivée, cherchez OPENDOOR sur l'interphone et sonnez. Je vous ouvrirai à distance.",
       "checkinFifthText": "Le logement est au cinquième étage. Votre code personnel est envoyé séparément et n'apparaît pas sur ce site.",
-      "checkinParkText": "Vous pouvez stationner gratuitement près de l'immeuble ou sur le parking voisin. Une borne de recharge est également à proximité."
+      "checkinParkText": "Vous pouvez stationner gratuitement près de l'immeuble ou sur le parking voisin. Une borne de recharge est également à proximité.",
+      "backAccesso": "Retour aux instructions de la porte"
     },
     "nl": {
       "navHome": "Home",
@@ -2966,7 +2970,8 @@ window.OPENDOOR = {
       "checkinFifth": "Neem de lift naar de vijfde verdieping",
       "checkinBellText": "Zoek OPENDOOR op de intercom en bel aan. Ik doe op afstand voor je open.",
       "checkinFifthText": "Het appartement is op de vijfde verdieping. Je persoonlijke deurcode krijg je apart en staat nooit op de website.",
-      "checkinParkText": "Je kunt gratis bij het gebouw of op de parkeerplaats ernaast parkeren. Er is ook een laadpunt in de buurt."
+      "checkinParkText": "Je kunt gratis bij het gebouw of op de parkeerplaats ernaast parkeren. Er is ook een laadpunt in de buurt.",
+      "backAccesso": "Terug naar de deurinstructies"
     },
     "pl": {
       "navHome": "Start",
@@ -3379,7 +3384,8 @@ window.OPENDOOR = {
       "checkinFifth": "Wjedź windą na piąte piętro",
       "checkinBellText": "Znajdź OPENDOOR na domofonie i zadzwoń. Otworzę wejście zdalnie.",
       "checkinFifthText": "Mieszkanie jest na piątym piętrze. Osobisty kod do drzwi otrzymasz osobno, nie znajdziesz go na stronie.",
-      "checkinParkText": "Możesz parkować bezpłatnie przy budynku lub na pobliskim parkingu. W pobliżu jest też ładowarka aut elektrycznych."
+      "checkinParkText": "Możesz parkować bezpłatnie przy budynku lub na pobliskim parkingu. W pobliżu jest też ładowarka aut elektrycznych.",
+      "backAccesso": "Wróć do instrukcji drzwi"
     },
     "ro": {
       "navHome": "Acasă",
@@ -3792,7 +3798,8 @@ window.OPENDOOR = {
       "checkinFifth": "Ia liftul până la etajul cinci",
       "checkinBellText": "Caută OPENDOOR la interfon și sună. Îți deschid de la distanță.",
       "checkinFifthText": "Apartamentul este la etajul cinci. Codul personal de acces este trimis separat, nu apare pe site.",
-      "checkinParkText": "Poți parca gratuit lângă clădire sau în parcarea apropiată. Există și o stație de încărcare electrică în zonă."
+      "checkinParkText": "Poți parca gratuit lângă clădire sau în parcarea apropiată. Există și o stație de încărcare electrică în zonă.",
+      "backAccesso": "Înapoi la instrucțiunile ușii"
     }
   },
   "reviews": {
