@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import '../assets/booking-links.js';
 import '../assets/admin-core.js';
 import {GitHubSimulation,TEST_KEY} from './github-simulation.mjs';
 const C=globalThis.OpendoorCMS;
