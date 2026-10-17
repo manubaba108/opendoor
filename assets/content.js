@@ -21,7 +21,7 @@ window.OPENDOOR = {
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
     "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
-    "heroVideo": null,
+    "heroVideo": "assets/uploads/property-herovideo-c8168c52-00ac-4d19-9938-4676a3128cbe.mp4",
     "heroVideoPoster": "assets/uploads/property-herovideoposter-ae32d5fd-1bfe-4dcb-a537-8f450a1299d5.png"
   },
   "host": {
