@@ -1162,7 +1162,7 @@ window.OPENDOOR = {
       "hob": "Piano cottura",
       "hotWater": "Acqua calda",
       "lights": "Luci",
-      "appliances": "Macchinetta del caffè",
+      "appliances": "Macchina del caffè",
       "guide": "Guida della casa",
       "guidePhotoPending": "La foto dell'apparecchio sarà disponibile qui a breve.",
       "guideStepsPending": "Le istruzioni specifiche per questo apparecchio saranno disponibili in questa scheda.",
