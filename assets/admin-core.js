@@ -109,6 +109,15 @@
     for(const manual of data.houseManual||[])for(const key of manual.instructions||[])if(!keys.includes(key))errors.push('Un’istruzione non è collegata ai testi tradotti.');
     for(const event of data.localEvents||[]){if(!event.name?.trim()||!event.town?.trim()||!event.period?.trim()||!httpsURL(event.url)||!keys.includes(event.statusKey))errors.push('Controlla la manifestazione '+(event.name||'senza nome')+'.');}
     for(const source of data.eventCalendars||[])if(!source.name?.trim()||!httpsURL(source.url))errors.push('Controlla il collegamento al calendario ufficiale '+(source.name||'del Comune')+'.');
+    // Block publishing an out-of-date Admin snapshot that predates the current Guest Hub.
+    // Without this, saving an old tab can silently erase newer door, event and appliance pages.
+    const requiredGuestKeys=['navEvents','eventsIntro','intercomPhoto','kettleName','inductionTitle','hotWaterHours','sofaVideoTitle','foodAperitivo'];
+    const currentGuestStructure=requiredGuestKeys.every(key=>keys.includes(key))
+      &&Array.isArray(data.localEvents)&&Array.isArray(data.eventCalendars)
+      &&data.modules?.checkinPhotos?.items?.some(item=>item.id==='intercom')
+      &&data.houseManual?.some(item=>item.id==='boiler')
+      &&data.houseManual?.some(item=>item.id==='coDetector');
+    if(!currentGuestStructure)errors.push('Questa bozza proviene da una versione precedente di OPENDOOR. Ricarica il pannello e ripeti la modifica prima di salvare o pubblicare.');
     const serialized=JSON.stringify(data);
     if(/github_pat_|ghp_[A-Za-z0-9]{15,}|"(?:password|wifiPassword|doorCode|accessToken|token)"\s*:/i.test(serialized))errors.push('Non inserire chiavi di accesso, password o codici privati nei contenuti pubblici.');
     if(publishing&&pendingCount(editorial))errors.push('Rivedi le traduzioni segnalate prima di pubblicare.');
