@@ -12,7 +12,7 @@
     "address": "Via Guglielmo Marconi, 12",
     "checkInTime": "13:00",
     "checkOutTime": "10:00",
-    "wifiNetwork": "OPENDOOR",
+    "wifiNetwork": "OPENDOOR Guest",
     "fireExtinguisherLocation": "DIETRO LA PORTA",
     "wasteDropoffLocation": "NO",
     "parkingAddress": "Via Guglielmo Marconi, 12",
@@ -21,7 +21,7 @@
     "cir": "020039-LIM-00001",
     "firstAidLocation": "firstAidLocationText",
     "firstAidPhoto": "assets/uploads/property-firstaidphoto-9b877f6f-2a16-4998-a1f1-aef07cf9ecdd.png",
-    "heroVideo": null,
+    "heroVideo": "assets/uploads/property-herovideo-c8168c52-00ac-4d19-9938-4676a3128cbe.mp4",
     "heroVideoPoster": "assets/uploads/property-herovideoposter-ae32d5fd-1bfe-4dcb-a537-8f450a1299d5.png"
   },
   "host": {
@@ -29,7 +29,7 @@
     "photo": "assets/uploads/hosts-0-photo-cbed8b0e-e8ef-489a-abfe-6ad5b1d99a7e.jpg",
     "phone": "+393426992850",
     "whatsapp": "https://wa.me/393426992850",
-    "email": "italiaaj88@yahoo.it"
+    "email": "opendoor46020@gmail.com"
   },
   "emergency": {
     "number": "112",
@@ -3908,7 +3908,7 @@
       "photo": "assets/uploads/hosts-0-photo-cbed8b0e-e8ef-489a-abfe-6ad5b1d99a7e.jpg",
       "phone": "+393426992850",
       "whatsapp": "https://wa.me/393426992850",
-      "email": "italiaaj88@yahoo.it"
+      "email": "opendoor46020@gmail.com"
     },
     {
       "name": "Erika",
