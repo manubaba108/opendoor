@@ -23,6 +23,14 @@
       "nl",
       "pl",
       "ro"
+    ],
+    "inductionSafety": [
+      "en",
+      "de",
+      "fr",
+      "nl",
+      "pl",
+      "ro"
     ]
   }
 }
