@@ -160,3 +160,47 @@ a,button,summary,input,label,video{touch-action:manipulation}
 .checkin-help .actions .button{width:100%}
 @media(hover:hover) and (pointer:fine){#main .arrival-card .tile:hover{transform:none;background:#f7faff}.arrival-map:hover{background:#eef5ff}#main .button.whatsapp-link:not(.secondary):not(.outline):not(.danger):hover{background:#20bf5b;border-color:#20bf5b}}
 @media(max-width:767px){#main .journey-grid .arrival-card .tile{min-height:0}.arrival-map{padding:10px 16px;font-size:.875rem}.arrival-card{border-radius:19px}.arrival-next{grid-template-columns:1fr}.checkin-photo-slot{min-height:175px;padding:20px}}
+
+/* OPENDOOR 2026-10-17: progressive disclosure for arrival and QR entry */
+.guest-checkin-flow,.accesso-guide{margin-inline:auto;display:grid;gap:18px}
+.guest-checkin-flow .arrival-step{display:grid;gap:12px}
+.guest-checkin-flow .arrival-step h2{display:flex;gap:12px;align-items:center;line-height:1.35}
+.guest-checkin-flow .arrival-step .step-number{display:inline-grid;place-items:center;min-width:33px;height:33px;padding:4px;border-radius:50%;background:#dff7f3;color:#07534d;font-weight:800;font-size:.9rem}
+.guest-checkin-flow .checkin-photo{margin:5px 0 0}
+.guest-checkin-flow .checkin-photo img{max-height:420px;object-fit:contain}
+.guest-checkin-flow .actions,.accesso-guide .actions{display:flex;flex-wrap:wrap;gap:12px}
+.accesso-video-stack{display:grid;gap:18px}
+.accesso-video-stack .video-card{margin:0}
+.checkin-finish{display:grid;gap:12px}
+.priority-note{padding:14px 17px;margin:15px 0;border-radius:14px;background:#e6f7f5;color:#07534d;font-weight:700}
+.late-services{margin-bottom:26px;padding-bottom:16px;border-bottom:1px solid #e0e7ed}
+.late-services>h2{font-size:clamp(1.12rem,3vw,1.5rem);margin:0 0 8px}
+.late-services>p{margin:0 0 18px;color:#515b66}
+@media(max-width:767px){.guest-checkin-flow .arrival-step{gap:10px}.guest-checkin-flow .arrival-step h2{font-size:1.1rem}.accesso-video-stack{gap:14px}}
+
+/* Guest journey release: verified parking-map, local events, branded reviews */
+.parking-map-block{margin:18px 0 10px;display:grid;gap:10px}
+.parking-map-block h3{font-size:1.15rem;margin:0}
+.parking-map-image{display:block;width:100%;height:auto;max-height:580px;object-fit:contain;border-radius:16px;border:1px solid var(--line,#dae3df)}
+.parking-map-placeholder{min-height:210px;display:grid;place-content:center;text-align:center;background:#f0f6f4;border-radius:16px}
+.food-contact{margin:32px auto 10px;display:grid;gap:12px}
+.events-page{display:grid;gap:28px;max-width:1150px;margin:0 auto}
+.events-section{display:grid;gap:15px}
+.events-section>h2{font-size:clamp(1.25rem,2.6vw,1.6rem);margin:0}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:15px}
+.event-card{display:flex;flex-direction:column;gap:12px;margin:0}
+.event-card>h2{font-size:1.18rem;margin:0;line-height:1.32}
+.event-card>p{margin:0}
+.event-card>.button{margin-top:auto;align-self:start}
+.event-period{font-weight:600;color:var(--primary,#006a64)}
+.events-official{display:grid;gap:12px}
+.events-official-links{display:flex;flex-wrap:wrap;gap:10px}
+.review-card .platform-label{display:inline-flex;align-items:center;justify-content:center;align-self:start;border-radius:10px;padding:9px 13px;font-weight:800;letter-spacing:-.025em}
+.platform-airbnb{background:#ff385c;color:#fff}
+.platform-booking{background:#003b95;color:#fff}
+.platform-google{background:#fff;box-shadow:inset 0 0 0 1px #d4dce2}
+.platform-google span:nth-child(1),.platform-google span:nth-child(4){color:#4285f4}
+.platform-google span:nth-child(2),.platform-google span:nth-child(6){color:#ea4335}
+.platform-google span:nth-child(3){color:#fbbc05}
+.platform-google span:nth-child(5){color:#34a853}
+@media(max-width:600px){.events-official-links{display:grid;grid-template-columns:1fr}.events-official-links .button{width:100%}.food-contact{margin-top:22px}}
