@@ -1361,7 +1361,7 @@ window.OPENDOOR = {
       "inductionTileDesc": "Come usare il piano cottura",
       "inductionIntro": "Il piano cottura è a induzione. Qui trovi le indicazioni di base e la foto del piano.",
       "inductionHowTo": "Usa una pentola adatta all'induzione e appoggiala sulla zona desiderata. Utilizza i comandi touch per accendere e regolare il calore; alla fine spegni la zona di cottura.",
-      "inductionSafety": "Non appoggiare oggetti sul piano e non toccare le zone ancora calde. Se i comandi non sono chiari, scrivici su WhatsApp.",
+      "inductionSafety": "Non appoggiare oggetti sul piano e non toccare le zone ancora calde. Se i comandi non sono chiari, guarda il video.",
       "guideAskHost": "Hai qualche dubbio? Scrivimi, ti spiego volentieri come funziona.",
       "hotWaterIntro": "Acqua calda disponibile con orari programmati per un uso più responsabile dell'energia.",
       "hotWaterAvailable": "L’acqua calda è a tua disposizione negli orari indicati qui sotto.",
