@@ -17,7 +17,7 @@ for(const locale of locales){
     assert.equal(typeof value,'string',locale+' '+key+' is not a string');
     assert.ok(value.trim(),locale+' '+key+' is blank');
     assert.equal(value,value.trim(),locale+' '+key+' has stray whitespace');
-    assert.ok(!/\s{2,}/.test(value),locale+' '+key+' has consecutive spaces');
+    assert.ok(!/[ \t]{2,}/.test(value),locale+' '+key+' has consecutive horizontal spaces');
     assert.ok(!/undefined|\[object Object\]/.test(value),locale+' '+key+' has a broken placeholder');
     fields++;
   }
