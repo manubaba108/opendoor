@@ -126,11 +126,10 @@
     const card=id=>cards.find(item=>item[0]===id);
     const heroVideo=config.property.heroVideo,heroPoster=config.property.heroVideoPoster;
     return `<section class="stay-welcome${heroVideo?' has-video':''}">${heroVideo?`<video class="stay-welcome-video" src="${esc(heroVideo)}" ${heroPoster?`poster="${esc(heroPoster)}"`:''} muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>`:''}<div class="eyebrow">${esc(config.property.town)} · ${esc(config.property.province)}</div><h1>${config.property.slogan==="COME IN. YOU'RE HOME."?"COME IN.<br>YOU'RE <span class=\"home-word\">HOME.</span>":esc(config.property.slogan)}</h1><p>${esc(t('hubSubtitle'))}</p></section>
-      ${journey(1,'safetyStage',[['health','cross','firstAid','firstAidDesc'],['house/safety','shield','safety','safetyIntro'],['accesso','key','accessoTitle','accessoIntro']])}
+      ${journey(1,'safetyStage',[['health','shield','health','safetyStageDesc'],['accesso','key','accessoTitle','accessoIntro']])}
       ${journey(2,'settleStage',[card('wifi'),['house/tv','tv','tv','openGuide'],['house/kitchen','utensils','kitchen','openGuide'],['house/hotWater','shower','bathroomGuide','openGuide'],['house/rest','bed','rest','restDesc'],['house','home','allHouseGuides','houseDesc']])}
-      <div class="always-help">${tile(['help','message','help','helpDesc'])}${tile(['emergency','cross','firstAid','firstAidDesc'])}</div>
-      ${journey(3,'nearbyStage',[['food?group=treat','icecream','foodTreat','aaronDesc'],card('services'),card('explore')])}
-      ${journey(4,'departStage',[['food?group=coffee','coffee','breakfast','breakfastDesc'],card('checkout'),['closing','key','closing','closingDesc']],'journey-departure')}
+      ${journey(3,'nearbyStage',[card('food'),card('services'),card('explore')])}
+      ${journey(4,'departStage',[card('checkout'),['closing','key','closing','closingDesc']],'journey-departure')}
       <div class="category-links arrival-next">${tile(["checkin","pin","checkin","checkinDesc"])}${tile(["parking","car","parking","parkingDesc"])}</div>
       <section class="after-stay" aria-labelledby="after-stay-title"><h2 id="after-stay-title">${esc(t('laterReview'))}</h2>${stayLinks()}</section>
       <section class="help-banner tone-contact"><div><h2>${esc(t('contactHost'))}</h2><p>${esc(t('hostReply'))}</p></div>${quickContact()}</section>${config.modules.gallery.items.some(item=>item.src)?gallery():''}`;
