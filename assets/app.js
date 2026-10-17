@@ -311,8 +311,8 @@
     const distance=`<span class="distance">${icon('pin')}${esc(t('aboutDistance'))} ${esc(lang==='en'?place.distance.replace(',','.'):place.distance)}</span>`;
     return `<article class="place-card tone-${route==='explore'?'explore':'food'}">${imageData?`<div class="place-photo">${imageData.src?`<img src="${esc(imageData.src)}" alt="${esc(name)}" width="1000" height="415" loading="lazy">`:`<div class="place-photo-slot" aria-label="${esc(name)}">${icon('camera')}<span>${esc(t('placePhotoPending'))}</span></div>`}${distance}</div>`:''}<div class="place-body"><div class="place-meta"><span class="place-category">${esc(t(place.category))}</span>${!imageData?distance:''}</div><h2>${route==='food'&&foodGroup()==='coffee'&&({noir:1,mediterraneo:2,bordo:3})[guide?.id]?'#'+({noir:1,mediterraneo:2,bordo:3})[guide.id]+' · ':''}${esc(name)}</h2><p>${esc(t(guide?.summary||place.description))}</p>${guide?foodDetails(place):''}<div class="place-address">${icon('pin')}<span>${esc(place.address)}</span></div><div class="button-space"></div><div class="place-actions">${external(place.mapUrl,t('maps'),'pin','button secondary')}${guide?.phone?call(guide.phone,t('call'),'button outline'):''}${guide?.menu?external(guide.menu,t('menuLink'),null,'button outline'):''}</div></div>${imageData?.src&&imageData.credit?`<div class="photo-credit"><a href="${esc(imageData.source)}" target="_blank" rel="noopener noreferrer">${esc(imageData.credit)}</a> · <a href="${esc(imageData.license)}" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a><br>${esc(t('photoChanges'))}</div>`:''}</article>`;
   }
-  const distanceMetres=item=>{const raw=String(item.distance||'').replace(',','.');const m=raw.match(/([0-9]+(?:\\.[0-9]+)?)\\s*(km|m)(?![a-z])/i);return m?Number(m[1])*(m[2].toLowerCase()==='km'?1000:1):Infinity;};
-  const priceBand=item=>{const numbers=(item.guide?.price||'').match(/\\d+(?:[.,]\\d+)?/g)?.map(x=>Number(x.replace(',','.')))||[];return [numbers[0]??Infinity,numbers[1]??Infinity];};
+  const distanceMetres=item=>{const raw=String(item.distance||'').replace(',','.');const m=raw.match(/([0-9]+(?:\.[0-9]+)?)\s*(km|m)(?![a-z])/i);return m?Number(m[1])*(m[2].toLowerCase()==='km'?1000:1):Infinity;};
+  const priceBand=item=>{const numbers=(item.guide?.price||'').match(/\d+(?:[.,]\d+)?/g)?.map(x=>Number(x.replace(',','.')))||[];return [numbers[0]??Infinity,numbers[1]??Infinity];};
   const distanceSort=(a,b)=>distanceMetres(a)-distanceMetres(b)||String(a.name||a.nameKey).localeCompare(String(b.name||b.nameKey));
   function places(kind) {
     const data=kind==='food'?config.localFood:kind==='services'?config.nearbyServices:config.explore;
@@ -321,12 +321,10 @@
     const visible=data.filter(item=>item.enabled&&(kind!=='food'||group==='all'||item.guide?.groups?.includes(group)));
     if(kind==='food'&&group==='all')visible.sort((a,b)=>priceBand(a)[0]-priceBand(b)[0]||priceBand(a)[1]-priceBand(b)[1]||distanceSort(a,b));
     else visible.sort(distanceSort);
-    const late=kind==='services'?visible.filter(x=>x.category==='lateService'):[];
-    const main=kind==='services'?visible.filter(x=>x.category!=='lateService'):visible;
+    const main=visible;
     return `${heading(kind,kind==='food'?'foodGuideIntro':kind+'Intro')}${kind==='explore'?`<div class="category-links explore-links">${tile(['food','utensils','food','foodDesc'])}${tile(['services','basket','services','servicesDesc'])}</div>`:''}
       ${kind==='food'?`<nav class="food-filters" aria-label="${esc(t('food'))}">${filters.map(([id,key])=>`<a href="#/food${id==='all'?'':'?group='+id}" ${id===group?'aria-current="true"':''}>${esc(t(key))}</a>`).join('')}</nav><p class="food-notice">${esc(t('foodNotice'))}</p>`:''}
       ${kind==='food'&&group==='coffee'?`<p class="priority-note">${esc(t('coffeeRanking'))}</p>`:''}
-      ${kind==='services'&&late.length?`<section class="late-services"><h2>${esc(t('lateService'))}</h2><p>${esc(t('lateNightIntro'))}</p><div class="place-grid">${late.map(placeCard).join('')}</div></section>`:''}
       <p class="local-note">${esc(t('approximate'))}</p>
       <div class="place-grid ${kind==='food'?'food-grid':''}">${main.map(placeCard).join('')}</div>
       ${kind==='food'?`<section class="panel content-narrow food-contact"><h2>${esc(t('foodAskHostTitle'))}</h2><p>${esc(t('foodAskHostText'))}</p><div class="actions">${quickContact()}</div></section>`:''}`;
