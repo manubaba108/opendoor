@@ -324,7 +324,7 @@ window.OPENDOOR = {
       "category": "cafe",
       "address": "Piazza Vittorio Veneto 11, 46020 Pegognaga (MN), Italia",
       "distance": "300 m",
-      "description": "fastidiaDesc",
+      "description": "fastidiaGuide",
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Vittorio%20Veneto%2011%2C%2046020%20Pegognaga%20(MN)%2C%20Italia",
       "guide": {
@@ -335,7 +335,7 @@ window.OPENDOOR = {
         "budget": "sourceRange",
         "phone": "+393286679712",
         "groups": [
-          "coffee"
+          "aperitivo"
         ],
         "rating": {
           "value": 4.5,
@@ -631,6 +631,133 @@ window.OPENDOOR = {
         ],
         "checked": "2026-10-07"
       }
+    },
+    {
+      "name": "Café Noir",
+      "category": "cafe",
+      "address": "Piazza Giacomo Matteotti 2, 46020 Pegognaga (MN), Italia",
+      "distance": "230 m",
+      "description": "noirGuide",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Giacomo%20Matteotti%202%2C%2046020%20Pegognaga%20(MN)%2C%20Italia",
+      "guide": {
+        "id": "noir",
+        "summary": "noirGuide",
+        "hours": "noirHours",
+        "price": "€1–10",
+        "budget": "sourceRange",
+        "phone": "+393534041992",
+        "groups": [
+          "coffee"
+        ],
+        "sources": [
+          {
+            "label": "Restaurant Guru",
+            "url": "https://restaurantguru.it/Cafe-noir-Pegognaga"
+          },
+          {
+            "label": "Trova Aperto",
+            "url": "https://trova-aperto.it/pegognaga/caf%C3%A9-noir-1845917"
+          }
+        ],
+        "checked": "2026-10-17"
+      }
+    },
+    {
+      "name": "Mediterraneo Caffè",
+      "category": "cafe",
+      "address": "Strada Chiaviche 4, 46020 Pegognaga (MN), Italia",
+      "distance": "450 m",
+      "description": "mediterraneoGuide",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Strada%20Chiaviche%204%2C%2046020%20Pegognaga%20(MN)%2C%20Italia",
+      "guide": {
+        "id": "mediterraneo",
+        "summary": "mediterraneoGuide",
+        "hours": "mediterraneoHours",
+        "price": "€1–10",
+        "budget": "sourceRange",
+        "phone": "+393493885981",
+        "groups": [
+          "coffee"
+        ],
+        "sources": [
+          {
+            "label": "Restaurant Guru",
+            "url": "https://restaurantguru.it/Mediterraneo-Caffe-Pegognaga"
+          },
+          {
+            "label": "Tripadvisor",
+            "url": "https://www.tripadvisor.it/Restaurant_Review-g1973849-d27412655-Reviews-Mediterraneo_Caffe-Pegognaga_Province_of_Mantua_Lombardy.html"
+          }
+        ],
+        "checked": "2026-10-17"
+      }
+    },
+    {
+      "name": "Bar Bordo della Stella",
+      "category": "cafe",
+      "address": "Via Enrico Berlinguer 80, 46020 Pegognaga (MN), Italia",
+      "distance": "1 km",
+      "description": "bordoGuide",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20Enrico%20Berlinguer%2080%2C%2046020%20Pegognaga%20(MN)%2C%20Italia",
+      "guide": {
+        "id": "bordo",
+        "summary": "bordoGuide",
+        "hours": "bordoHours",
+        "price": "€1–20",
+        "budget": "sourceRange",
+        "phone": "+393778838930",
+        "groups": [
+          "coffee"
+        ],
+        "sources": [
+          {
+            "label": "Restaurant Guru",
+            "url": "https://restaurantguru.it/Bar-Bordo-della-Stella-Pegognaga"
+          }
+        ],
+        "checked": "2026-10-17"
+      }
+    },
+    {
+      "name": "Storie di Tavola - Enoteca con Cucina - Wine Bar",
+      "category": "restaurant",
+      "address": "Piazza E. Galvaligi 12, 46020 Pegognaga (MN), Italia",
+      "distance": "400 m",
+      "description": "storieGuide",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20E.%20Galvaligi%2012%2C%2046020%20Pegognaga%20(MN)%2C%20Italia",
+      "guide": {
+        "id": "storie",
+        "summary": "storieGuide",
+        "hours": "storieHours",
+        "price": "€10–20",
+        "budget": "sourceRange",
+        "phone": "+393475027375",
+        "groups": [
+          "meals",
+          "aperitivo"
+        ],
+        "rating": {
+          "value": 4.7,
+          "count": 190,
+          "provider": "Google · Restaurant Guru",
+          "url": "https://restaurantguru.it/Storie-di-Tavola-Pegognaga"
+        },
+        "sources": [
+          {
+            "label": "Restaurant Guru",
+            "url": "https://restaurantguru.it/Storie-di-Tavola-Pegognaga"
+          },
+          {
+            "label": "Comune di Pegognaga",
+            "url": "https://www.comune.pegognaga.mn.it/vivere_il_comune/eventi/evento_465.html"
+          }
+        ],
+        "checked": "2026-10-17"
+      }
     }
   ],
   "nearbyServices": [
@@ -687,6 +814,15 @@ window.OPENDOOR = {
       "description": "lidlDesc",
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20della%20Cooperazione%2C%20s.n.c.%2C%2046023%20Gonzaga%20%28MN%29%2C%20Italia"
+    },
+    {
+      "name": "Bar IP · Bar e tabacchi",
+      "category": "lateService",
+      "address": "Strada Provinciale Ovest 30, 46020 Pegognaga (MN), Italia",
+      "distance": "2 km",
+      "description": "barIpDesc",
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Bar%20IP%2C%20Strada%20Provinciale%20Ovest%2030%2C%2046020%20Pegognaga%20(MN)%2C%20Italia"
     }
   ],
   "explore": [
@@ -749,6 +885,21 @@ window.OPENDOOR = {
       },
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Giacomo%20Matteotti%2C%2046020%20Pegognaga%20(MN)%2C%20Italia"
+    },
+    {
+      "name": "Mantova · Centro storico",
+      "category": "culture",
+      "address": "Piazza Sordello, 46100 Mantova (MN), Italia",
+      "distance": "27 km",
+      "description": "mantovaCityDesc",
+      "image": {
+        "src": null,
+        "credit": null,
+        "source": null,
+        "license": null
+      },
+      "enabled": true,
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Piazza%20Sordello%2C%2046100%20Mantova%20(MN)%2C%20Italia"
     }
   ],
   "strings": {
@@ -809,7 +960,7 @@ window.OPENDOOR = {
       "host": "Il tuo Host",
       "hostReply": "Scrivici su WhatsApp o chiamaci. Rispondiamo appena possibile.",
       "greeting": "Ciao, sono un ospite di OPENDOOR e ho bisogno di aiuto.",
-      "checkinIntro": "Dal portone del palazzo alla porta dell’appartamento.",
+      "checkinIntro": "Dal parcheggio fino alla porta: ecco come raggiungere OPENDOOR, senza dubbi.",
       "arriveTitle": "Come arrivare",
       "arriveText": "Prendi l’uscita Pegognaga dell’A22. L’appartamento dista circa 1,9 km dal casello. Per l’indirizzo esatto, consulta le informazioni di check-in ricevute.",
       "parkingTitle": "Parcheggio gratuito",
@@ -1092,8 +1243,8 @@ window.OPENDOOR = {
       "allHouseGuides": "Tutte le guide della casa",
       "laterReview": "Dopo il soggiorno",
       "sourceRange": "Fascia riportata dalla fonte; menu non verificato.",
-      "fastidiaGuide": "Caffè e aperitivi in piazza. Le recensioni consultate apprezzano l’accoglienza; verifica l’apertura al mattino.",
-      "fastidiaHours": "Gli orari del mattino pubblicati online non coincidono. Chiama prima di uscire per colazione.",
+      "fastidiaGuide": "In piazza per aperitivi, spritz e un po' di atmosfera la sera. Controlla gli orari prima di uscire.",
+      "fastidiaHours": "Soprattutto pomeriggio e sera, con orari variabili; controlla prima di andare.",
       "taninoGuide": "Pizza, pasta mantovana, carne e pesce. Seggioloni disponibili. Recensioni favorevoli su cucina e accoglienza, con alcune segnalazioni di attese.",
       "taninoHours": "Pranzo 12–15, cena 19–23:30; domenica pranzo fino alle 14:30. Martedì chiuso secondo Tripadvisor.",
       "taninoBudget": "Stima per pizza, bevanda e coperto. Menu lavoro completo €15; verifica coperto ed extra. Cucina alla carta con spesa variabile.",
@@ -1135,7 +1286,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Il tuo prossimo soggiorno",
       "bookingHomeText": "Trova OPENDOOR sulla piattaforma che preferisci.",
       "bookingEmpty": "Per informazioni sulle prenotazioni, contatta l’Host.",
-      "bookingPending": "Prossimamente"
+      "bookingPending": "Prossimamente",
+      "foodAperitivo": "Aperitivi",
+      "coffeeRanking": "La mia classifica per un buon caffè, dal primo al terzo posto.",
+      "noirGuide": "Il mio primo consiglio per un buon espresso in piazza. Perfetto per una pausa o una colazione.",
+      "mediterraneoGuide": "Secondo nella mia classifica: ottimo per cappuccino e una colazione veloce con brioche.",
+      "bordoGuide": "Terzo nella mia classifica: un bar informale dove fermarsi per un caffè con calma.",
+      "noirHours": "Orari con pausa pomeridiana; possibile chiusura il giovedì. Controlla prima di andare.",
+      "mediterraneoHours": "Generalmente indicato aperto dalle 05:00 a mezzanotte; verifica gli orari aggiornati.",
+      "bordoHours": "Indicato aperto dalle 06:30 alle 22:00; verifica prima di andare.",
+      "storieGuide": "Enoteca con cucina e vini ricercati. Ottima per un aperitivo o qualcosa da mangiare nella prima serata, non per una cena tardiva.",
+      "storieHours": "Aperto in alcune prime serate, spesso fino alle 20:00–20:30. Domenica indicata chiusa; verifica gli orari.",
+      "lateService": "Servizi fino a tardi",
+      "lateNightIntro": "Ti serve qualcosa anche la sera? Qui trovi un punto di riferimento, con orari da verificare.",
+      "barIpDesc": "Bar e tabacchi presso la stazione di servizio IP. Segnalato per ricariche telefoniche e acquisti dell'ultimo minuto, con apertura indicativa fino alle 00:00. Verifica orario e disponibilità dei servizi.",
+      "mantovaCityDesc": "Mantova, città d'arte e patrimonio UNESCO: passeggia tra Piazza Sordello e Piazza delle Erbe, visita Palazzo Ducale e, se hai tempo, Palazzo Te. Una splendida gita tra storia, piazze e cucina locale.",
+      "accessoTitle": "Aprire e chiudere la porta",
+      "accessoIntro": "Sei davanti a OPENDOOR? Guarda i due video: come aprire e come chiudere correttamente la porta.",
+      "accessoAfter": "Sei entrato? Inizia dalle informazioni di sicurezza, poi esplora il resto della casa.",
+      "goSafety": "Prima di tutto: sicurezza",
+      "goGuide": "Vai alla guida completa",
+      "safetyStage": "Prima di tutto, la sicurezza",
+      "safetyStageDesc": "Emergenze, kit di primo soccorso e indicazioni importanti.",
+      "checkinMap": "01 · Raggiungi l'indirizzo",
+      "checkinPark": "02 · Parcheggia gratuitamente",
+      "checkinBell": "03 · Citofona OPENDOOR al civico 12",
+      "checkinFifth": "04 · Prendi l'ascensore fino al quinto piano",
+      "checkinBellText": "Quando arrivi, cerca OPENDOOR sul citofono e suona: ti apro io da remoto.",
+      "checkinFifthText": "L'alloggio è al quinto piano. Il tuo codice personale per la porta viene inviato separatamente, non compare sul sito.",
+      "checkinParkText": "Puoi parcheggiare gratuitamente vicino al condominio o nel parcheggio accanto. Se hai un'auto elettrica, trovi una colonnina di ricarica nelle vicinanze."
     },
     "en": {
       "navHome": "Home",
@@ -1194,7 +1373,7 @@ window.OPENDOOR = {
       "host": "Your host",
       "hostReply": "Message us on WhatsApp or give us a call. We’ll reply as soon as we can.",
       "greeting": "Hi, I am a guest at OPENDOOR and I need some help.",
-      "checkinIntro": "From the building entrance to your apartment door.",
+      "checkinIntro": "From parking to the front door: here's how to find OPENDOOR.",
       "arriveTitle": "Getting here",
       "arriveText": "Take the Pegognaga exit on the A22. The apartment is about 1.9 km from the motorway exit. You’ll find the exact address in your check-in information.",
       "parkingTitle": "Free parking",
@@ -1477,8 +1656,8 @@ window.OPENDOOR = {
       "allHouseGuides": "All apartment guides",
       "laterReview": "After your stay",
       "sourceRange": "Range reported by the source; menu not verified.",
-      "fastidiaGuide": "Coffee and aperitifs on the square. Reviewed feedback praises the welcome; check morning opening.",
-      "fastidiaHours": "Published morning hours conflict. Call before going out for breakfast.",
+      "fastidiaGuide": "A relaxed spot in the square for aperitivo, spritz and an evening out. Check opening hours first.",
+      "fastidiaHours": "Mainly afternoon and evening; hours can vary, so check ahead.",
       "taninoGuide": "Pizza, Mantuan pasta, meat and fish. High chairs available. Reviews praise food and hospitality, with some reports of waiting.",
       "taninoHours": "Lunch 12–15, dinner 19–23:30; Sunday lunch until 14:30. Tuesday closed according to Tripadvisor.",
       "taninoBudget": "Estimate for pizza, a drink and cover charge. Full workday lunch menu €15; check cover and extras. À la carte spending varies.",
@@ -1520,7 +1699,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Your next stay",
       "bookingHomeText": "Find OPENDOOR on your preferred platform.",
       "bookingEmpty": "Contact your host for booking information.",
-      "bookingPending": "Coming soon"
+      "bookingPending": "Coming soon",
+      "foodAperitivo": "Aperitivo",
+      "coffeeRanking": "My personal top three spots for a good coffee, in order.",
+      "noirGuide": "My first pick for a proper espresso in the square, or a relaxed breakfast.",
+      "mediterraneoGuide": "My second pick, especially for a cappuccino and a quick pastry breakfast.",
+      "bordoGuide": "Third on my list: an informal place to stop for a coffee.",
+      "noirHours": "Split opening hours; may close on Thursdays. Check before visiting.",
+      "mediterraneoHours": "Usually listed as open from 5 am until midnight; please check current hours.",
+      "bordoHours": "Listed as open from 6:30 am to 10 pm; check before visiting.",
+      "storieGuide": "Wine bar with a small kitchen and interesting wines. Great for an aperitivo or an early-evening bite, rather than a late dinner.",
+      "storieHours": "Open on selected early evenings, often until around 8–8:30 pm. Listed closed Sundays; check ahead.",
+      "lateService": "Late-night essentials",
+      "lateNightIntro": "Need something later in the evening? Here's a useful stop; check hours before going.",
+      "barIpDesc": "Bar and tobacconist at the IP service station. Listed for mobile top-ups and last-minute essentials, reportedly open until midnight. Check hours and services first.",
+      "mantovaCityDesc": "Mantua is a UNESCO-listed city of art. Wander from Piazza Sordello to Piazza delle Erbe, visit the Ducal Palace and, if you have time, Palazzo Te. A lovely day trip for history, architecture and local food.",
+      "accessoTitle": "Opening and closing the door",
+      "accessoIntro": "At the OPENDOOR door? These two videos show how to open it and lock it properly.",
+      "accessoAfter": "You're inside? Start with the safety information, then explore the rest of the home.",
+      "goSafety": "First: safety",
+      "goGuide": "Open the full guest guide",
+      "safetyStage": "Safety comes first",
+      "safetyStageDesc": "Emergencies, first aid and essential information.",
+      "checkinMap": "01 · Find the address",
+      "checkinPark": "02 · Park for free",
+      "checkinBell": "03 · Ring OPENDOOR at number 12",
+      "checkinFifth": "04 · Take the lift to the fifth floor",
+      "checkinBellText": "When you arrive, find OPENDOOR on the intercom and ring. I'll open the building door remotely.",
+      "checkinFifthText": "The apartment is on the fifth floor. Your personal door code is sent separately and is never shown on this website.",
+      "checkinParkText": "Free parking is available by the building or in the nearby car park. There's also an EV charging point nearby."
     },
     "de": {
       "navHome": "Start",
@@ -1579,7 +1786,7 @@ window.OPENDOOR = {
       "host": "Dein Gastgeber",
       "hostReply": "Schreib uns auf WhatsApp oder ruf uns an. Wir antworten so bald wie möglich.",
       "greeting": "Hallo, ich bin Gast bei OPENDOOR und brauche Hilfe.",
-      "checkinIntro": "Vom Hauseingang bis zur Wohnungstür.",
+      "checkinIntro": "Vom Parkplatz bis zur Wohnungstür: So findest du OPENDOOR.",
       "arriveTitle": "So kommst du zu uns",
       "arriveText": "Nimm die Ausfahrt Pegognaga der A22. Die Wohnung ist etwa 1,9 km von der Autobahnausfahrt entfernt. Die genaue Adresse findest du in deinen Check-in-Informationen.",
       "parkingTitle": "Kostenlos parken",
@@ -1862,8 +2069,8 @@ window.OPENDOOR = {
       "allHouseGuides": "Alle Wohnungsanleitungen",
       "laterReview": "Nach deinem Aufenthalt",
       "sourceRange": "Preisspanne laut Quelle; Speisekarte nicht verifiziert.",
-      "fastidiaGuide": "Kaffee und Aperitifs am Platz. Gelesene Bewertungen loben die Gastfreundschaft; die Morgenöffnung bitte prüfen.",
-      "fastidiaHours": "Die veröffentlichten Morgenzeiten widersprechen sich. Ruf vor dem Frühstücksbesuch an.",
+      "fastidiaGuide": "Entspannter Treffpunkt am Platz für Aperitivo, Spritz und einen schönen Abend. Öffnungszeiten prüfen.",
+      "fastidiaHours": "Vor allem nachmittags und abends; Öffnungszeiten können variieren.",
       "taninoGuide": "Pizza, mantuanische Pasta, Fleisch und Fisch. Hochstühle vorhanden. Bewertungen loben Küche und Empfang; manche berichten von Wartezeiten.",
       "taninoHours": "Mittags 12–15, abends 19–23:30; sonntags mittags bis 14:30. Laut Tripadvisor dienstags geschlossen.",
       "taninoBudget": "Schätzung für Pizza, Getränk und Gedeck. Komplettes Arbeitsmenü mittags €15; Gedeck und Extras prüfen. À-la-carte-Preise variieren.",
@@ -1905,7 +2112,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Dein nächster Aufenthalt",
       "bookingHomeText": "Finde OPENDOOR auf deiner bevorzugten Plattform.",
       "bookingEmpty": "Kontaktiere deinen Gastgeber für Informationen zur Buchung.",
-      "bookingPending": "Demnächst"
+      "bookingPending": "Demnächst",
+      "foodAperitivo": "Aperitivo",
+      "coffeeRanking": "Meine drei Lieblingsadressen für einen guten Kaffee, in dieser Reihenfolge.",
+      "noirGuide": "Mein erster Tipp für einen Espresso auf dem Platz oder ein gemütliches Frühstück.",
+      "mediterraneoGuide": "Mein zweiter Tipp, besonders für Cappuccino und ein schnelles Frühstück mit Gebäck.",
+      "bordoGuide": "Nummer drei auf meiner Liste: eine unkomplizierte Bar für eine Kaffeepause.",
+      "noirHours": "Mit Mittagspause; donnerstags möglicherweise geschlossen. Bitte vorher prüfen.",
+      "mediterraneoHours": "Häufig als von 5 Uhr bis Mitternacht geöffnet gelistet; aktuelle Zeiten prüfen.",
+      "bordoHours": "Laut Eintrag von 6:30 bis 22 Uhr geöffnet; bitte vorher prüfen.",
+      "storieGuide": "Weinbar mit kleiner Küche und besonderer Weinauswahl. Schön für einen Aperitivo oder einen Happen am frühen Abend, nicht für ein spätes Abendessen.",
+      "storieHours": "An einigen frühen Abenden geöffnet, oft bis 20–20:30 Uhr. Sonntags laut Eintrag geschlossen; bitte prüfen.",
+      "lateService": "Späte Besorgungen",
+      "lateNightIntro": "Du brauchst spätabends noch etwas? Hier ist eine praktische Anlaufstelle. Öffnungszeiten prüfen.",
+      "barIpDesc": "Bar und Tabakladen an der IP-Tankstelle. Für Handyaufladungen und Besorgungen in letzter Minute; laut Eintrag bis Mitternacht geöffnet. Zeiten und Angebote prüfen.",
+      "mantovaCityDesc": "Mantua ist eine UNESCO-Kunststadt. Bummle von der Piazza Sordello zur Piazza delle Erbe und besuche den Herzogspalast sowie, wenn Zeit bleibt, Palazzo Te. Ein schöner Tagesausflug mit Geschichte und regionaler Küche.",
+      "accessoTitle": "Tür öffnen und schließen",
+      "accessoIntro": "Du stehst vor der OPENDOOR-Tür? Diese zwei Videos zeigen dir das Öffnen und sichere Schließen.",
+      "accessoAfter": "Du bist drin? Beginne mit den Sicherheitshinweisen und entdecke dann die Wohnung.",
+      "goSafety": "Zuerst: Sicherheit",
+      "goGuide": "Zur vollständigen Gästeguide",
+      "safetyStage": "Zuerst die Sicherheit",
+      "safetyStageDesc": "Notfälle, Erste Hilfe und wichtige Hinweise.",
+      "checkinMap": "01 · Adresse finden",
+      "checkinPark": "02 · Kostenlos parken",
+      "checkinBell": "03 · Bei Hausnummer 12 OPENDOOR klingeln",
+      "checkinFifth": "04 · Mit dem Aufzug in den fünften Stock",
+      "checkinBellText": "Suche OPENDOOR an der Klingel und klingele. Ich öffne die Haustür aus der Ferne.",
+      "checkinFifthText": "Die Wohnung liegt im fünften Stock. Deinen persönlichen Türcode erhältst du separat; er steht nicht auf dieser Website.",
+      "checkinParkText": "Du kannst kostenlos am Gebäude oder auf dem nahegelegenen Parkplatz parken. Eine E-Ladestation ist ebenfalls in der Nähe."
     },
     "fr": {
       "navHome": "Accueil",
@@ -1964,7 +2199,7 @@ window.OPENDOOR = {
       "host": "Votre hôte",
       "hostReply": "Écrivez-nous sur WhatsApp ou appelez-nous. Nous vous répondrons dès que possible.",
       "greeting": "Bonjour, je séjourne à OPENDOOR et j’ai besoin d’aide.",
-      "checkinIntro": "De l’entrée de l’immeuble à la porte de l’appartement.",
+      "checkinIntro": "Du parking à la porte : voici comment rejoindre OPENDOOR.",
       "arriveTitle": "Comment venir",
       "arriveText": "Prenez la sortie Pegognaga de l’A22. L’appartement se trouve à environ 1,9 km de la sortie. Consultez vos informations d’arrivée pour connaître l’adresse exacte.",
       "parkingTitle": "Parking gratuit",
@@ -2247,8 +2482,8 @@ window.OPENDOOR = {
       "allHouseGuides": "Tous les guides du logement",
       "laterReview": "Après votre séjour",
       "sourceRange": "Fourchette indiquée par la source ; carte non vérifiée.",
-      "fastidiaGuide": "Café et apéritifs sur la place. Les avis consultés apprécient l’accueil ; vérifiez l’ouverture le matin.",
-      "fastidiaHours": "Les horaires du matin publiés diffèrent. Appelez avant de sortir pour le petit-déjeuner.",
+      "fastidiaGuide": "Sur la place pour l'apéritif, un spritz et une soirée sympa. Vérifiez les horaires.",
+      "fastidiaHours": "Surtout l'après-midi et le soir ; horaires variables à vérifier.",
       "taninoGuide": "Pizza, pâtes mantouanes, viande et poisson. Chaises hautes disponibles. Cuisine et accueil appréciés, avec quelques signalements d’attente.",
       "taninoHours": "Déjeuner 12–15, dîner 19–23:30 ; dimanche midi jusqu’à 14:30. Fermé le mardi selon Tripadvisor.",
       "taninoBudget": "Estimation pour pizza, boisson et couvert. Menu déjeuner complet à 15 € ; vérifiez couvert et suppléments. À la carte, budget variable.",
@@ -2290,7 +2525,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Votre prochain séjour",
       "bookingHomeText": "Retrouvez OPENDOOR sur votre plateforme préférée.",
       "bookingEmpty": "Contactez votre hôte pour toute information sur les réservations.",
-      "bookingPending": "Bientôt disponible"
+      "bookingPending": "Bientôt disponible",
+      "foodAperitivo": "Apéritifs",
+      "coffeeRanking": "Mes trois adresses préférées pour un bon café, dans cet ordre.",
+      "noirGuide": "Mon premier choix pour un bon expresso sur la place, ou un petit-déjeuner tranquille.",
+      "mediterraneoGuide": "Mon deuxième choix, surtout pour un cappuccino et une viennoiserie.",
+      "bordoGuide": "Troisième de ma sélection : un bar sans prétention pour faire une pause-café.",
+      "noirHours": "Horaires coupés ; fermeture possible le jeudi. Vérifiez avant de partir.",
+      "mediterraneoHours": "Généralement indiqué ouvert de 5 h à minuit ; horaires à vérifier.",
+      "bordoHours": "Indiqué ouvert de 6 h 30 à 22 h ; horaires à vérifier.",
+      "storieGuide": "Bar à vins avec petite cuisine et une belle sélection de bouteilles. Idéal pour l'apéritif ou un repas en début de soirée, pas pour dîner tard.",
+      "storieHours": "Ouvert certains débuts de soirée, souvent jusqu'à 20 h–20 h 30. Généralement fermé le dimanche ; à vérifier.",
+      "lateService": "Services ouverts tard",
+      "lateNightIntro": "Besoin de quelque chose en soirée ? Voici une adresse pratique ; vérifiez les horaires.",
+      "barIpDesc": "Bar-tabac à la station-service IP. Recharges téléphoniques et achats de dernière minute, annoncé ouvert jusqu'à minuit. Vérifiez horaires et services.",
+      "mantovaCityDesc": "Mantoue est une ville d'art classée à l'UNESCO. Flânez de la Piazza Sordello à la Piazza delle Erbe, découvrez le Palais des Doges et, si vous avez le temps, le Palazzo Te. Une belle excursion culturelle et gourmande.",
+      "accessoTitle": "Ouvrir et fermer la porte",
+      "accessoIntro": "Vous êtes devant la porte d'OPENDOOR ? Ces deux vidéos montrent comment l'ouvrir et la fermer correctement.",
+      "accessoAfter": "Vous êtes entré ? Commencez par les informations de sécurité, puis découvrez le logement.",
+      "goSafety": "D'abord : sécurité",
+      "goGuide": "Ouvrir le guide complet",
+      "safetyStage": "La sécurité avant tout",
+      "safetyStageDesc": "Urgences, premiers secours et informations essentielles.",
+      "checkinMap": "01 · Trouver l'adresse",
+      "checkinPark": "02 · Stationnement gratuit",
+      "checkinBell": "03 · Sonnez chez OPENDOOR au n° 12",
+      "checkinFifth": "04 · Prenez l'ascenseur jusqu'au 5e étage",
+      "checkinBellText": "À votre arrivée, cherchez OPENDOOR sur l'interphone et sonnez. Je vous ouvrirai à distance.",
+      "checkinFifthText": "Le logement est au cinquième étage. Votre code personnel est envoyé séparément et n'apparaît pas sur ce site.",
+      "checkinParkText": "Vous pouvez stationner gratuitement près de l'immeuble ou sur le parking voisin. Une borne de recharge est également à proximité."
     },
     "nl": {
       "navHome": "Home",
@@ -2349,7 +2612,7 @@ window.OPENDOOR = {
       "host": "Je host",
       "hostReply": "Stuur ons een WhatsApp of bel ons. We reageren zo snel mogelijk.",
       "greeting": "Hallo, ik ben een gast van OPENDOOR en heb hulp nodig.",
-      "checkinIntro": "Van de ingang van het gebouw tot de deur van het appartement.",
+      "checkinIntro": "Van parkeren tot aan de deur: zo vind je OPENDOOR.",
       "arriveTitle": "Zo kom je hier",
       "arriveText": "Neem de afrit Pegognaga op de A22. Het appartement ligt op ongeveer 1,9 km van de afrit. Het exacte adres staat in je incheckinformatie.",
       "parkingTitle": "Gratis parkeren",
@@ -2632,8 +2895,8 @@ window.OPENDOOR = {
       "allHouseGuides": "Alle huisinstructies",
       "laterReview": "Na je verblijf",
       "sourceRange": "Prijsklasse volgens de bron; menu niet geverifieerd.",
-      "fastidiaGuide": "Koffie en aperitieven op het plein. Geraadpleegde reviews waarderen de ontvangst; controleer de ochtendopening.",
-      "fastidiaHours": "De vermelde ochtendtijden verschillen. Bel voordat je voor het ontbijt vertrekt.",
+      "fastidiaGuide": "Aan het plein voor een aperitivo, spritz en een gezellige avond. Controleer de openingstijden.",
+      "fastidiaHours": "Vooral 's middags en 's avonds; openingstijden kunnen wisselen.",
       "taninoGuide": "Pizza, Mantuaanse pasta, vlees en vis. Kinderstoelen aanwezig. Reviews prijzen eten en ontvangst; soms worden wachttijden gemeld.",
       "taninoHours": "Lunch 12–15, diner 19–23:30; zondag lunch tot 14:30. Volgens Tripadvisor dinsdag gesloten.",
       "taninoBudget": "Raming voor pizza, drankje en couvert. Volledig werkdaglunchmenu €15; controleer couvert en extra’s. À la carte varieert de prijs.",
@@ -2675,7 +2938,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Je volgende verblijf",
       "bookingHomeText": "Vind OPENDOOR op je favoriete platform.",
       "bookingEmpty": "Neem contact op met je host voor informatie over boeken.",
-      "bookingPending": "Binnenkort"
+      "bookingPending": "Binnenkort",
+      "foodAperitivo": "Aperitivo",
+      "coffeeRanking": "Mijn persoonlijke top drie voor een goede koffie, in deze volgorde.",
+      "noirGuide": "Mijn eerste keuze voor een goede espresso op het plein of een ontspannen ontbijt.",
+      "mediterraneoGuide": "Mijn tweede tip, vooral voor cappuccino en een snel ontbijt met iets lekkers.",
+      "bordoGuide": "Nummer drie op mijn lijst: een ongedwongen bar voor een koffiepauze.",
+      "noirHours": "Gesplitste openingstijden; mogelijk gesloten op donderdag. Controleer vooraf.",
+      "mediterraneoHours": "Meestal vermeld als open van 05.00 tot middernacht; controleer de actuele tijden.",
+      "bordoHours": "Vermeld als open van 06.30 tot 22.00 uur; controleer vooraf.",
+      "storieGuide": "Wijnbar met kleine keuken en bijzondere wijnen. Leuk voor een aperitief of iets te eten vroeg op de avond, niet voor een laat diner.",
+      "storieHours": "Op sommige vroege avonden open, vaak tot 20.00–20.30 uur. Zondag doorgaans gesloten; controleer vooraf.",
+      "lateService": "Laat op de avond",
+      "lateNightIntro": "'s Avonds nog iets nodig? Dit is een handige plek. Controleer vooraf de openingstijden.",
+      "barIpDesc": "Bar en tabakszaak bij het IP-tankstation. Voor telefoonopwaarderingen en lastminuteaankopen, volgens vermeldingen tot middernacht open. Controleer openingstijden en diensten.",
+      "mantovaCityDesc": "Mantova is een UNESCO-kunststad. Wandel van Piazza Sordello naar Piazza delle Erbe, bezoek het hertogelijk paleis en, als je tijd hebt, Palazzo Te. Een mooie dagtrip vol historie en lokale smaken.",
+      "accessoTitle": "De deur openen en sluiten",
+      "accessoIntro": "Sta je voor de deur van OPENDOOR? In deze twee video's zie je hoe je de deur opent en goed afsluit.",
+      "accessoAfter": "Ben je binnen? Begin met de veiligheidsinformatie en ontdek daarna de woning.",
+      "goSafety": "Eerst: veiligheid",
+      "goGuide": "Open de complete gids",
+      "safetyStage": "Veiligheid eerst",
+      "safetyStageDesc": "Noodgevallen, EHBO en belangrijke informatie.",
+      "checkinMap": "01 · Ga naar het adres",
+      "checkinPark": "02 · Gratis parkeren",
+      "checkinBell": "03 · Bel bij OPENDOOR op nummer 12",
+      "checkinFifth": "04 · Neem de lift naar de vijfde verdieping",
+      "checkinBellText": "Zoek OPENDOOR op de intercom en bel aan. Ik doe op afstand voor je open.",
+      "checkinFifthText": "Het appartement is op de vijfde verdieping. Je persoonlijke deurcode krijg je apart en staat nooit op de website.",
+      "checkinParkText": "Je kunt gratis bij het gebouw of op de parkeerplaats ernaast parkeren. Er is ook een laadpunt in de buurt."
     },
     "pl": {
       "navHome": "Start",
@@ -2734,7 +3025,7 @@ window.OPENDOOR = {
       "host": "Twój gospodarz",
       "hostReply": "Napisz do nas przez WhatsApp lub zadzwoń. Odpowiemy tak szybko, jak to możliwe.",
       "greeting": "Cześć, jestem gościem OPENDOOR i potrzebuję pomocy.",
-      "checkinIntro": "Od wejścia do budynku do drzwi mieszkania.",
+      "checkinIntro": "Od parkingu aż do drzwi: tak dotrzesz do OPENDOOR.",
       "arriveTitle": "Jak dojechać",
       "arriveText": "Zjedź z A22 na zjeździe Pegognaga. Mieszkanie znajduje się około 1,9 km od zjazdu. Dokładny adres znajdziesz w otrzymanych informacjach o zameldowaniu.",
       "parkingTitle": "Bezpłatny parking",
@@ -3017,8 +3308,8 @@ window.OPENDOOR = {
       "allHouseGuides": "Wszystkie instrukcje",
       "laterReview": "Po pobycie",
       "sourceRange": "Przedział podany przez źródło; menu niezweryfikowane.",
-      "fastidiaGuide": "Kawa i aperitif na placu. Sprawdzone opinie chwalą obsługę; upewnij się, czy rano jest otwarte.",
-      "fastidiaHours": "Podane godziny poranne są sprzeczne. Zadzwoń przed wyjściem na śniadanie.",
+      "fastidiaGuide": "W centrum na aperitivo, spritz i spokojny wieczór. Sprawdź godziny otwarcia.",
+      "fastidiaHours": "Głównie po południu i wieczorem; godziny bywają zmienne.",
       "taninoGuide": "Pizza, mantuańskie makarony, mięso i ryby. Dostępne krzesełka dziecięce. Opinie chwalą jedzenie i obsługę, czasem wspominają oczekiwanie.",
       "taninoHours": "Obiad 12–15, kolacja 19–23:30; w niedzielę obiad do 14:30. Według Tripadvisor we wtorek zamknięte.",
       "taninoBudget": "Szacunek za pizzę, napój i nakrycie. Pełne menu lunchowe €15; sprawdź opłatę za nakrycie i dodatki. À la carte ceny się różnią.",
@@ -3060,7 +3351,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Twój następny pobyt",
       "bookingHomeText": "Znajdź OPENDOOR na ulubionej platformie.",
       "bookingEmpty": "Skontaktuj się z gospodarzem, aby uzyskać informacje o rezerwacji.",
-      "bookingPending": "Już wkrótce"
+      "bookingPending": "Już wkrótce",
+      "foodAperitivo": "Aperitivo",
+      "coffeeRanking": "Moje trzy ulubione miejsca na dobrą kawę, w tej kolejności.",
+      "noirGuide": "Mój pierwszy wybór na dobre espresso na placu lub spokojne śniadanie.",
+      "mediterraneoGuide": "Mój drugi wybór, zwłaszcza na cappuccino i szybkie śniadanie z drożdżówką.",
+      "bordoGuide": "Trzecie miejsce na mojej liście: swobodny bar na przerwę przy kawie.",
+      "noirHours": "Godziny z przerwą w ciągu dnia; możliwe zamknięcie w czwartki. Sprawdź wcześniej.",
+      "mediterraneoHours": "Zazwyczaj podawane godziny to 05:00–00:00; sprawdź aktualny rozkład.",
+      "bordoHours": "Podawane godziny otwarcia to 06:30–22:00; sprawdź wcześniej.",
+      "storieGuide": "Enoteka z kuchnią i ciekawym wyborem win. Dobry wybór na aperitivo lub coś do jedzenia wczesnym wieczorem, nie na późną kolację.",
+      "storieHours": "Czynne w wybrane wczesne wieczory, zwykle do 20:00–20:30. W niedziele zazwyczaj nieczynne; sprawdź.",
+      "lateService": "Usługi do późna",
+      "lateNightIntro": "Potrzebujesz czegoś wieczorem? To przydatny punkt; sprawdź godziny.",
+      "barIpDesc": "Bar i punkt tytoniowy przy stacji IP. Doładowania telefonu i zakupy na ostatnią chwilę; według wpisów czynne do północy. Sprawdź godziny i usługi.",
+      "mantovaCityDesc": "Mantua to zabytkowe miasto wpisane na listę UNESCO. Przejdź od Piazza Sordello do Piazza delle Erbe, zobacz Pałac Książęcy i, jeśli masz czas, Palazzo Te. Świetna wycieczka pełna historii i lokalnych smaków.",
+      "accessoTitle": "Otwieranie i zamykanie drzwi",
+      "accessoIntro": "Jesteś przed drzwiami OPENDOOR? Te dwa filmy pokazują, jak je otworzyć i prawidłowo zamknąć.",
+      "accessoAfter": "Jesteś już w środku? Zacznij od informacji o bezpieczeństwie, a potem poznaj mieszkanie.",
+      "goSafety": "Najpierw: bezpieczeństwo",
+      "goGuide": "Otwórz pełny przewodnik",
+      "safetyStage": "Najpierw bezpieczeństwo",
+      "safetyStageDesc": "Nagłe sytuacje, pierwsza pomoc i ważne informacje.",
+      "checkinMap": "01 · Dotrzyj pod adres",
+      "checkinPark": "02 · Zaparkuj bezpłatnie",
+      "checkinBell": "03 · Zadzwoń domofonem OPENDOOR pod numerem 12",
+      "checkinFifth": "04 · Wjedź windą na piąte piętro",
+      "checkinBellText": "Znajdź OPENDOOR na domofonie i zadzwoń. Otworzę wejście zdalnie.",
+      "checkinFifthText": "Mieszkanie jest na piątym piętrze. Osobisty kod do drzwi otrzymasz osobno, nie znajdziesz go na stronie.",
+      "checkinParkText": "Możesz parkować bezpłatnie przy budynku lub na pobliskim parkingu. W pobliżu jest też ładowarka aut elektrycznych."
     },
     "ro": {
       "navHome": "Acasă",
@@ -3119,7 +3438,7 @@ window.OPENDOOR = {
       "host": "Gazda ta",
       "hostReply": "Scrie-ne pe WhatsApp sau sună-ne. Răspundem cât mai curând posibil.",
       "greeting": "Bună, sunt un oaspete la OPENDOOR și am nevoie de ajutor.",
-      "checkinIntro": "De la intrarea în clădire până la ușa apartamentului.",
+      "checkinIntro": "De la parcare până la ușă: așa ajungi la OPENDOOR.",
       "arriveTitle": "Cum ajungi",
       "arriveText": "Ieși de pe A22 la Pegognaga. Apartamentul se află la aproximativ 1,9 km de ieșirea de pe autostradă. Adresa exactă este în informațiile de check-in primite.",
       "parkingTitle": "Parcare gratuită",
@@ -3402,8 +3721,8 @@ window.OPENDOOR = {
       "allHouseGuides": "Toate ghidurile locuinței",
       "laterReview": "După sejur",
       "sourceRange": "Interval indicat de sursă; meniul nu este verificat.",
-      "fastidiaGuide": "Cafea și aperitive în piață. Recenziile consultate apreciază primirea; verifică deschiderea dimineața.",
-      "fastidiaHours": "Programul de dimineață publicat diferă. Sună înainte să pleci la micul dejun.",
+      "fastidiaGuide": "În piață, pentru aperitiv, spritz și o seară relaxată. Verifică programul.",
+      "fastidiaHours": "Mai ales după-amiaza și seara; programul poate varia.",
       "taninoGuide": "Pizza, paste mantovane, carne și pește. Scaune pentru copii disponibile. Recenzii bune despre mâncare și primire, unele menționează așteptarea.",
       "taninoHours": "Prânz 12–15, cină 19–23:30; duminica prânz până la 14:30. Marți închis conform Tripadvisor.",
       "taninoBudget": "Estimare pentru pizza, băutură și copert. Meniu complet de prânz €15; verifică copertul și extraopțiunile. Cost variabil à la carte.",
@@ -3445,7 +3764,35 @@ window.OPENDOOR = {
       "bookingHomeTitle": "Următorul tău sejur",
       "bookingHomeText": "Găsește OPENDOOR pe platforma preferată.",
       "bookingEmpty": "Contactează gazda pentru informații despre rezervări.",
-      "bookingPending": "În curând"
+      "bookingPending": "În curând",
+      "foodAperitivo": "Aperitive",
+      "coffeeRanking": "Topul meu personal al celor trei cafenele, în această ordine.",
+      "noirGuide": "Prima mea recomandare pentru un espresso bun în piață sau un mic dejun liniștit.",
+      "mediterraneoGuide": "Pe locul doi, mai ales pentru cappuccino și un mic dejun rapid cu produse de patiserie.",
+      "bordoGuide": "Pe locul trei: un bar simplu și relaxat pentru o pauză de cafea.",
+      "noirHours": "Program cu pauză la prânz; posibil închis joia. Verifică înainte.",
+      "mediterraneoHours": "De obicei afișat cu program 05:00–00:00; verifică orarul actual.",
+      "bordoHours": "Program afișat 06:30–22:00; verifică înainte.",
+      "storieGuide": "Wine bar cu bucătărie și vinuri atent alese. Bun pentru aperitiv sau ceva de mâncare seara devreme, nu pentru o cină târzie.",
+      "storieHours": "Deschis în unele seri până în jurul orei 20:00–20:30. De obicei închis duminica; verifică.",
+      "lateService": "Servicii până târziu",
+      "lateNightIntro": "Ai nevoie de ceva seara? Iată un loc util; verifică programul.",
+      "barIpDesc": "Bar și tutungerie la stația IP. Reîncărcări telefonice și cumpărături de ultim moment; program indicat până la miezul nopții. Verifică orarul și serviciile.",
+      "mantovaCityDesc": "Mantova este un oraș de artă inclus în patrimoniul UNESCO. Plimbă-te între Piazza Sordello și Piazza delle Erbe, vizitează Palatul Ducal și, dacă ai timp, Palazzo Te. O excursie frumoasă printre istorie și gusturi locale.",
+      "accessoTitle": "Deschiderea și închiderea ușii",
+      "accessoIntro": "Ești în fața ușii OPENDOOR? Cele două videoclipuri îți arată cum să deschizi și să închizi corect.",
+      "accessoAfter": "Ai intrat? Începe cu informațiile de siguranță, apoi descoperă restul casei.",
+      "goSafety": "Mai întâi: siguranța",
+      "goGuide": "Deschide ghidul complet",
+      "safetyStage": "Siguranța pe primul loc",
+      "safetyStageDesc": "Urgențe, primul ajutor și informații esențiale.",
+      "checkinMap": "01 · Ajungi la adresă",
+      "checkinPark": "02 · Parchează gratuit",
+      "checkinBell": "03 · Sună la interfon OPENDOOR, numărul 12",
+      "checkinFifth": "04 · Ia liftul până la etajul cinci",
+      "checkinBellText": "Caută OPENDOOR la interfon și sună. Îți deschid de la distanță.",
+      "checkinFifthText": "Apartamentul este la etajul cinci. Codul personal de acces este trimis separat, nu apare pe site.",
+      "checkinParkText": "Poți parca gratuit lângă clădire sau în parcarea apropiată. Există și o stație de încărcare electrică în zonă."
     }
   },
   "reviews": {
