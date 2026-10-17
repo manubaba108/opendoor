@@ -401,7 +401,8 @@ window.OPENDOOR = {
         "budget": "taninoBudget",
         "phone": "+390376558346",
         "groups": [
-          "meals"
+          "meals",
+          "takeaway"
         ],
         "menu": "https://iltanino.it/",
         "rating": {
@@ -575,7 +576,8 @@ window.OPENDOOR = {
             "url": "https://www.tuttiaffari.com/gelateria-artigianale-aaron_1y-0376-559419"
           }
         ],
-        "checked": "2026-10-06"
+        "checked": "2026-10-06",
+        "phone": "+3903761486950"
       }
     },
     {
@@ -595,7 +597,8 @@ window.OPENDOOR = {
         "phone": "+393534368001",
         "groups": [
           "meals",
-          "takeaway"
+          "takeaway",
+          "aperitivo"
         ],
         "rating": {
           "value": 4.5,
@@ -636,7 +639,8 @@ window.OPENDOOR = {
         "budget": "sourceRange",
         "phone": "+393288059420",
         "groups": [
-          "meals"
+          "meals",
+          "aperitivo"
         ],
         "rating": {
           "value": 4.8,
@@ -677,7 +681,9 @@ window.OPENDOOR = {
         "budget": "sourceRange",
         "phone": "+393534041992",
         "groups": [
-          "coffee"
+          "coffee",
+          "aperitivo",
+          "meals"
         ],
         "sources": [
           {
@@ -708,7 +714,9 @@ window.OPENDOOR = {
         "budget": "sourceRange",
         "phone": "+393493885981",
         "groups": [
-          "coffee"
+          "coffee",
+          "aperitivo",
+          "takeaway"
         ],
         "sources": [
           {
@@ -739,7 +747,8 @@ window.OPENDOOR = {
         "budget": "sourceRange",
         "phone": "+393778838930",
         "groups": [
-          "coffee"
+          "coffee",
+          "aperitivo"
         ],
         "sources": [
           {
