@@ -333,7 +333,9 @@
   function events(){
     const list=(config.localEvents||[]).filter(item=>item.enabled);
     const categories=['eventsLocal','eventsMajor'];
-    const card=item=>`<article class="panel event-card"><span class="label">${esc(item.town)}</span><h2>${esc(item.name)}</h2><p>${esc(t(item.statusKey))}</p><p class="event-period">${esc(item.period)}</p>
+    const localizedMonth=n=>new Intl.DateTimeFormat(lang==='en'?'en-GB':lang,{month:'long',timeZone:'UTC'}).format(new Date(Date.UTC(2026,n-1,1)));
+    const eventPeriod=item=>({ 'August · agosto':localizedMonth(8),'September · settembre':localizedMonth(9),'May–June · maggio–giugno':localizedMonth(5)+'–'+localizedMonth(6),'16–19 September 2027':'' }[item.period]??item.period);
+    const card=item=>`<article class="panel event-card"><span class="label">${esc(item.town)}</span><h2>${esc(item.name)}</h2><p>${esc(t(item.statusKey))}</p>${eventPeriod(item)?`<p class="event-period">${esc(eventPeriod(item))}</p>`:''}
     ${external(item.url,t('eventCheckDates'),'calendar','button secondary')}</article>`;
     return `${heading('events','eventsIntro')}<div class="events-page">${categories.map(cat=>`<section class="events-section"><h2>${esc(t(cat))}</h2><div class="events-grid">${list.filter(x=>x.category===cat).map(card).join('')}</div></section>`).join('')}
     <section class="panel events-official"><h2>${esc(t('eventCheckDates'))}</h2><div class="events-official-links">${(config.eventCalendars||[]).map(x=>external(x.url,x.name,'calendar','button outline')).join('')}</div></section></div>`;
