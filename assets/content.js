@@ -866,7 +866,7 @@ window.OPENDOOR = {
       "name": "Schizzoteca · Lavanderia",
       "category": "laundryCategory",
       "address": "Via Monte Grappa 7, 46020 Pegognaga (MN), Italia",
-      "distance": "da verificare",
+      "distance": "350 m",
       "description": "laundryDesc",
       "enabled": true,
       "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=Via%20Monte%20Grappa%207%2C%2046020%20Pegognaga%20(MN)%2C%20Italia"
