@@ -1404,7 +1404,7 @@ window.OPENDOOR = {
       "laundryCategory": "Lavanderia",
       "kettleName": "Bollitore elettrico",
       "kettleIntro": "Per scaldare l’acqua per tè e tisane. Il bollitore non regola l’acqua calda della doccia.",
-      "kettleHowTo": "Riempi con acqua entro i livelli MIN e MAX, appoggialo sulla base e premi il comando di accensione. Aspetta che si spenga automaticamente, poi versa con attenzione. Non accenderlo mai vuoto."
+      "kettleHowTo": "Riempi con acqua entro i livelli MIN e MAX, appoggialo sulla base e premi il comando  di accensione. Aspetta che si spenga automaticamente, poi versa con attenzione.\n⚠️ ATTENZIONE non accenderlo mai vuoto."
     },
     "en": {
       "navHome": "Home",
