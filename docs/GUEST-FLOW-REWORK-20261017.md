@@ -52,4 +52,18 @@ The historic project QR destination recorded in README is `https://manubaba108.g
 - Test media playback and touch targets on one real phone, including Wi-Fi/cellular connection.
 - Approve deployment; do not merge this draft while the QR choice is unresolved.
 
+
+## Revised guest journey after Host review (17 October)
+- Stage 01 **In viaggio e all’arrivo** contains only **Come arrivare → Parcheggio → Check-in**, in this order. The Check-in page itself presents ONLY existing photo of entrance at street number 12 and existing photo of the fifth-floor apartment door, with short intercom/door instructions. Driving and parking details remain in their dedicated pages.
+- Stage 02 **Entra e sentiti a casa** contains **Aprire e chiudere la porta → Sicurezza ed emergenze → Wi-Fi → TV → Piano a induzione → Bagno e acqua calda → Camera e divano letto → Tutte le guide della casa → Regole della casa**. The Home has exactly one safety tile.
+- Unified safety page: 112, real existing first-aid photo, real existing fire extinguisher photo, carbon-monoxide detector placeholder reserved for its own host-uploaded image. Existing photo files are untouched. The old `#/house/safety` and `#/emergency` reuse this central safety content rather than providing conflicting instructions.
+- Additional guides are in the ordered list **Macchinetta del caffè → Boiler → Forno → Balcone → Rifiuti**. Main Home guides are NOT repeated on the additional guide page. `#/house/access` remains a compatibility alias to the door video guide, not an extra tile.
+- Induction hob replaces generic kitchen route at `#/house/kitchen`. Only general touch-control guidance given until appliance-specific controls confirmed; actual existing hob photo reused.
+- Hot-water page shows daily 05:00–11:00 and 17:00–01:00 (following morning), with energy-saving explanation and an honest photo placeholder until the actual boiler photo is supplied. A separate Boiler guide has its own editable photo upload slot.
+- Sofa-bed route displays the existing room photo and an honest video placeholder. Admin video upload is now enabled for this route, no video was fabricated.
+- Stage 03: Mangiare & bere, Servizi vicini, Nei dintorni. Stage 04: Check-out, Chiudere la porta (only its closing video), Colazione e caffè. Coffee was removed from the check-out checklist page itself.
+- Gallery teaser remains on Home without any **Vedi tutte** CTA. Rules are in Home, not repeated under additional guides.
+- New label translations exist for all seven supported languages and offline fallback. Existing live banner video and all photos remain unchanged.
+- After this revision the Chrome phone review verified 70 route/language combinations with zero problems, 46 CMS tests, and additional assertions for exactly two check-in photos, correct Home ordering, distinct extra guides, hot-water schedule, video placeholder and back navigation. **Not published**; real QR sticker URL still requires confirmation.
+
 This branch is not a live publication.
