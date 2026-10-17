@@ -321,7 +321,7 @@
   "localFood": [
     {
       "name": "Fastidia",
-      "category": "cafe",
+      "category": "foodAperitivo",
       "address": "Piazza Vittorio Veneto 11, 46020 Pegognaga (MN), Italia",
       "distance": "300 m",
       "description": "fastidiaGuide",
