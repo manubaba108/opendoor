@@ -27,7 +27,7 @@
   "host": {
     "name": "Manu",
     "photo": "assets/uploads/hosts-0-photo-cbed8b0e-e8ef-489a-abfe-6ad5b1d99a7e.jpg",
-    "phone": "+393426992850",
+    "phone": null,
     "whatsapp": "https://wa.me/393426992850",
     "email": "opendoor46020@gmail.com"
   },
@@ -4136,7 +4136,7 @@
     {
       "name": "Manu",
       "photo": "assets/uploads/hosts-0-photo-cbed8b0e-e8ef-489a-abfe-6ad5b1d99a7e.jpg",
-      "phone": "+393426992850",
+      "phone": null,
       "whatsapp": "https://wa.me/393426992850",
       "email": "opendoor46020@gmail.com"
     },
@@ -4145,7 +4145,7 @@
       "photo": "assets/uploads/host-photo-69bac640-c446-4a4b-a515-5168d1df0f14.png",
       "phone": null,
       "whatsapp": "https://wa.me/393426992850",
-      "email": null
+      "email": "opendoor46020@gmail.com"
     }
   ],
   "bookingLinks": [
