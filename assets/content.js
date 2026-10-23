@@ -150,7 +150,7 @@ window.OPENDOOR = {
           "id": "intercom",
           "titleKey": "intercomPhoto",
           "hintKey": "intercomPhotoHint",
-          "src": null
+          "src": "assets/uploads/modules-checkinphotos-items-1-src-47829a8f-62d6-4083-add3-58691684de04.png"
         },
         {
           "id": "apartment-door",
