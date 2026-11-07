@@ -315,7 +315,23 @@ body{overflow-wrap:anywhere}
 .booking-card .button{margin-top:auto}
 .booking-pending{display:inline-flex;align-items:center;min-height:48px;padding:12px 19px;border:1px solid var(--line);border-radius:13px;background:var(--bg);color:var(--muted);font-size:.925rem;font-weight:600;margin-top:auto}
 .booking-note{max-width:720px;color:var(--muted);font-size:14px;line-height:1.7;margin-top:24px}
-@media(max-width:600px){.booking-grid{grid-template-columns:1fr}.header-book{display:none}.header-actions{gap:8px}}
+@media(max-width:600px){
+  .booking-grid{grid-template-columns:1fr}
+  .header-inner{padding-inline:clamp(10px,3.2vw,16px);gap:6px}
+  .brand{min-width:0}
+  .brand img{width:clamp(110px,35vw,145px)}
+  .header-actions{gap:4px;flex-shrink:0}
+  .header-book{display:inline-flex;min-height:40px;padding:8px 10px;border-radius:12px;font-size:12px;line-height:1.2}
+  .header-book svg{display:none}
+  .emergency-link{min-height:40px;padding:8px}
+  .lang-trigger{min-height:40px;min-width:56px;padding:8px 6px;gap:5px}
+  .lang-trigger svg{width:17px;height:17px}
+}
+@media(max-width:359px){
+  .header-book{width:40px;min-width:40px;padding:8px}
+  .header-book-label{display:none}
+  .header-book svg{display:block;width:20px;height:20px}
+}
 
 /* Keep native link activation and pinch zoom; avoid double-tap delays on controls. */
 a[href],button,summary{touch-action:manipulation}
