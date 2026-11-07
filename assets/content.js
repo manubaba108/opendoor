@@ -4344,17 +4344,12 @@ window.OPENDOOR = {
     {
       "id": "tripcom",
       "name": "Trip.com",
-      "url": null
+      "url": "https://www.trip.com/w/7lVe1hKY4X2"
     },
     {
       "id": "agoda",
       "name": "Agoda",
-      "url": null
-    },
-    {
-      "id": "vrbo",
-      "name": "Vrbo",
-      "url": null
+      "url": "https://www.agoda.com/it-it/it-it/panorama-e-comfort-vicino-all-a22-opendoor-h98117947/hotel/pegognaga-it.html"
     }
   ],
   "localEvents": [
