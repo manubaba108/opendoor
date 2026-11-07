@@ -4352,7 +4352,7 @@ window.OPENDOOR = {
       "url": "https://www.agoda.com/it-it/it-it/panorama-e-comfort-vicino-all-a22-opendoor-h98117947/hotel/pegognaga-it.html"
     },
     {
-      "id": "portal-b736ccb4-560d-49e1-aef6-24e0dc60e7ba",
+      "id": "vrbo",
       "name": "Vrbo",
       "url": "https://vrbo.onelink.me/ItNz/gfd0gi91"
     }
