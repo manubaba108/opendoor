@@ -238,7 +238,8 @@ window.OPENDOOR = {
       ],
       "model": null,
       "photo": "assets/uploads/housemanual-6-photo-d90d4a3e-99a6-46af-b3f7-d717f4d9cb0b.png",
-      "video": null
+      "video": "assets/uploads/housemanual-6-video-538d6524-a662-443c-9b9c-e5f21ddb2620.mp4",
+      "videoMime": "video/mp4"
     },
     {
       "id": "climate",
